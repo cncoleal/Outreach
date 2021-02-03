@@ -1,7 +1,7 @@
 # All files in the repository excluding the SpectrumGUI.py are taken from (https://github.com/tonbut/RPiSpectrometer) and modified. The ReadMe below is from the source repository. 
 
 
-####################################################################################################################################################################
+#####################################################################################################################################
 # RPi Spectrometer
 Spectrometer for Raspberry Pi using a Pi Camera
 
