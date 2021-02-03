@@ -5,8 +5,8 @@ import time
 import picamera
 from fractions import Fraction
 from collections import OrderedDict
-import PIL
-from PIL import Image, ImageDraw, ImageFile, ImageFont
+import PIL.Image
+from PIL import ImageDraw, ImageFile, ImageFont
 from tkinter import * 
 import tkinter as tk
 
@@ -354,7 +354,7 @@ def take_photo():
 
 def createSpectrum():
     # get pictures aperature
-    im = Image.open(raw_filename)
+    im = PIL.Image.open(raw_filename)
     print("locating aperture")
     pic_pixels = im.load()
     aperture = find_aperture(pic_pixels, im.size[0], im.size[1])
