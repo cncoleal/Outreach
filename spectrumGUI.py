@@ -125,8 +125,9 @@ def take_picture(name, shutter):
     return name
 
 # Find aperture
-
-def find_aperture(pic_pixels, pic_width: int, pic_height: int) -> object:
+# Error 2/3/21 @9am: Syntax Error: Invalid syntax from line below. Suspected python version error, "->" is used in Python 2 for annotations, not supported in Python 3
+# From this line (def find_aperture(pic_pixels, pic_width: int, pic_height: int) -> object:) removed "-> object"
+def find_aperture(pic_pixels, pic_width: int, pic_height: int):
     middle_x = int(pic_width / 2)
     middle_y = int(pic_height / 2)
     aperture_brightest = 0
