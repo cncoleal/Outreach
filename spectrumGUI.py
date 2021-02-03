@@ -127,43 +127,43 @@ def take_picture(name, shutter):
 # Find aperture
 # Error 2/3/21 @9am: Syntax Error: Invalid syntax from line below. Suspected python version error, "->" is used in Python 2 for annotations, not supported in Python 3
 # From this line (def find_aperture(pic_pixels, pic_width: int, pic_height: int) -> object:) removed "-> object"
-def find_aperture(pic_pixels, pic_width: int, pic_height: int):
-    middle_x = int(pic_width / 2)
-    middle_y = int(pic_height / 2)
-    aperture_brightest = 0
-    aperture_x = 0
-    for x in range(middle_x, pic_width, 1):
-        r, g, b = pic_pixels[x, middle_y]
-        brightness = r + g + b
-        if brightness > aperture_brightest:
-            aperture_brightest = brightness
-            aperture_x = x
+# def find_aperture(pic_pixels, pic_width: int, pic_height: int):
+#     middle_x = int(pic_width / 2)
+#     middle_y = int(pic_height / 2)
+#     aperture_brightest = 0
+#     aperture_x = 0
+#     for x in range(middle_x, pic_width, 1):
+#         r, g, b = pic_pixels[x, middle_y]
+#         brightness = r + g + b
+#         if brightness > aperture_brightest:
+#             aperture_brightest = brightness
+#             aperture_x = x
 
-    aperture_threshold = aperture_brightest * 0.9
-    aperture_x1 = aperture_x
-    for x in range(aperture_x, middle_x, -1):
-        r, g, b = pic_pixels[x, middle_y]
-        brightness = r + g + b
-        if brightness < aperture_threshold:
-            aperture_x1 = x
-            break
+#     aperture_threshold = aperture_brightest * 0.9
+#     aperture_x1 = aperture_x
+#     for x in range(aperture_x, middle_x, -1):
+#         r, g, b = pic_pixels[x, middle_y]
+#         brightness = r + g + b
+#         if brightness < aperture_threshold:
+#             aperture_x1 = x
+#             break
 
-    aperture_x2 = aperture_x
-    for x in range(aperture_x, pic_width, 1):
-        r, g, b = pic_pixels[x, middle_y]
-        brightness = r + g + b
-        if brightness < aperture_threshold:
-            aperture_x2 = x
-            break
+#     aperture_x2 = aperture_x
+#     for x in range(aperture_x, pic_width, 1):
+#         r, g, b = pic_pixels[x, middle_y]
+#         brightness = r + g + b
+#         if brightness < aperture_threshold:
+#             aperture_x2 = x
+#             break
 
-    aperture_x = (aperture_x1 + aperture_x2) / 2
+#     aperture_x = (aperture_x1 + aperture_x2) / 2
 
-    spectrum_threshold_duration = 64
-    aperture_y_bounds = get_spectrum_y_bound(pic_pixels, aperture_x, middle_y, aperture_threshold, spectrum_threshold_duration)
-    aperture_y = (aperture_y_bounds[0] + aperture_y_bounds[1]) / 2
-    aperture_height = (aperture_y_bounds[1] - aperture_y_bounds[0]) * 1.0
+#     spectrum_threshold_duration = 64
+#     aperture_y_bounds = get_spectrum_y_bound(pic_pixels, aperture_x, middle_y, aperture_threshold, spectrum_threshold_duration)
+#     aperture_y = (aperture_y_bounds[0] + aperture_y_bounds[1]) / 2
+#     aperture_height = (aperture_y_bounds[1] - aperture_y_bounds[0]) * 1.0
 
-    return {'x': aperture_x, 'y': aperture_y, 'h': aperture_height, 'b': aperture_brightest}
+#     return {'x': aperture_x, 'y': aperture_y, 'h': aperture_height, 'b': aperture_brightest}
 
 # draw aperture
 def draw_aperture(aperture, draw):
