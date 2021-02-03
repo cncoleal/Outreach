@@ -329,8 +329,8 @@ def take_photo():
     # global variables
     global name
     global raw_filename
-    name = test # Need to add in button for this later! sys.argv[1]
-    shutter = 3 # Need to add in button for this later! int(sys.argv[2])
+    name = str(test) # Need to add in button for this later! sys.argv[1]
+    shutter = int(10) # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
     raw_filename = name + "_raw.jpg"
     # run take picture function
