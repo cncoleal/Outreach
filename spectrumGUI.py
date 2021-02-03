@@ -329,13 +329,26 @@ def take_photo():
     # global variables
     global name
     global raw_filename
-    name = str(test) # Need to add in button for this later! sys.argv[1]
+    name = "test" # Need to add in button for this later! sys.argv[1]
     shutter = int(10) # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
     raw_filename = name + "_raw.jpg"
     # run take picture function
     take_picture(raw_filename,shutter)
     return 
+
+# Create file save entry button 
+#  e = Entry(root, width=35, borderwidth=5)
+#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+#  e.pack(side=tk.BOTTOM, anchor=S)
+#  e.insert(0, "Enter file save name here")
+#  raw_filename = e.get()
+
+	# add functionality: if empty, use auto name
+#	if (blank): 
+#		name = sys.argv[1]
+#    	shutter = int(sys.argv[2])
+#    	raw_filename = name + "_raw.jpg"
 
 
 def createSpectrum():
