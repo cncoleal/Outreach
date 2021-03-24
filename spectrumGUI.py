@@ -16,7 +16,7 @@ root.title('Spectrometer')
 root.geometry("600x600")
 root.configure(bg="white")
 frame = Frame(root, bg="blue")
-frame.pack()
+frame.grid() 
 
 # Notes (11/16/20): 
 
@@ -405,11 +405,11 @@ def createSpectrum():
 #shutter = int(float(str(shutterValue)))
 
 ## Field Entry - Attempt 2 ##
-label_filename = Label(root, text="Output Filename").grid(row=20)
-label_shutter = Label(master, text="Shutter Speed").grid(row=21)
+label_filename = Label(root, text="Output Filename").grid(row=3)
+label_shutter = Label(master, text="Shutter Speed").grid(row=4)
 
-e1 = tk.Entry(root,width=35, borderwidth=5).grid(row=20, column=1)
-e2 = tk.Entry(root,width=35, borderwidth=5).grid(row=21, column=1)
+e1 = tk.Entry(root,width=35, borderwidth=5).grid(row=3, column=1)
+e2 = tk.Entry(root,width=35, borderwidth=5).grid(row=4, column=1)
 
 raw_filename = e1.get() + "_raw.jpg"
 shutter = int(e2.get())
@@ -419,8 +419,8 @@ shutter = int(e2.get())
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(raw_filename, shutter))
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
-button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_takePicture.grid(row=1, column=0) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
+button_createSpectrum.grid(row=1, column=1) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
 
