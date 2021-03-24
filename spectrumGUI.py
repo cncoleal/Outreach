@@ -417,7 +417,7 @@ class gui(Frame):
         self.rowconfigure(4, pad=3)
 	
 	# Field Entries Filename & Shutter ##
-	label_filename = Label(self, text="Output Filename").grid(row=0)
+        label_filename = Label(self, text="Output Filename").grid(row=0)
 	label_shutter = Label(self, text="Shutter Speed").grid(row=1)
 
 	# output filename
@@ -464,7 +464,7 @@ def main():
 
 
 
-#tabtest
+
 
 
 
