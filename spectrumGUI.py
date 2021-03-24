@@ -16,8 +16,8 @@ root = Tk()
 root.title('Spectrometer')
 root.geometry("600x600")
 root.configure(bg="#333")
-frame = Frame(root)
-frame.grid() 
+#frame = Frame(root)
+#frame.grid() 
 
 
 
@@ -390,7 +390,7 @@ def createSpectrum(raw_filename, name):
 ###################################################
 # GUI Build 
 ###################################################
-class gui(frame):
+class gui(Frame):
         
 
     def __init__(self):
@@ -437,7 +437,7 @@ class gui(frame):
         button_takePicture.grid(row=2, column=0, columnspan=2, padx=10, pady=10) 
         button_createSpectrum.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
 
-        return self
+        self.pack()
 	
 
 
