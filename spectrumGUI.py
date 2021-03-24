@@ -8,7 +8,7 @@ from collections import OrderedDict
 import PIL.Image
 from PIL import ImageDraw, ImageFile, ImageFont, Image
 from tkinter import * 
-from tkinter.ttk import Style
+from tkinter.ttk import Style, Frame
 import tkinter as tk
 
 # create tkinter object
@@ -16,7 +16,7 @@ root = Tk()
 root.title('Spectrometer')
 root.geometry("600x600")
 root.configure(bg="#333")
-frame = Frame(root, bg="blue")
+frame = Frame(root)
 frame.grid() 
 
 
