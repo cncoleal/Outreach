@@ -405,7 +405,7 @@ e2.insert(0, '30')
 
 ## Buttons ##
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
-button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg"), str(e1.get())) 
+button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())) 
 
 button_takePicture.grid(row=1, column=1, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
 button_createSpectrum.grid(row=1, column=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
