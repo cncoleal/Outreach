@@ -434,8 +434,8 @@ class gui(Frame):
         button_takePicture = Button(self, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
         button_createSpectrum = Button(self, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
 
-        button_takePicture.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky=W) 
-        button_createSpectrum.grid(row=2, column=3, columnspan=2, padx=10, pady=10, sticky=W+E)
+        button_takePicture.grid(row=2, column=0,  padx=10, pady=10, sticky=W+E) 
+        button_createSpectrum.grid(row=2, column=2,  padx=10, pady=10, sticky=W+E)
 
         self.pack()
 	
