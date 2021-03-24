@@ -445,30 +445,7 @@ def main():
     root.mainloop()
 
 
-## Field Entries Filename & Shutter ##
-#label_filename = Label(root, text="Output Filename").grid(row=3)
-#label_shutter = Label(root, text="Shutter Speed").grid(row=4)
 
-# output filename
-#e1 = Entry(root,width=35, borderwidth=5)
-#e1.grid(row=3, column=1, columnspan=4, padx=10, pady=10)
-
-# shutter speed
-#e2 = Entry(root,width=35, borderwidth=5)
-#e2.grid(row=4, column=1, columnspan=4, padx=10, pady=10)
-#e2.insert(0, '30')
-
-
-
-
-## Buttons ##
-#button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
-#button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
-
-#button_takePicture.grid(row=1, column=1, padx=10, pady=10) 
-#button_createSpectrum.grid(row=1, column=2, padx=10, pady=10)
-
-#root.mainloop()
 
 
 
