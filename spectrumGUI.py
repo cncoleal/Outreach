@@ -346,7 +346,7 @@ def take_photo():
 
 
 
-def createSpectrum():
+def createSpectrum(raw_filename, name):
     # get pictures aperature
     im = PIL.Image.open(raw_filename)
     print("locating aperture")
@@ -388,46 +388,27 @@ def createSpectrum():
 # GUI Build 
 ###################################################
 
-## Field Entry for Filename ##
-#e = Entry(root, width=35, borderwidth=5)
-#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-#e.pack(side=tk.BOTTOM, anchor=S, expand=True)
-#e.insert(0, "Enter output filename here")
-#name = e.get()
-#raw_filename = name + "_raw.jpg"
-
-## Field Entry for Shutter ##
-#e2 = Entry(root, width=35, borderwidth=5)
-#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-#e2.pack(side=tk.BOTTOM, anchor=S, expand=True)
-#e2.insert(0, )
-#shutterValue = e2.get()
-#shutter = int(float(str(shutterValue)))
-
 ## Field Entry - Attempt 2 ##
 label_filename = Label(root, text="Output Filename").grid(row=3)
 label_shutter = Label(root, text="Shutter Speed").grid(row=4)
 
 e1 = Entry(root,width=35, borderwidth=5)
 e1.grid(row=3, column=1, columnspan=3, padx=10, pady=10)
-#name = e1.get()
-#raw_filename = str(e1.get()) + "_raw.jpg"
 
 
 e2 = Entry(root,width=35, borderwidth=5)
 e2.grid(row=4, column=1, columnspan=3, padx=10, pady=10)
 e2.insert(0, '30')
-#shutterVal = e2.get()
-#shutter = int(shutterVal)
+
 
 
 
 ## Buttons ##
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
-button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
+button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg"), str(e1.get())) 
 
-button_takePicture.grid(row=1, column=0,columnspan=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.grid(row=1, column=2,columnspan=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_takePicture.grid(row=1, column=1, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
+button_createSpectrum.grid(row=1, column=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
 
