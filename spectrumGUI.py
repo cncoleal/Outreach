@@ -401,7 +401,8 @@ e2 = Entry(root, width=35, borderwidth=5)
 #e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 e2.pack(side=tk.BOTTOM, anchor=S, expand=True)
 e2.insert(0, "Enter Shutter Speed Here (microseconds)")
-shutter = int(str(e2.get()))
+shutterValue = e2.get()
+shutter = int(float(str(shutterValue)))
 
 
 ## Buttons ##
