@@ -343,21 +343,6 @@ def take_photo():
     take_picture(raw_filename,shutter)
     return 
 
-# Create file save entry button 
-def collectFilename():
-     e = Entry(root, width=35, borderwidth=5)
-     e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-     e.pack(side=tk.BOTTOM, anchor=S)
-     e.insert(0, "Enter output filename here")
-     name = e.get()
-     raw_filename = name + "_raw.jpg"
-     return raw_filename
-
-	# add functionality: if empty, use auto name
-#	if (blank): 
-#		name = sys.argv[1]
-#    	shutter = int(sys.argv[2])
-#    	raw_filename = name + "_raw.jpg"
 
 
 def createSpectrum():
@@ -404,8 +389,8 @@ def createSpectrum():
 
 ## Field Entry for Filename ##
 e = Entry(root, width=35, borderwidth=5)
-e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-e.pack(side=tk.BOTTOM, anchor=S)
+#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+e.pack(side=tk.BOTTOM, anchor=N, expand=True)
 e.insert(0, "Enter output filename here")
 name = e.get()
 raw_filename = name + "_raw.jpg"
