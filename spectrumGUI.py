@@ -6,7 +6,7 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 import PIL.Image
-from PIL import ImageDraw, ImageFile, ImageFont, Image, ImageTk
+from PIL import ImageDraw, ImageFile, ImageFont, Image
 from tkinter import * 
 import tkinter as tk
 
