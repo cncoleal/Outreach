@@ -437,7 +437,7 @@ class gui(Frame):
         button_takePicture.grid(row=2, column=0, columnspan=2, padx=10, pady=10) 
         button_createSpectrum.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
 
-        self.pack()
+        #self.pack()
 	
 
 
