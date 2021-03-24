@@ -8,6 +8,7 @@ from collections import OrderedDict
 import PIL.Image
 from PIL import ImageDraw, ImageFile, ImageFont, Image
 from tkinter import * 
+from tkinter.ttk import Frame, Button, Entry, Style
 import tkinter as tk
 
 # create tkinter object
