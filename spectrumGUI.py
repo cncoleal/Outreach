@@ -34,6 +34,7 @@ frame.pack()
 # Notes (3/23/21)
 # Goal: Fix Create Spectrum
 # Want to be able to view all images produced 
+# Want field entry to self clear when typing 
 
 
 ########### FUNCTION DEFINTIONS #######################
@@ -395,9 +396,16 @@ e.insert(0, "Enter output filename here")
 name = e.get()
 raw_filename = name + "_raw.jpg"
 
+## Field Entry for Shutter ##
+e2 = Entry(root, width=35, borderwidth=5)
+#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+e2.pack(side=tk.BOTTOM, anchor=N, expand=True)
+e2.insert(0, "Enter Shutter Speed Here (microseconds)")
+shutter = e2.get()
+
 
 ## Buttons ##
-button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(raw_filename))
+button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(raw_filename, shutter))
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
