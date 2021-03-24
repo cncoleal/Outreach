@@ -441,15 +441,6 @@ class gui(Frame):
         button_createSpectrum.grid(row=2, column=2, columnspan=3, padx=10, pady=10, sticky=N+W+S+E) 
 
         self.pack()
-	
-	buttonborder = 
-
-photoshop = Tkinter.Button(buttonborder, 
-                           text='Photoshop',
-                           fg='#37d3ff',
-                           bg='#001d26')
-
-
 
 def main():
 	
