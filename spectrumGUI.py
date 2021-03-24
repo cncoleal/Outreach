@@ -408,11 +408,18 @@ def createSpectrum():
 label_filename = Label(root, text="Output Filename").grid(row=3)
 label_shutter = Label(root, text="Shutter Speed").grid(row=4)
 
-e1 = Entry(root,width=35, borderwidth=5).grid(row=3, column=1)
-e2 = Entry(root,width=35, borderwidth=5).grid(row=4, column=1)
-
+e1 = Entry(root,width=35, borderwidth=5)
+e1.grid(row=3, column=1, columnspan=3, padx=10, pady=10)
+e1.insert(0)
+name = e1.get()
 raw_filename = e1.get() + "_raw.jpg"
-shutter = int(e2.get())
+
+
+e2 = Entry(root,width=35, borderwidth=5)
+e2.grid(row=4, column=1, , columnspan=3, padx=10, pady=10)
+e2.insert(0)
+shutterVal = e2.get()
+shutter = int(shutterVal)
 
 
 ## Buttons ##
