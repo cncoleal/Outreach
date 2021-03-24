@@ -6,7 +6,7 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 import PIL.Image
-from PIL import ImageDraw, ImageFile, ImageFont
+from PIL import ImageDraw, ImageFile, ImageFont, Image, ImageTk
 from tkinter import * 
 import tkinter as tk
 
@@ -14,9 +14,11 @@ import tkinter as tk
 root = Tk()
 root.title('Spectrometer')
 root.geometry("600x600")
-root.configure(bg="white")
+root.configure(bg="#333")
 frame = Frame(root, bg="blue")
 frame.grid() 
+
+
 
 # Notes (11/16/20): 
 
@@ -28,13 +30,13 @@ frame.grid()
 # How to navigate multiple windows on RPi display? (Back buttons?)
 
 # Notes (2/3/21)
-# Need to run with python3
-# Error when click "Create Spectrum"
+# Need to run with python3 - done
+# Error when click "Create Spectrum" - fixed
 
 # Notes (3/23/21)
-# Goal: Fix Create Spectrum
-# Want to be able to view all images produced 
-# Want field entry to self clear when typing 
+# Goal: Fix Create Spectrum - done
+# Want to be able to view all images produced  - todo
+# Want field entry to self clear when typing - use label instead of insert
 
 
 ########### FUNCTION DEFINTIONS #######################
@@ -387,97 +389,93 @@ def createSpectrum(raw_filename, name):
 ###################################################
 # GUI Build 
 ###################################################
+class gui(Frame):
 
-## Field Entry - Attempt 2 ##
-label_filename = Label(root, text="Output Filename").grid(row=3)
-label_shutter = Label(root, text="Shutter Speed").grid(row=4)
+    def __init__(self):
+        super().__init__()
 
-e1 = Entry(root,width=35, borderwidth=5)
-e1.grid(row=3, column=1, columnspan=4, padx=10, pady=10)
+        self.initUI()
 
 
-e2 = Entry(root,width=35, borderwidth=5)
-e2.grid(row=4, column=1, columnspan=4, padx=10, pady=10)
-e2.insert(0, '30')
+    def initUI(self):
+
+        self.master.title("Pi Spectrometer")
+
+        Style().configure("TButton", padding=(0, 5, 0, 5),
+            font='serif 10')
+
+        self.columnconfigure(0, pad=3)
+        self.columnconfigure(1, pad=3)
+        self.columnconfigure(2, pad=3)
+        self.columnconfigure(3, pad=3)
+
+        self.rowconfigure(0, pad=3)
+        self.rowconfigure(1, pad=3)
+        self.rowconfigure(2, pad=3)
+        self.rowconfigure(3, pad=3)
+        self.rowconfigure(4, pad=3)
+	
+	## Field Entries Filename & Shutter ##
+	label_filename = Label(self, text="Output Filename").grid(row=0)
+	label_shutter = Label(self, text="Shutter Speed").grid(row=1)
+
+	# output filename
+	e1 = Entry(self,width=35, borderwidth=5)
+	e1.grid(row=0, column=1, columnspan=4, padx=10, pady=10)
+
+	# shutter speed
+	e2 = Entry(self,width=35, borderwidth=5)
+	e2.grid(row=1, column=1, columnspan=4, padx=10, pady=10)
+	e2.insert(0, '30')
+
+	## Buttons ##
+	button_takePicture = Button(self, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
+	button_createSpectrum = Button(self, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
+
+	button_takePicture.grid(row=2, column=0, columnspan=2, columnpadx=10, pady=10) 
+	button_createSpectrum.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
+
+        self.pack()
+
+
+def main():
+	
+    app = gui()
+    root.mainloop()
+
+
+## Field Entries Filename & Shutter ##
+#label_filename = Label(root, text="Output Filename").grid(row=3)
+#label_shutter = Label(root, text="Shutter Speed").grid(row=4)
+
+# output filename
+#e1 = Entry(root,width=35, borderwidth=5)
+#e1.grid(row=3, column=1, columnspan=4, padx=10, pady=10)
+
+# shutter speed
+#e2 = Entry(root,width=35, borderwidth=5)
+#e2.grid(row=4, column=1, columnspan=4, padx=10, pady=10)
+#e2.insert(0, '30')
 
 
 
 
 ## Buttons ##
-button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
-button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
+#button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
+#button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
 
-button_takePicture.grid(row=1, column=1, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.grid(row=1, column=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+#button_takePicture.grid(row=1, column=1, padx=10, pady=10) 
+#button_createSpectrum.grid(row=1, column=2, padx=10, pady=10)
 
-root.mainloop()
-
-
+#root.mainloop()
 
 
 
-
-
-
-
-
-
-
-
-
-###################################################
-# MISC Code
-###################################################
-
-
-# Create file save entry button 
-#  e = Entry(root, width=35, borderwidth=5)
-#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-#  e.pack(side=tk.BOTTOM, anchor=S)
-#  e.insert(0, "Enter file save name here")
-#  raw_filename = e.get()
-
-	# add functionality: if empty, use auto name
-#	if (blank): 
-#		name = sys.argv[1]
-#    	shutter = int(sys.argv[2])
-#    	raw_filename = name + "_raw.jpg"
-
-
-
-# Create Buttons
-#button_takePicture = Button(root, text="Take Picture", padx=40, pady = 20)#, command=lambda: take_picture(raw_filename))
-#button_createSpectrum = Button(root, text="Create Spectrum", padx=40, pady=20) #, command=createSpectrum)
-#b1 = Frame(root, bg="black", bd=3)
-#b2 = Frame(root, bg='black', bd=3)
-
-
-
-#button_takePicture['font'] = myFont
-#button_createSpectrum['font'] = myFont
-# button frames
-
-
-# Pack 
-
-# Button Locations
-#button_takePicture.grid(row=0, column=0, columnspan = 2)
-#button_createSpectrum.grid(row=0, column=2, columnspan=2)
-
-# Auto column adjustments
-#h = button_takePicture.winfo_height()
-#w = button_takePicture.winfo_width()
-
-#button_takePicture.columnconfigure(0, weight=2)
-#button_createSpectrum.columnconfigure(2, weight=2)
-
-
-
-# Display images: 
-# initial picture
-# image with overlay
-# final spectrum 
-
+## Adding open image functionality
+#bard = Image.open("bardejov.jpg")
+#bardejov = ImageTk.PhotoImage(bard)
+#label1 = Label(self, image=bardejov) # label with an image -- want to add close button
+#label1.image = bardejov
 
 
 
