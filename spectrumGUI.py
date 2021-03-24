@@ -390,7 +390,7 @@ def createSpectrum(raw_filename, name):
 ###################################################
 # GUI Build 
 ###################################################
-class gui(Frame):
+class gui(frame):
         
 
     def __init__(self):
