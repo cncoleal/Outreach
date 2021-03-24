@@ -24,11 +24,16 @@ frame.pack()
 # Add in displayed images (3 images)
 # Want to still save csv file? 
 # Allow ability for user to define filesave name
-# Change colors? 
+# Change colors? use: $raspistill -awb greyworld -o filename.jpg
 # How to navigate multiple windows on RPi display? (Back buttons?)
 
 # Notes (2/3/21)
 # Need to run with python3
+# Error when click "Create Spectrum"
+
+# Notes (3/23/21)
+# Goal: Fix Create Spectrum
+# Want to be able to view all images produced 
 
 
 ########### FUNCTION DEFINTIONS #######################
@@ -119,7 +124,7 @@ def take_picture(name, shutter):
         camera.shutter_speed = shutter
         camera.iso = 100
         camera.exposure_mode = 'off'
-        camera.awb_mode = 'off'
+        camera.awb_mode = 'on' ## 3/23/21 - default is "off", having issues with my camera, may need to stay on default settings to work for other cameras"
         camera.awb_gains = (1, 1)
         time.sleep(3)
         print("capturing image")
@@ -325,7 +330,7 @@ def export_diagram(name, normalized_results):
 # export diagram
 def export_diagram(name, normalized_results):
     antialias = 4
-# Take photo
+# Take photo -- consider removing 3/23/21 -- functionality switching back to take_picture and entry for filename
 def take_photo(): 
     # global variables
     global name
@@ -339,11 +344,14 @@ def take_photo():
     return 
 
 # Create file save entry button 
-#  e = Entry(root, width=35, borderwidth=5)
-#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-#  e.pack(side=tk.BOTTOM, anchor=S)
-#  e.insert(0, "Enter file save name here")
-#  raw_filename = e.get()
+def collectFilename():
+     e = Entry(root, width=35, borderwidth=5)
+     e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+     e.pack(side=tk.BOTTOM, anchor=S)
+     e.insert(0, "Enter output filename here")
+     name = e.get()
+     raw_filename = name + "_raw.jpg"
+     return raw_filename
 
 	# add functionality: if empty, use auto name
 #	if (blank): 
@@ -394,14 +402,23 @@ def createSpectrum():
 # GUI Build 
 ###################################################
 
-button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
+## Field Entry for Filename ##
+e = Entry(root, width=35, borderwidth=5)
+e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+e.pack(side=tk.BOTTOM, anchor=S)
+e.insert(0, "Enter output filename here")
+name = e.get()
+raw_filename = name + "_raw.jpg"
+
+
+## Buttons ##
+button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(raw_filename))
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
-
 
 
 
@@ -468,6 +485,7 @@ root.mainloop()
 # initial picture
 # image with overlay
 # final spectrum 
+
 
 
 
