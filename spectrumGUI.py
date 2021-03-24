@@ -411,7 +411,7 @@ label_shutter = Label(root, text="Shutter Speed").grid(row=4)
 e1 = Entry(root,width=35, borderwidth=5)
 e1.grid(row=3, column=1, columnspan=3, padx=10, pady=10)
 name = e1.get()
-raw_filename = e1.get() + "_raw.jpg"
+raw_filename = str(e1.get()) + "_raw.jpg"
 
 
 e2 = Entry(root,width=35, borderwidth=5)
@@ -427,7 +427,7 @@ button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, 
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
 button_takePicture.grid(row=1, column=0,columnspan=3, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.grid(row=1, column=1,columnspan=3, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_createSpectrum.grid(row=1, column=4,columnspan=3, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
 
