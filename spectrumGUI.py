@@ -418,23 +418,23 @@ class gui(Frame):
 	
 	# Field Entries Filename & Shutter ##
         label_filename = Label(self, text="Output Filename").grid(row=0)
-	label_shutter = Label(self, text="Shutter Speed").grid(row=1)
+        label_shutter = Label(self, text="Shutter Speed").grid(row=1)
 
 	# output filename
-	e1 = Entry(self,width=35, borderwidth=5)
-	e1.grid(row=0, column=1, columnspan=4, padx=10, pady=10)
+        e1 = Entry(self,width=35, borderwidth=5)
+        e1.grid(row=0, column=1, columnspan=4, padx=10, pady=10)
 
 	# shutter speed
-	e2 = Entry(self,width=35, borderwidth=5)
-	e2.grid(row=1, column=1, columnspan=4, padx=10, pady=10)
-	e2.insert(0, '30')
+        e2 = Entry(self,width=35, borderwidth=5)
+        e2.grid(row=1, column=1, columnspan=4, padx=10, pady=10)
+        e2.insert(0, '30')
 
 	## Buttons ##
-	button_takePicture = Button(self, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
-	button_createSpectrum = Button(self, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
+        button_takePicture = Button(self, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
+        button_createSpectrum = Button(self, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
 
-	button_takePicture.grid(row=2, column=0, columnspan=2, columnpadx=10, pady=10) 
-	button_createSpectrum.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
+        button_takePicture.grid(row=2, column=0, columnspan=2, columnpadx=10, pady=10) 
+        button_createSpectrum.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
 
         self.pack()
 
@@ -455,7 +455,7 @@ def main():
 #label1 = Label(self, image=bardejov) # label with an image -- want to add close button
 #label1.image = bardejov
 
-
+#no tabs!
 
 
 
