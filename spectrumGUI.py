@@ -391,7 +391,7 @@ def createSpectrum():
 ## Field Entry for Filename ##
 e = Entry(root, width=35, borderwidth=5)
 #e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-e.pack(side=tk.BOTTOM, anchor=N, expand=True)
+e.pack(side=tk.BOTTOM, anchor=S, expand=True)
 e.insert(0, "Enter output filename here")
 name = e.get()
 raw_filename = name + "_raw.jpg"
@@ -399,9 +399,9 @@ raw_filename = name + "_raw.jpg"
 ## Field Entry for Shutter ##
 e2 = Entry(root, width=35, borderwidth=5)
 #e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-e2.pack(side=tk.BOTTOM, anchor=N, expand=True)
+e2.pack(side=tk.BOTTOM, anchor=S, expand=True)
 e2.insert(0, "Enter Shutter Speed Here (microseconds)")
-shutter = int(e2.get())
+shutter = int(float(e2.get()))
 
 
 ## Buttons ##
