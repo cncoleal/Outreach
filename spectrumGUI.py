@@ -125,7 +125,7 @@ def take_picture(name, shutter):
         camera.shutter_speed = shutter
         camera.iso = 100
         camera.exposure_mode = 'off'
-        camera.awb_mode = 'on' ## 3/23/21 - default is "off", having issues with my camera, may need to stay on default settings to work for other cameras"
+        camera.awb_mode = 'off' ## 3/23/21 - default is "off", having issues with my camera, may need to stay on default settings to work for other cameras"
         camera.awb_gains = (1, 1)
         time.sleep(3)
         print("capturing image")
@@ -414,19 +414,20 @@ name = e1.get()
 raw_filename = e1.get() + "_raw.jpg"
 
 
-#e2 = Entry(root,width=35, borderwidth=5)
-#e2.grid(row=4, column=1, columnspan=3, padx=10, pady=10)
-#shutterVal = e2.get()
-#shutter = int(shutterVal)
-shutter = int(100)
+e2 = Entry(root,width=35, borderwidth=5)
+e2.grid(row=4, column=1, columnspan=3, padx=10, pady=10)
+e2.insert(0, '30')
+shutterVal = e2.get()
+shutter = int(shutterVal)
+
 
 
 ## Buttons ##
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(raw_filename, shutter))
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
-button_takePicture.grid(row=1, column=0) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.grid(row=1, column=1) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_takePicture.grid(row=1, column=0,columnspan=3, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
+button_createSpectrum.grid(row=1, column=1,columnspan=3, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
 
