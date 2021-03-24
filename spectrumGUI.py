@@ -16,7 +16,7 @@ root = Tk()
 root.title('Spectrometer')
 root.geometry("600x600")
 root.configure(bg="#333")
-frame = Frame(root, bg="blue")
+frame = Frame(root, background="blue")
 frame.grid() 
 
 
