@@ -427,7 +427,7 @@ button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, 
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
 button_takePicture.grid(row=1, column=0,columnspan=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.grid(row=1, column=1,columnspan=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_createSpectrum.grid(row=1, column=2,columnspan=2, padx=10, pady=10) #pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
 
