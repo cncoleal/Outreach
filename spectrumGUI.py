@@ -389,20 +389,30 @@ def createSpectrum():
 ###################################################
 
 ## Field Entry for Filename ##
-e = Entry(root, width=35, borderwidth=5)
+#e = Entry(root, width=35, borderwidth=5)
 #e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-e.pack(side=tk.BOTTOM, anchor=S, expand=True)
-e.insert(0, "Enter output filename here")
-name = e.get()
-raw_filename = name + "_raw.jpg"
+#e.pack(side=tk.BOTTOM, anchor=S, expand=True)
+#e.insert(0, "Enter output filename here")
+#name = e.get()
+#raw_filename = name + "_raw.jpg"
 
 ## Field Entry for Shutter ##
-e2 = Entry(root, width=35, borderwidth=5)
+#e2 = Entry(root, width=35, borderwidth=5)
 #e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-e2.pack(side=tk.BOTTOM, anchor=S, expand=True)
-e2.insert(0, "Enter Shutter Speed Here (microseconds)")
-shutterValue = e2.get()
-shutter = int(float(str(shutterValue)))
+#e2.pack(side=tk.BOTTOM, anchor=S, expand=True)
+#e2.insert(0, )
+#shutterValue = e2.get()
+#shutter = int(float(str(shutterValue)))
+
+## Field Entry - Attempt 2 ##
+label_filename = Label(root, text="Output Filename").grid(row=20)
+label_shutter = Label(master, text="Shutter Speed").grid(row=21)
+
+e1 = tk.Entry(root,width=35, borderwidth=5).grid(row=20, column=1)
+e2 = tk.Entry(root,width=35, borderwidth=5).grid(row=21, column=1)
+
+raw_filename = e1.get() + "_raw.jpg"
+shutter = int(e2.get())
 
 
 ## Buttons ##
