@@ -406,7 +406,7 @@ def createSpectrum():
 
 ## Field Entry - Attempt 2 ##
 label_filename = Label(root, text="Output Filename").grid(row=3)
-label_shutter = Label(master, text="Shutter Speed").grid(row=4)
+label_shutter = Label(root, text="Shutter Speed").grid(row=4)
 
 e1 = tk.Entry(root,width=35, borderwidth=5).grid(row=3, column=1)
 e2 = tk.Entry(root,width=35, borderwidth=5).grid(row=4, column=1)
