@@ -431,8 +431,8 @@ class gui(Frame):
         e2.insert(0, '30')
 
 	## Buttons ##
-	buttonBorder1 = Frame(self, highlightbackground="#37d3ff", highlightcolor="#37d3ff", highlightthickness=4, bd=0)
-	buttonBorder2 = Frame(self, highlightbackground="#37d3ff", highlightcolor="#37d3ff", highlightthickness=4, bd=0)
+        buttonBorder1 = Frame(self, highlightbackground="#37d3ff", highlightcolor="#37d3ff", highlightthickness=4, bd=0)
+        buttonBorder2 = Frame(self, highlightbackground="#37d3ff", highlightcolor="#37d3ff", highlightthickness=4, bd=0)
 	
         button_takePicture = Button(buttonBorder1, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
         button_createSpectrum = Button(buttonBorder2, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
@@ -468,7 +468,6 @@ if __name__ == '__main__':
 #label1 = Label(self, image=bardejov) # label with an image -- want to add close button
 #label1.image = bardejov
 
-#no tabs!
 
 
 
