@@ -430,7 +430,7 @@ class gui(Frame):
         e2.grid(row=1, column=1, columnspan=4, padx=10, pady=10)
         e2.insert(0, '30')
 	
-        button_takePicture = Button(self, text="Take Picture", borderwidth=4,highlightbackground='#333',bg='FFFFFF', height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
+        button_takePicture = Button(self, text="Take Picture", borderwidth=4,highlightbackground='#333',bg='#FFFFFF', height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
         button_createSpectrum = Button(self, text="Create Spectrum",borderwidth=4, highlightbackground='#333',bg='#FFB75B', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
 
         button_takePicture.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky=N+W+S+E) 
