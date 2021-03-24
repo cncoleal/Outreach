@@ -437,6 +437,8 @@ class gui(Frame):
         button_createSpectrum.grid(row=2, column=2, columnspan=2, padx=10, pady=10)
 
         self.pack()
+	
+
 
 
 def main():
@@ -444,7 +446,8 @@ def main():
     app = gui()
     root.mainloop()
 
-
+if __name__ == '__main__':
+    main()
 
 
 
