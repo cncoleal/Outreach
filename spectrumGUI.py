@@ -316,7 +316,7 @@ def export_diagram(name, normalized_results):
         draw.line((x, h, x, h + 3 * antialias), fill="#000", width=antialias)
 
     for wl in range(400, 1001, 50):
-	x = int((float(wl) - w1) / (w2 - w1) * w)
+        x = int((float(wl) - w1) / (w2 - w1) * w)
         draw.line((x, h, x, h + 5 * antialias), fill="#000", width=antialias)
         wls = str(wl)
         tx = draw.textsize(wls, font=font)
@@ -464,7 +464,7 @@ def main():
 
 
 
-
+#tabtest
 
 
 
