@@ -429,13 +429,9 @@ class gui(Frame):
         e2 = Entry(self,width=35, borderwidth=5)
         e2.grid(row=1, column=1, columnspan=4, padx=10, pady=10)
         e2.insert(0, '30')
-
-	## Buttons ##
-        buttonBorder1 = Frame(self, highlightbackground="#37d3ff", highlightcolor="#37d3ff", highlightthickness=4, bd=0)
-        buttonBorder2 = Frame(self, highlightbackground="#37d3ff", highlightcolor="#37d3ff", highlightthickness=4, bd=0)
 	
-        button_takePicture = Button(buttonBorder1, text="Take Picture", bg="#fdad5c", height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
-        button_createSpectrum = Button(buttonBorder2, text="Create Spectrum", bg='#40e0d0', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
+        button_takePicture = Button(self, text="Take Picture", borderwidth=4,highlightbackground='#333',bg='#69ADFC', height=10, command=lambda: take_picture(str(e1.get()) + "_raw.jpg", int(e2.get())))
+        button_createSpectrum = Button(self, text="Create Spectrum",borderwidth=4, highlightbackground='#333',bg='#FCDD61', height=10, command=lambda: createSpectrum(str(e1.get()) + "_raw.jpg", str(e1.get())))
 
         button_takePicture.grid(row=2, column=0, columnspan=2, padx=10, pady=10, sticky=N+W+S+E) 
         button_createSpectrum.grid(row=2, column=2, columnspan=3, padx=10, pady=10, sticky=N+W+S+E) 
