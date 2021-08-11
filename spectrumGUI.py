@@ -359,10 +359,13 @@ def take_photo():
     newWindow.geometry("200x200")
 
     # open image file
-    rawIm = PIL.Image.open(raw_filename)
+    #rawIm = PIL.Image.open(raw_filename)
+    rawIm = ImageTk.PhotoImage(Image.open(raw_filename))
 
     # A Label widget to show in toplevel
-    Label(newWindow, image=rawIm).pack()
+    panel = Label(newWindow, image=rawIm)
+    panel.image = rawIm
+    panel.pack()
 
 
     return
