@@ -340,6 +340,8 @@ def take_photo():
     # run take picture function
     take_picture(raw_filename,shutter)
 
+    im.save(raw_filename, "JPEG", quality=80, optimize=True, progressive=True)
+
     # sets the title of the
     # Toplevel widget
     newWindow = Tk()
@@ -348,8 +350,8 @@ def take_photo():
     newWindow.geometry("200x200")
 
     def loadImage():
-        load = Image.open(raw_filename)
-        render = ImageTk.PhotoImage(load)
+        load = PIL.Image.open(raw_filename)
+        render = PIL.ImageTk.PhotoImage(load)
 
         return render
 
@@ -426,16 +428,6 @@ def createSpectrum():
 
 
 
-def viewRawFile():
-    load = Image.open("test_raw.jpg")
-    render = ImageTk.PhotoImage(load)
-
-    return render
-
-    #rawIm = PIL.Image.open("test_raw.jpg")
-    #rawPI = PIL.ImageTk.PhotoImage(rawIm)
-
-    #return rawPI
 
 
 
