@@ -9,6 +9,7 @@ import PIL.Image
 from PIL import ImageDraw, ImageFile, ImageFont, ImageTk
 from tkinter import * 
 import tkinter as tk
+from tkinter import filedialog
 #import matplotlib.pyplot as plt
 #import matplotlib.image as mpimg
 
@@ -321,11 +322,15 @@ def export_diagram(name, normalized_results):
     output_filename = name + "_chart.png"
     sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
 
-def loadImage():
-    im = PIL.Image.open(raw_filename)
+#def loadImage():
+ #   im = PIL.Image.open(raw_filename)
    # render = PIL.ImageTk.PhotoImage(load)
+def openimgfile():
+    currdir = os.getcwd()
+    raw_name = filedialog.askopenfile(initialdir=currdir, title=raw_filename,
+                                  filetype=(("PNG", "*.png"), ("JPEG", "*.jpg;.*jpeg"), ("All files", "*.*")))
 
-    return im
+    #return im
 
 #######################################################
 # High level functions
@@ -354,7 +359,7 @@ def take_photo():
     newWindow.geometry("200x200")
 
     # A Label widget to show in toplevel
-    Label(newWindow, image=raw_filename)
+    Label(newWindow, image=openimgfile)
     Label.pack()
 
 
