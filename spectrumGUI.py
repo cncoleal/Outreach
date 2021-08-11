@@ -322,10 +322,10 @@ def export_diagram(name, normalized_results):
     sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
 
 def loadImage():
-    load = PIL.Image.open(raw_filename)
-    render = PIL.ImageTk.PhotoImage(load)
+    im = PIL.Image.open(raw_filename)
+   # render = PIL.ImageTk.PhotoImage(load)
 
-    return render
+    return im
 
 #######################################################
 # High level functions
