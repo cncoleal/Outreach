@@ -358,7 +358,7 @@ def take_photo():
     # open image file
     #rawIm = PIL.Image.open(raw_filename)
 
-    filename = filedialog.openfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
+    filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
     rawIm = PIL.ImageTk.PhotoImage(file=filename)
 
     newWindow = Tk()
