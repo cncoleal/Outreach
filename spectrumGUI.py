@@ -342,8 +342,8 @@ def take_photo():
 
     # sets the title of the
     # Toplevel widget
+    newWindow = Tk()
     newWindow.title("New Window")
-
     # sets the geometry of toplevel
     newWindow.geometry("200x200")
 
