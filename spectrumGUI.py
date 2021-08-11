@@ -340,7 +340,6 @@ def take_photo():
     # run take picture function
     take_picture(raw_filename,shutter)
 
-    im.save(raw_filename, "JPEG", quality=80, optimize=True, progressive=True)
 
     # sets the title of the
     # Toplevel widget
@@ -356,8 +355,8 @@ def take_photo():
         return render
 
     # A Label widget to show in toplevel
-    Label(newWindow,
-          image=loadImage).pack()
+    Label(newWindow, image=loadImage)
+    Label.pack()
 
 
     return
