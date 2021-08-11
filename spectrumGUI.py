@@ -380,8 +380,7 @@ def openNewWindow():
         return render
 
     # A Label widget to show in toplevel
-    Label(newWindow,
-          text="This is a new window", command=loadImage).pack()
+    Label(newWindow, image=loadImage).pack()
 
 # Create file save entry button 
 #  e = Entry(root, width=35, borderwidth=5)
