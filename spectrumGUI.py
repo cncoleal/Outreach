@@ -339,7 +339,11 @@ def take_photo():
     raw_filename = name + "_raw.jpg"
     # run take picture function
     take_picture(raw_filename,shutter)
-    return 
+
+    load = Image.open(raw_filename)
+    render = ImageTk.PhotoImage(load)
+
+    return render
 
 # Create file save entry button 
 #  e = Entry(root, width=35, borderwidth=5)
@@ -439,8 +443,6 @@ button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 #button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
 
 #button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-
-img = Label(root, image=viewRawFile)
 
 
 root.mainloop()
