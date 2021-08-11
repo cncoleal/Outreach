@@ -321,6 +321,11 @@ def export_diagram(name, normalized_results):
     output_filename = name + "_chart.png"
     sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
 
+def loadImage():
+    load = PIL.Image.open(raw_filename)
+    render = PIL.ImageTk.PhotoImage(load)
+
+    return render
 
 #######################################################
 # High level functions
@@ -347,12 +352,6 @@ def take_photo():
     newWindow.title("New Window")
     # sets the geometry of toplevel
     newWindow.geometry("200x200")
-
-    def loadImage():
-        load = PIL.Image.open(raw_filename)
-        render = PIL.ImageTk.PhotoImage(load)
-
-        return render
 
     # A Label widget to show in toplevel
     Label(newWindow, image=loadImage)
