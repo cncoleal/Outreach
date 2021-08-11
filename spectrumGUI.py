@@ -360,7 +360,9 @@ def take_photo():
 
     # open image file
     #rawIm = PIL.Image.open(raw_filename)
-    rawIm = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
+
+    filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("png images", ".png"), ("all files", "*.*")))
+    rawIm = PIL.ImageTk.PhotoImage(PIL.Image.open(filename))
 
     # A Label widget to show in toplevel
     panel = Label(newWindow, image=rawIm)
