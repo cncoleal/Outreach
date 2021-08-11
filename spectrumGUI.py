@@ -353,16 +353,18 @@ def take_photo():
 
     # sets the title of the
     # Toplevel widget
-    newWindow = Tk()
-    newWindow.title("New Window")
-    # sets the geometry of toplevel
-    newWindow.geometry("200x200")
+
 
     # open image file
     #rawIm = PIL.Image.open(raw_filename)
 
-    filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("png images", ".png"), ("all files", "*.*")))
-    rawIm = PIL.ImageTk.PhotoImage(PIL.Image.open(filename))
+    filename = filedialog.openfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
+    rawIm = PIL.ImageTk.PhotoImage(file=filename)
+
+    newWindow = Tk()
+    newWindow.title("New Window")
+    # sets the geometry of toplevel
+    newWindow.geometry("200x200")
 
     # A Label widget to show in toplevel
     panel = Label(newWindow, image=rawIm)
