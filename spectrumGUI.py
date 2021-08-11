@@ -9,6 +9,8 @@ import PIL.Image
 from PIL import ImageDraw, ImageFile, ImageFont
 from tkinter import * 
 import tkinter as tk
+#import matplotlib.pyplot as plt
+#import matplotlib.image as mpimg
 
 # create tkinter object
 root = Tk()
@@ -319,8 +321,9 @@ def export_diagram(name, normalized_results):
     output_filename = name + "_chart.png"
     sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
 
+
 #######################################################
-# Higher level functions
+# High level functions
 #######################################################
 # export diagram
 def export_diagram(name, normalized_results):
@@ -386,7 +389,24 @@ def createSpectrum():
     # display spectrum 
     print("generating chart")
     export_diagram(name, normalized_results)
-    return 
+    return
+
+
+#######################################################
+# File Viewing functions
+#######################################################
+
+   # def openimgfile(raw_filename):
+    #    img = mpimg.imread(raw_filename)
+    #    imgplot = plt.imshow(img)
+
+    #    plt.show()
+
+
+
+    def viewRawFile()
+        rawIm = Image.open(raw_filename)
+        rawPI = ImageTk.PhotoImage(rawIm)
 
 
 
@@ -397,8 +417,18 @@ def createSpectrum():
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
+# New windows
+a1 = Tk()
+
+a1.title('Raw Image File')
+a1.minsize(400,400)
+button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
+
+#button_viewRawPicture = Button(root, text )
+
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 root.mainloop()
 

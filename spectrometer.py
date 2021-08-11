@@ -6,6 +6,8 @@ from fractions import Fraction
 from collections import OrderedDict
 from PIL import Image, ImageDraw, ImageFile, ImageFont
 
+#  NTS: ORIGINAL FILE DO NOT EDIT
+
 
 # scan a column to determine top and bottom of area of lightness
 def get_spectrum_y_bound(pix, x, middle_y, spectrum_threshold, spectrum_threshold_duration):
@@ -323,22 +325,8 @@ def main():
     inform_user_of_exposure(max_result)
 
     # 6. Save picture with overlay
-    # save_image_with_overlay(im, name)
+    save_image_with_overlay(im, name)
 
-    # 6.5 Show photos on the screen
-    window = tk.Tk()
-    a = Tk()
-
-    def openimgfile():
-        currdir = os.getcwd()
-        raw_name = filedialog.askopenfile(initialdir=currdir, title=raw_filename,
-                                      filetype=(("PNG", "*.png"), ("JPEG", "*.jpg;.*jpeg"), ("All files", "*.*")))
-        #out_name = filedialog.askopenfile(initialdir=currdir, title=output_filename,
-        #                              filetype=(("PNG", "*.png"), ("JPEG", "*.jpg;.*jpeg"), ("All files", "*.*")))
-
-    a.title("Raw Image File")
-    a.minsize(400,400)
-    button1 = Button(text="Open file", width=10, height=10, command=openimgfile).pack()
 
     # 7. Normalize results for export
     print("exporting CSV")
