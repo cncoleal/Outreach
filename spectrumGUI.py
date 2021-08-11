@@ -325,10 +325,10 @@ def export_diagram(name, normalized_results):
 #def loadImage():
  #   im = PIL.Image.open(raw_filename)
    # render = PIL.ImageTk.PhotoImage(load)
-def openimgfile():
-    currdir = os.getcwd()
-    raw_name = filedialog.askopenfile(initialdir=currdir, title=raw_filename,
-                                  filetype=(("PNG", "*.png"), ("JPEG", "*.jpg;.*jpeg"), ("All files", "*.*")))
+#def openimgfile():
+ #   currdir = os.getcwd()
+  #  raw_name = filedialog.askopenfile(initialdir=currdir, title=raw_filename,
+                       #           filetype=(("PNG", "*.png"), ("JPEG", "*.jpg;.*jpeg"), ("All files", "*.*")))
 
     #return im
 
@@ -358,9 +358,11 @@ def take_photo():
     # sets the geometry of toplevel
     newWindow.geometry("200x200")
 
+    # open image file
+    rawIm = PIL.Image.open(raw_filename)
+
     # A Label widget to show in toplevel
-    Label(newWindow, image=openimgfile)
-    Label.pack()
+    Label(newWindow, image=rawIm).pack()
 
 
     return
