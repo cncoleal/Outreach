@@ -361,8 +361,8 @@ def take_photo():
     filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
     rawIm = PIL.ImageTk.PhotoImage(file=filename)
 
-    newWindow = Frame()
-    newWindow.title("New Window")
+    newWindow = LabelFrame()
+
     # sets the geometry of toplevel
     newWindow.geometry("200x200")
 
