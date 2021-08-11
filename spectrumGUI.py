@@ -405,10 +405,15 @@ def createSpectrum():
 
 
 def viewRawFile():
-    rawIm = PIL.Image.open("test_raw.jpg")
-    rawPI = PIL.ImageTk.PhotoImage(rawIm)
+    load = Image.open("test_raw.jpg")
+    render = ImageTk.PhotoImage(load)
 
-    return rawPI
+    return render
+
+    #rawIm = PIL.Image.open("test_raw.jpg")
+    #rawPI = PIL.ImageTk.PhotoImage(rawIm)
+
+    #return rawPI
 
 
 
@@ -420,17 +425,23 @@ button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, 
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
 # New windows
-a1 = Tk()
-
-a1.title('Raw Image File')
-a1.minsize(400,400)
-button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
 
 #button_viewRawPicture = Button(root, text )
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+
+
+#a1 = Tk()
+
+#a1.title('Raw Image File')
+#a1.minsize(400,400)
+#button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
+
+#button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+
+img = Label(root, image=viewRawFile)
+
 
 root.mainloop()
 
