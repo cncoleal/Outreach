@@ -405,7 +405,7 @@ def createSpectrum():
 
 
 def viewRawFile():
-    rawIm = PIL.Image.open(raw_filename)
+    rawIm = PIL.Image.open("test_raw.jpg")
     rawPI = PIL.ImageTk.PhotoImage(rawIm)
 
     return rawPI
