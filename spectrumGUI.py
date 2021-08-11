@@ -6,7 +6,7 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 import PIL.Image
-from PIL import ImageDraw, ImageFile, ImageFont
+from PIL import ImageDraw, ImageFile, ImageFont, ImageTk
 from tkinter import * 
 import tkinter as tk
 #import matplotlib.pyplot as plt
@@ -404,9 +404,11 @@ def createSpectrum():
 
 
 
-    def viewRawFile():
-        rawIm = Image.open(raw_filename)
-        rawPI = ImageTk.PhotoImage(rawIm)
+def viewRawFile():
+    rawIm = PIL.Image.open(raw_filename)
+    rawPI = PIL.ImageTk.PhotoImage(rawIm)
+
+    return rawPI
 
 
 
