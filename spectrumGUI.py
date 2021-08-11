@@ -340,10 +340,48 @@ def take_photo():
     # run take picture function
     take_picture(raw_filename,shutter)
 
-    load = Image.open(raw_filename)
-    render = ImageTk.PhotoImage(load)
+    # sets the title of the
+    # Toplevel widget
+    newWindow.title("New Window")
 
-    return render
+    # sets the geometry of toplevel
+    newWindow.geometry("200x200")
+
+    def loadImage():
+        load = Image.open(raw_filename)
+        render = ImageTk.PhotoImage(load)
+
+        return render
+
+    # A Label widget to show in toplevel
+    Label(newWindow,
+          text="This is a new window", command=loadImage).pack()
+
+
+    return
+
+
+def openNewWindow():
+    # Toplevel object which will
+    # be treated as a new window
+    newWindow = Tk()
+
+    # sets the title of the
+    # Toplevel widget
+    newWindow.title("New Window")
+
+    # sets the geometry of toplevel
+    newWindow.geometry("200x200")
+
+    def loadImage():
+        load = Image.open(raw_filename)
+        render = ImageTk.PhotoImage(load)
+
+        return render
+
+    # A Label widget to show in toplevel
+    Label(newWindow,
+          text="This is a new window", command=loadImage).pack()
 
 # Create file save entry button 
 #  e = Entry(root, width=35, borderwidth=5)
