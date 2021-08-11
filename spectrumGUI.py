@@ -354,7 +354,7 @@ def take_photo():
     newWindow.geometry("200x200")
 
     # A Label widget to show in toplevel
-    Label(newWindow, image=loadImage)
+    Label(newWindow, image=raw_filename)
     Label.pack()
 
 
