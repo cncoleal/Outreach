@@ -375,7 +375,7 @@ def take_photo():
     ## To open image
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
 
-    rawIm = Label(self, image=renderRaw)
+    rawIm = Label(root, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.pack()
 
