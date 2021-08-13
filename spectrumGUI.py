@@ -447,14 +447,14 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
     rawIm = Label(frame1, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.grid(row=0,column=1, rowspan=3)
+    rawIm.grid(row=0,column=1)
 
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
     specIm = Label(frame1, image=renderSpec)
     specIm.image = renderSpec
-    specIm.grid(row=0,column=1, rowspan=3)   
+    specIm.grid(row=0,column=1)   
 
 
 
