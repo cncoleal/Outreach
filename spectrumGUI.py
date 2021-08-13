@@ -474,7 +474,7 @@ button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', heigh
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
 label.pack()
-button_viewPicture.pack()
+button_viewPicture.pack(fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 
