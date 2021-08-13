@@ -449,14 +449,14 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
     rawIm = Label(root, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.pack()
+    rawIm.grid(0,1)
 
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(name))
     specIm = Label(root, image=renderSpec)
     specIm.image = renderSpec
-    specIm.pack()    
+    specIm.grid(0,1)   
 
 
 
@@ -482,10 +482,10 @@ exit_button.pack(pady=20)
 
 #button_viewRawPicture = Button(root, text )
 
-button_takePicture.pack(side=LEFT, padx=5, pady=5)
-button_viewPicture.pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
-button_createSpectrum.pack(side=LEFT, padx=5, pady=5)
-button_viewSpectrum.pack(side=LEFT, padx=5, pady=5)
+button_takePicture.grid(0,0)#pack(side=LEFT, padx=5, pady=5)
+button_viewPicture.grid(0,1)#pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
+button_createSpectrum.grid(0,2)#pack(side=LEFT, padx=5, pady=5)
+button_viewSpectrum.grid(0,3)#pack(side=LEFT, padx=5, pady=5)
 
 
 #a1 = Tk()
