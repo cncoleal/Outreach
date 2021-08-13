@@ -493,7 +493,7 @@ button_viewSpectrum.grid(row=3,column=0) #pack(side=LEFT, padx=5, pady=5)
 #button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
 
 #button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-
+print(frame1.grid_size())
 
 root.mainloop()
 
