@@ -285,8 +285,8 @@ def export_diagram(name, normalized_results):
     h2 = 300 * antialias
 
     h = h2 - 20 * antialias
-    sd = Image.new('RGB', (w, h2), (255, 255, 255))
-    draw = ImageDraw.Draw(sd)
+    sd = PIL.Image.new('RGB', (w, h2), (255, 255, 255))
+    draw = PIL.ImageDraw.Draw(sd)
 
     w1 = 380.0
     w2 = 780.0
@@ -447,14 +447,14 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
     rawIm = Label(frame1, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.grid(row=0,column=1, rowspan=5)
+    rawIm.grid(row=0,column=1, rowspan=3)
 
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
     specIm = Label(frame1, image=renderSpec)
     specIm.image = renderSpec
-    specIm.grid(row=0,column=1, rowspan=5)   
+    specIm.grid(row=0,column=1, rowspan=3)   
 
 
 
