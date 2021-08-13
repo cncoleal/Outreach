@@ -373,9 +373,13 @@ def take_photo():
     #labelframe.pack(fill="both", expand="yes")
 
     ## To open image
+    newWin = tk.Tk()
+    newWin.Tk()
+
+
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
 
-    rawIm = Label(root, image=renderRaw)
+    rawIm = Label(newWin, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.pack()
 
