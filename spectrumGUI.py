@@ -466,20 +466,22 @@ def openSpectrum():
 ###################################################
 # GUI Build 
 ###################################################
+frame1 = Frame(root)
+frame1.pack(fill=X)
 
-button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
-button_viewPicture = Button(root, text="View Image", command=openImage)
-button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
-button_viewSpectrum = Button(root, text="View Spectrum", command=openSpectrum)
+button_takePicture = Button(frame1, text="Take Picture", bg="#fdad5c", height=10, width=6, command=take_photo)#, command=lambda: take_picture(raw_filename))
+button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=10,  width=6,command=openImage)
+button_createSpectrum = Button(frame1, text="Create Spectrum", bg="#fdad5c", height=10,width=6, command=createSpectrum) #, command=createSpectrum)
+button_viewSpectrum = Button(frame1, text="View Spectrum", bg="#fdad5c", height=10,width=6, command=openSpectrum)
 
 # New windows
 
 #button_viewRawPicture = Button(root, text )
 
-button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_viewPicture.pack(fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
-button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-button_viewSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
+button_takePicture.pack(side=LEFT, padx=5, pady=5)
+button_viewPicture.pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
+button_createSpectrum.pack(side=LEFT, padx=5, pady=5)
+button_viewSpectrum.pack(side=LEFT, padx=5, pady=5)
 
 
 #a1 = Tk()
