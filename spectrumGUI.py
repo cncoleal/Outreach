@@ -380,7 +380,7 @@ def take_photo():
 
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
 
-    rawIm = Frame(newWin, image=renderRaw)
+    rawIm = Label(newWin, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.pack()
 
