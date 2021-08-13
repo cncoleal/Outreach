@@ -358,18 +358,26 @@ def take_photo():
     # open image file
     #rawIm = PIL.Image.open(raw_filename)
 
-    filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
-    rawIm = PIL.ImageTk.PhotoImage(file=filename)
+    #filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
+    #rawIm = ImageTk.PhotoImage(Image.open(file=filename))
 
-    labelframe = LabelFrame(root)
+
+   # labelframe = LabelFrame(root)
 
     # sets the geometry of toplevel
     #labelframe = LabelFrame(root, text="This is a LabelFrame")
     #labelframe.pack(fill="both", expand="yes")
 
-    left = Label(labelframe, image=rawIm)
-    left.image = rawIm
-    left.pack()
+    ## To open image
+    renderRaw = ImageTk.PhotoImage(Image.open(raw_filename))
+
+    rawIm = Label(self, image=renderRaw)
+    rawIm.image = renderRaw
+    rawIm.pack()
+
+    #left = Label(root, image=rawIm)
+    #left.image = rawIm
+    #left.pack()
 
     # A Label widget to show in toplevel
 
