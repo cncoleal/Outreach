@@ -474,6 +474,10 @@ button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=10, 
 button_createSpectrum = Button(frame1, text="Create Spectrum", bg="#fdad5c", height=10,width=6, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(frame1, text="View Spectrum", bg="#fdad5c", height=10,width=6, command=openSpectrum)
 
+
+exit_button = Button(root, text="Exit", command=root.destroy)
+exit_button.pack(pady=20)
+
 # New windows
 
 #button_viewRawPicture = Button(root, text )
