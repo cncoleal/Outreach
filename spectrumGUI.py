@@ -20,7 +20,8 @@ from tkinter import filedialog
 # create tkinter object
 root = Tk()
 root.title('Spectrometer')
-root.geometry("600x600")
+#root.geometry("600x600")
+root.state('zoomed')
 root.configure(bg="white")
 frame = Frame(root, bg="blue")
 frame.pack()
@@ -384,12 +385,7 @@ def take_photo():
 
     return
 
-def openImage():
-    ## To open image
-    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
-    rawIm = Label(root, image=renderRaw)
-    rawIm.image = renderRaw
-    rawIm.pack()
+
 
 
 
@@ -448,11 +444,19 @@ def createSpectrum():
 # File Viewing functions
 #######################################################
 
-   # def openimgfile(raw_filename):
-    #    img = mpimg.imread(raw_filename)
-    #    imgplot = plt.imshow(img)
+def openImage():
+    ## To open image
+    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
+    rawIm = Label(root, image=renderRaw)
+    rawIm.image = renderRaw
+    rawIm.pack()
 
-    #    plt.show()
+def openSpectrum():
+    ## To open spectrum
+    renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(name))
+    specIm = Label(root, image=renderSpec)
+    specIm.image = renderSpec
+    specIm.pack()    
 
 
 
@@ -464,18 +468,18 @@ def createSpectrum():
 ###################################################
 
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
-#label = Label(root)
 button_viewPicture = Button(root, text="View Image", command=openImage)
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
+button_viewSpectrum = Button(root, text="View Spectrum", command=openSpectrum)
 
 # New windows
 
 #button_viewRawPicture = Button(root, text )
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-#label.pack()
 button_viewPicture.pack(fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_viewSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
 
 
 #a1 = Tk()
