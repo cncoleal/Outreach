@@ -482,10 +482,10 @@ exit_button.pack(pady=20)
 
 #button_viewRawPicture = Button(root, text )
 
-button_takePicture.grid(0,0)#pack(side=LEFT, padx=5, pady=5)
-button_viewPicture.grid(0,1)#pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
-button_createSpectrum.grid(0,2)#pack(side=LEFT, padx=5, pady=5)
-button_viewSpectrum.grid(0,3)#pack(side=LEFT, padx=5, pady=5)
+button_takePicture.grid(row=0,column=0) #pack(side=LEFT, padx=5, pady=5)
+button_viewPicture.grid(row=1,column=0) #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
+button_createSpectrum.grid(row=2,column=0) #pack(side=LEFT, padx=5, pady=5)
+button_viewSpectrum.grid(row=3,column=0) #pack(side=LEFT, padx=5, pady=5)
 
 
 #a1 = Tk()
