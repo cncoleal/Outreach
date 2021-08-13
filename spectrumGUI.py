@@ -279,6 +279,7 @@ def export_csv(name, normalized_results):
 
 # export diagram
 def export_diagram(name, normalized_results):
+    global output_filename
     antialias = 4
     w = 600 * antialias
     h2 = 300 * antialias
@@ -340,9 +341,6 @@ def export_diagram(name, normalized_results):
 #######################################################
 # High level functions
 #######################################################
-# export diagram
-def export_diagram(name, normalized_results):
-    antialias = 4
 # Take photo
 def take_photo(): 
     # global variables
@@ -447,14 +445,14 @@ def createSpectrum():
 def openImage():
     ## To open image
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
-    rawIm = Label(root, image=renderRaw)
+    rawIm = Label(frame1, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=1, rowspan=5)
 
 def openSpectrum():
     ## To open spectrum
-    renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(name))
-    specIm = Label(root, image=renderSpec)
+    renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
+    specIm = Label(frame1, image=renderSpec)
     specIm.image = renderSpec
     specIm.grid(row=0,column=1, rowspan=5)   
 
