@@ -469,14 +469,14 @@ def openSpectrum():
 frame1 = Frame(root)
 frame1.pack(fill=X)
 
-button_takePicture = Button(frame1, text="Take Picture", bg="#fdad5c", height=10, width=6, command=take_photo)#, command=lambda: take_picture(raw_filename))
-button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=10,  width=6,command=openImage)
-button_createSpectrum = Button(frame1, text="Create Spectrum", bg="#fdad5c", height=10,width=6, command=createSpectrum) #, command=createSpectrum)
-button_viewSpectrum = Button(frame1, text="View Spectrum", bg="#fdad5c", height=10,width=6, command=openSpectrum)
+button_takePicture = Button(frame1, text="Take Picture", bg="#fdad5c", height=4, width=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
+button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=4,  width=10,command=openImage)
+button_createSpectrum = Button(frame1, text="Create Spectrum", bg="#fdad5c", height=4,width=10, command=createSpectrum) #, command=createSpectrum)
+button_viewSpectrum = Button(frame1, text="View Spectrum", bg="#fdad5c", height=4,width=10, command=openSpectrum)
 
 
-exit_button = Button(root, text="Exit", command=root.destroy)
-exit_button.pack(pady=20)
+exit_button = Button(frame1, text="Exit",height=1,width=10, command=root.destroy)
+exit_button.grid(row=4,column=0)
 
 # New windows
 
