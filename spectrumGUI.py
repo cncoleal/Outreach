@@ -6,8 +6,11 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 #import PIL.Image
-import PIL
-from PIL import Image, ImageDraw, ImageFile, ImageFont, ImageTk
+import PIL.Image
+import PIL.ImageTk
+import PIL.ImageDraw
+import PIL.ImageFile
+import PIL.ImageFont
 from tkinter import * 
 import tkinter as tk
 from tkinter import filedialog
@@ -370,7 +373,7 @@ def take_photo():
     #labelframe.pack(fill="both", expand="yes")
 
     ## To open image
-    renderRaw = ImageTk.PhotoImage(Image.open(raw_filename))
+    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
 
     rawIm = Label(self, image=renderRaw)
     rawIm.image = renderRaw
