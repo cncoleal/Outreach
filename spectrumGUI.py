@@ -372,17 +372,7 @@ def take_photo():
     #labelframe = LabelFrame(root, text="This is a LabelFrame")
     #labelframe.pack(fill="both", expand="yes")
 
-    ## To open image
-    newWin = Tk()
-
-    #newWin.Tk()
-
-
-    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
-
-    rawIm = Label(newWin, image=renderRaw)
-    rawIm.image = renderRaw
-    rawIm.pack()
+    
 
     #left = Label(root, image=rawIm)
     #left.image = rawIm
@@ -394,6 +384,12 @@ def take_photo():
 
     return
 
+def openImage():
+    ## To open image
+    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
+    rawIm = Label(root, image=renderRaw)
+    rawIm.image = renderRaw
+    rawIm.pack()
 
 
 
@@ -468,6 +464,8 @@ def createSpectrum():
 ###################################################
 
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
+label = Label(root)
+button_viewPicture = Button(root, text="View Image", command=openImage)
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
 # New windows
@@ -475,6 +473,8 @@ button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', heigh
 #button_viewRawPicture = Button(root, text )
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
+label.pack()
+button_viewPicture.pack()
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
 
