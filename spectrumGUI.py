@@ -464,7 +464,7 @@ def createSpectrum():
 ###################################################
 
 button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
-label = Label(root)
+#label = Label(root)
 button_viewPicture = Button(root, text="View Image", command=openImage)
 button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
 
@@ -473,7 +473,7 @@ button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', heigh
 #button_viewRawPicture = Button(root, text )
 
 button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-label.pack()
+#label.pack()
 button_viewPicture.pack(fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
 button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 
