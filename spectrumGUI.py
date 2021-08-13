@@ -374,7 +374,7 @@ def take_photo():
 
     ## To open image
     newWin = tk.Tk()
-    newWin.Tk()
+    #newWin.Tk()
 
 
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
