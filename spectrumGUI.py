@@ -5,8 +5,9 @@ import time
 import picamera
 from fractions import Fraction
 from collections import OrderedDict
-import PIL.Image
-from PIL import ImageDraw, ImageFile, ImageFont, ImageTk
+#import PIL.Image
+import PIL
+from PIL import Image, ImageDraw, ImageFile, ImageFont, ImageTk
 from tkinter import * 
 import tkinter as tk
 from tkinter import filedialog
