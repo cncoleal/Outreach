@@ -273,7 +273,7 @@ def inform_user_of_exposure(max_result):
 def save_image_with_overlay(im, name):
     global output_filename
     output_filename = name + "_out.jpg"
-    ImageFile.MAXBLOCK = 2 ** 20
+    PIL.ImageFile.MAXBLOCK = 2 ** 20
     im.save(output_filename, "JPEG", quality=80, optimize=True, progressive=True)
 
 # normalize results
@@ -326,7 +326,7 @@ def export_diagram(name, normalized_results):
     draw.polygon(pl, fill="#FFF")
     draw.polygon(pl)
 
-    font = ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
+    font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
     draw.line((0, h, w, h), fill="#000", width=antialias)
 
     for wl in range(400, 1001, 10):
