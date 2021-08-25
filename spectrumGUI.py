@@ -447,15 +447,15 @@ def openImage():
     rawIm = Label(frame1, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.pack(anchor=E)
-    #rawIm.grid(row=0,column=2, columnspan=4)
+    rawIm.grid(row=0,column=2, columnspan=4)
 
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
     specIm = Label(frame1, height=4, width=10, image=renderSpec)
     specIm.image = renderSpec
-    specIm.image.pack(anchor=E)
-    #specIm.grid(row=0,column=2, columnspan=4)
+    #specIm.image.pack(anchor=E)
+    specIm.grid(row=0,column=2, columnspan=4)
 
 
 
@@ -466,7 +466,7 @@ def openSpectrum():
 # GUI Build 
 ###################################################
 frame1 = Frame(root)
-frame1.pack(fill=X)
+frame1.grid(row=0, column=0, sticky="nsew")
 
 button_takePicture = Button(frame1, text="Take Picture", bg="#fdad5c", height=4, width=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
 button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=4,  width=10,command=openImage)
