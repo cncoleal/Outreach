@@ -461,6 +461,12 @@ def openImage():
     # get size of frame
     w = root.winfo_width()
     h = root.winfo_height()
+
+    imWin = tk.Toplevel(root)
+    imWin.configure(bg="black")
+    Win2 = Frame(imWin)
+    Win2.grid(row=0, column=0, sticky="nsew")
+
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(imWin, image=renderRaw)
@@ -491,10 +497,6 @@ def openSpectrum():
 # vi = openImage(root)
 # vi.grid(row=0, column=0, sticky="nsew")
 
-imWin = tk.Toplevel(root)
-imWin.configure(bg="black")
-Win2 = Frame(imWin)
-Win2.grid(row=0, column=0, sticky="nsew")
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
