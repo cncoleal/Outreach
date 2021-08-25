@@ -453,7 +453,7 @@ def openImage():
     print(w)
     print(h)
     rimg = PIL.Image.open(raw_filename)
-    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize(w,h), master=root)
+    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     print(raw_filename)
     print(renderRaw)
     rawIm = Label(frame1, image=renderRaW)
