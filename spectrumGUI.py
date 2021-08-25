@@ -29,12 +29,12 @@ butWin = tk.Toplevel(root) # Tk()
 butWin.geometry("140x600")
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
-#Win1.grid(row=0, column=0,sticky="nsew")
+Win1.grid(row=0, column=0,sticky="nsew")
 
 imWin = tk.Toplevel(root)
 imWin.configure(bg="black")
 Win2 = Frame(imWin)
-#Win2.grid(row=0, column=0, sticky="nsew")
+Win2.grid(row=0, column=0, sticky="nsew")
 
 
 # frame1 = Frame(root)
