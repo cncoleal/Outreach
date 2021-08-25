@@ -457,7 +457,7 @@ class openImage(Frame):
    # rawIm = Label(frame1, image=renderRaW)
    # rawIm.image = renderRaw
    # rawIm.grid(row=0,column=0, columnspan=1)
-
+    raw_filename = "test_raw.jpg"
     self.image = PIL.Image.open(raw_filename)
     self.img_copy = self.image.copy()
 
