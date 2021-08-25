@@ -33,8 +33,8 @@ butWin.configure(bg="white")
 
 imWin = tk.Toplevel(root)
 imWin.configure(bg="black")
-# Win2 = Frame(imWin)
-# Win2.grid(row=0, column=0, sticky="nsew")
+#Win2 = Frame(imWin)
+#Win2.grid(row=0, column=0, sticky="nsew")
 # Win3 = Frame(imWin)
 # Win3.grid(row=0, column=0, sticky="nsew")
 
@@ -464,51 +464,21 @@ def openImage():
     # get size of frame
     w = root.winfo_width()
     h = root.winfo_height()
-    print(w)
-    print(h)
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
-    print(raw_filename)
-    print(renderRaw)
-    #rawIm = Label(frame1, image=renderRaw)
     rawIm = Label(imWin, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
 
 
-
-# class openImage(Frame):
-#     def __init__(self, root, *pargs):
-#         Frame.__init__(self, root, *pargs)
-    ## To open image
-
-   #  raw_filename = "test_raw.jpg"
-   #  root.image = PIL.Image.open(raw_filename)
-   #  root.img_copy = root.image.copy()
-   #
-   #  root.background_image = PIL.ImageTk.PhotoImage(root.image)
-   #
-   #  root.background = Label(self, image=root.background_image)
-   #  root.background.grid(row=0, column=0, sticky="nsew")
-   #  root.background.bind('<Configure>', root._resize_image)
-   #
-   #  def _resize_image(self, event):
-   #      new_width = event.width
-   #      new_height = event.height
-   #
-   #      self.image = self.img_copy.resize((new_width, new_height))
-   #      self.background_image = PIL.ImageTk.PhotoImage(self.image)
-   #      self.background.configure(image = self.background_image)
 def openSpectrum():
     ## To open spectrum
     w = root.winfo_width()
     h = root.winfo_height()
     simg = PIL.Image.open(output_filename)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
-    # renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
-    specIm = Label(imWin, height=4, width=10, image=renderSpec)
+    specIm = Label(imWin, image=renderSpec)
     specIm.image = renderSpec
-    #specIm.image.pack(anchor=E)
     specIm.grid(row=0,column=0, columnspan=1)
 
 
