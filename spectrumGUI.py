@@ -450,6 +450,7 @@ def createSpectrum():
 def openImage():
     ## To open image
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
+    print(raw_filename)
     print(renderRaw)
     rawIm = Label(frameWin, image=renderRaw)
     rawIm.image = renderRaw
