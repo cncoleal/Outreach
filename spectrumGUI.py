@@ -18,13 +18,13 @@ from tkinter import filedialog
 
 # create tkinter object
 root = Tk()
-root.withdraw()
-#root.title('Spectrometer')
-#root.geometry("600x600")
+# root.withdraw()
+root.title('Spectrometer')
+root.geometry("600x600")
 #root.attributes("-fullscreen", 1)
-#root.configure(bg="black")
-#frame = Frame(root, bg="blue")
-#frame.grid(row=0, column=0, sticky="nsew")
+root.configure(bg="black")
+frame = Frame(root, bg="blue")
+frame.grid(row=0, column=1, sticky="nsew")
 
 butWin = tk.Toplevel(root) # Tk()
 butWin.geometry("140x600")
@@ -32,10 +32,10 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
-imWin = tk.Toplevel(root)
-imWin.configure(bg="black")
-Win2 = Frame(imWin)
-Win2.grid(row=0, column=0, sticky="nsew")
+# imWin = tk.Toplevel(root)
+# imWin.configure(bg="black")
+# Win2 = Frame(imWin)
+# Win2.grid(row=0, column=0, sticky="nsew")
 
 
 # Win3 = Frame(imWin)
@@ -472,7 +472,7 @@ def openImage():
 
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
-    rawIm = Label(imWin, image=renderRaw)
+    rawIm = Label(frame, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
 
@@ -483,7 +483,7 @@ def openSpectrum():
     h = root.winfo_height()
     simg = PIL.Image.open(output_filename)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
-    specIm = Label(imWin, image=renderSpec)
+    specIm = Label(frame, image=renderSpec)
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
