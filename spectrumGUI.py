@@ -21,7 +21,7 @@ root = Tk()
 
 # get screen width and height
 wid = root.winfo_screenwidth()
-hgt = 200 #root.winfo_screenheight()
+hgt = root.winfo_screenheight()
 
 # set width of button window
 wid_but = 140
@@ -31,7 +31,7 @@ root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d'  % (wid-wid_but, hgt, wid_but, 0))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
-frame.grid(row=0, column=1, sticky="nsew")
+frame.grid(row=0, column=0, sticky="nsew")
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
@@ -473,13 +473,13 @@ def createSpectrum():
 #######################################################
 def openImage():
     # get size of frame
-    w = root.winfo_width()
-    h = root.winfo_height()
+    # w = root.winfo_width()
+    # h = root.winfo_height()
 
 
 
     rimg = PIL.Image.open(raw_filename)
-    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
+    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((wid,hgt)), master=root)
     rawIm = Label(frame, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
@@ -487,10 +487,10 @@ def openImage():
 
 def openSpectrum():
     ## To open spectrum
-    w = root.winfo_width()
-    h = root.winfo_height()
+    # w = root.winfo_width()
+    # h = root.winfo_height()
     simg = PIL.Image.open(output_filename)
-    renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
+    renderSpec = PIL.ImageTk.PhotoImage(simg.resize((wid, hgt)), master=root)
     specIm = Label(frame, image=renderSpec)
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
