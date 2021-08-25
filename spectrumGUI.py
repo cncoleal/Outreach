@@ -23,7 +23,7 @@ root.geometry("600x600")
 #root.attributes("-fullscreen", 1)
 root.configure(bg="white")
 frame = Frame(root, bg="blue")
-frame.pack()
+frame.grid(row=0, column=0, sticky="nsew")
 
 # Notes (11/16/20): 
 
