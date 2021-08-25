@@ -86,7 +86,7 @@ def draw_ticks_and_frequencies(draw, aperture, spectrum_angle, wavelength_factor
         x = aperture['x'] - (wl / wavelength_factor)
         y0 = math.tan(spectrum_angle) * (aperture['x'] - x) + aperture['y']
         draw.line((x, y0 + aperture_height + 5, x, y0 + aperture_height - 5), fill="#fff")
-        font = ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12)
+        font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12)
         draw.text((x, y0 + aperture_height + 15), str(wl), font=font, fill="#fff")
 
 def wavelength_to_color(lambda2):
