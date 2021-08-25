@@ -19,14 +19,14 @@ from tkinter import filedialog
 # create tkinter object
 root = Tk()
 root.title('Spectrometer')
-root.geometry("140x600")
+root.geometry("600x600")
 #root.attributes("-fullscreen", 1)
 root.configure(bg="white")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
 imWin = Tk()
-imWin.geometry("600x600")
+imWin.geometry("140x600")
 imWin.configure(bg="white")
 frameWin = Frame(imWin)
 frameWin.grid(row=0, column=0,sticky="nsew")
@@ -452,7 +452,7 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename), master=root)
     print(raw_filename)
     print(renderRaw)
-    rawIm = Label(frameWin, image=renderRaw)
+    rawIm = Label(frame1, image=renderRaw)
     rawIm.image = renderRaw
     #rawIm.pack(anchor=E)
     rawIm.grid(row=0,column=0, columnspan=1)
@@ -460,7 +460,7 @@ def openImage():
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
-    specIm = Label(frameWin, height=4, width=10, image=renderSpec)
+    specIm = Label(frame1, height=4, width=10, image=renderSpec)
     specIm.image = renderSpec
     #specIm.image.pack(anchor=E)
     specIm.grid(row=0,column=0, columnspan=1)
@@ -475,15 +475,17 @@ def openSpectrum():
 ###################################################
 frame1 = Frame(root)
 frame1.grid(row=0, column=0, sticky="nsew")
+frame2 = Frame(newWin)
+frame1.grid(row=0, column=0, sticky="nsew")
 
 
-button_takePicture = Button(frame1, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
-button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=4,  command=openImage)
-button_createSpectrum = Button(frame1, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
-button_viewSpectrum = Button(frame1, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
+button_takePicture = Button(frame2, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
+button_viewPicture = Button(frame2, text="View Image", bg="#fdad5c", height=4,  command=openImage)
+button_createSpectrum = Button(frame2, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
+button_viewSpectrum = Button(frame2, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
 
 
-exit_button = Button(frame1, text="Exit",height=1, command=root.destroy)
+exit_button = Button(frame2, text="Exit",height=1, command=root.destroy)
 exit_button.grid(row=4,column=0)
 
 # New windows
