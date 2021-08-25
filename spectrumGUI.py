@@ -21,7 +21,7 @@ root = Tk()
 root.title('Spectrometer')
 root.geometry("600x600")
 #root.attributes("-fullscreen", 1)
-root.configure(bg="white")
+root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
@@ -447,16 +447,33 @@ def createSpectrum():
 # File Viewing functions
 #######################################################
 
-def openImage():
+class openImage(Frame):
+    def __init__(self, root, *pargs):
+        Frame.__init__(self, root, *pargs)
     ## To open image
-    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename), master=root)
-    print(raw_filename)
-    print(renderRaw)
-    rawIm = Label(frame1, image=renderRaw)
-    rawIm.image = renderRaw
-    #rawIm.pack(anchor=E)
-    rawIm.grid(row=0,column=0, columnspan=1)
+   # renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename), master=root)
+   # print(raw_filename)
+   # print(renderRaw)
+   # rawIm = Label(frame1, image=renderRaW)
+   # rawIm.image = renderRaw
+   # rawIm.grid(row=0,column=0, columnspan=1)
 
+    self.image = PIL.Image.open(raw_filename)
+    self.img_copy = self.image.copy()
+
+    self.background_image = PIL.ImageTk.PhotoImage(self.image)
+
+    self.background = Label(self, image=self.background_image)
+    self.background.grid(row=0, column=0, sticky="nsew")
+    self.background.bind('<Configure>', self._resize_image)
+
+    def _resize_image(self, event):
+        new_width = event.width
+        new_height = event.height
+
+        self.image = self.img_copy.resize((new_width, new_height))
+        self.background_image = PIL.ImageTk.PhotoImage(self.image)
+        self.background.configure(image = self.background_image)
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
@@ -478,6 +495,8 @@ frame1.grid(row=0, column=0, sticky="nsew")
 frame2 = Frame(frameWin)
 frame2.grid(row=0, column=0, sticky="nsew")
 
+vi = openImage(root)
+vi.grid(row=0, column=0, sticky="nsew")
 
 button_takePicture = Button(frame2, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
 button_viewPicture = Button(frame2, text="View Image", bg="#fdad5c", height=4,  command=openImage)
