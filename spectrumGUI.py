@@ -19,7 +19,7 @@ from tkinter import filedialog
 # create tkinter object
 root = Tk()
 root.title('Spectrometer')
-root.geometry("120x600")
+root.geometry("140x600")
 #root.attributes("-fullscreen", 1)
 root.configure(bg="white")
 frame = Frame(root, bg="blue")
