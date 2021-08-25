@@ -18,18 +18,24 @@ from tkinter import filedialog
 
 # create tkinter object
 root = Tk()
-# root.withdraw()
+
+# get screen width and height
+wid = root.winfo_screenwidth()
+hgt = root.winfo_screenheight()
+
+# set width of button window
+wid_but = 140
+
+# root: main window displays images
 root.title('Spectrometer')
-root.geometry("600x600+140+0")
-print(root.winfo_screenwidth())
-print(root.winfo_screenheight())
-#root.attributes("-fullscreen", 1)+
+root.geometry("%dx%d+%d+%d", (wid-wid_but, hgt, wid_but, 0))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=1, sticky="nsew")
 
+# side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
-butWin.geometry("140x600+0+0")
+butWin.geometry("%dx%d+%d+%d", (wid_but, hgt, 0,0))
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
