@@ -25,11 +25,22 @@ root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
-imWin = tk.Toplevel(root) # Tk()
-imWin.geometry("140x600")
-imWin.configure(bg="white")
-frameWin = Frame(imWin)
-frameWin.grid(row=0, column=0,sticky="nsew")
+butWin = tk.Toplevel(root) # Tk()
+butWin.geometry("140x600")
+butWin.configure(bg="white")
+Win1 = Frame(butWin)
+Win1.grid(row=0, column=0,sticky="nsew")
+
+imWin = tk.Toplevel(root)
+imWin.configure(bg="black")
+Win2 = Frame(imWin)
+Win2.grid(row=0, column=0, sticky="nsew")
+
+
+# frame1 = Frame(root)
+# frame1.grid(row=0, column=0, sticky="nsew")
+# frame2 = Frame(frameWin)
+# frame2.grid(row=0, column=0, sticky="nsew")
 
 # Notes (11/16/20): 
 
@@ -456,7 +467,8 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     print(raw_filename)
     print(renderRaw)
-    rawIm = Label(frame1, image=renderRaw)
+    #rawIm = Label(frame1, image=renderRaw)
+    rawIm = Label(imWin, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
 
@@ -486,8 +498,12 @@ def openImage():
    #      self.background.configure(image = self.background_image)
 def openSpectrum():
     ## To open spectrum
-    renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
-    specIm = Label(frame1, height=4, width=10, image=renderSpec)
+    w = root.winfo_width()
+    h = root.winfo_height()
+    simg = PIL.Image.open(output_filename)
+    renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
+    # renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
+    specIm = Label(imWin, height=4, width=10, image=renderSpec)
     specIm.image = renderSpec
     #specIm.image.pack(anchor=E)
     specIm.grid(row=0,column=0, columnspan=1)
@@ -500,21 +516,18 @@ def openSpectrum():
 ###################################################
 # GUI Build 
 ###################################################
-frame1 = Frame(root)
-frame1.grid(row=0, column=0, sticky="nsew")
-frame2 = Frame(frameWin)
-frame2.grid(row=0, column=0, sticky="nsew")
+
 
 # vi = openImage(root)
 # vi.grid(row=0, column=0, sticky="nsew")
 
-button_takePicture = Button(frame2, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
-button_viewPicture = Button(frame2, text="View Image", bg="#fdad5c", height=4,  command=openImage)
-button_createSpectrum = Button(frame2, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
-button_viewSpectrum = Button(frame2, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
+button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
+button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
+button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
 
 
-exit_button = Button(frame2, text="Exit",height=1, command=root.destroy)
+exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
 exit_button.grid(row=4,column=0)
 
 # New windows
@@ -534,7 +547,7 @@ button_viewSpectrum.grid(row=3,column=0,sticky="nsew") #pack(side=LEFT, padx=5, 
 #button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
 
 #button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-print(frame1.grid_size())
+# print(.grid_size())
 
 root.mainloop()
 
