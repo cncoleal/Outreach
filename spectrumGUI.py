@@ -473,13 +473,11 @@ def createSpectrum():
 #######################################################
 def openImage():
     # get size of frame
-    # w = root.winfo_width()
-    # h = root.winfo_height()
-
-
+    w = root.winfo_width()
+    h = root.winfo_height()
 
     rimg = PIL.Image.open(raw_filename)
-    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((wid,hgt)), master=root)
+    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(frame, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
@@ -487,10 +485,10 @@ def openImage():
 
 def openSpectrum():
     ## To open spectrum
-    # w = root.winfo_width()
-    # h = root.winfo_height()
+    w = root.winfo_width()
+    h = root.winfo_height()
     simg = PIL.Image.open(output_filename)
-    renderSpec = PIL.ImageTk.PhotoImage(simg.resize((wid, hgt)), master=root)
+    renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
     specIm = Label(frame, image=renderSpec)
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
