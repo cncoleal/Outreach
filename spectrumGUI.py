@@ -475,7 +475,7 @@ def openSpectrum():
 ###################################################
 frame1 = Frame(root)
 frame1.grid(row=0, column=0, sticky="nsew")
-frame2 = Frame(newWin)
+frame2 = Frame(frameWin)
 frame1.grid(row=0, column=0, sticky="nsew")
 
 
