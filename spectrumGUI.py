@@ -22,14 +22,19 @@ root.title('Spectrometer')
 root.geometry("600x600")
 #root.attributes("-fullscreen", 1)
 root.configure(bg="black")
-frame = Frame(root, bg="blue")
-frame.grid(row=0, column=0, sticky="nsew")
+#frame = Frame(root, bg="blue")
+#frame.grid(row=0, column=0, sticky="nsew")
 
 butWin = tk.Toplevel(root) # Tk()
 butWin.geometry("140x600")
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
+
+imWin = tk.Toplevel(root)
+imWin.configure(bg="black")
+Win2 = Frame(imWin)
+Win2.grid(row=0, column=0, sticky="nsew")
 
 
 # Win3 = Frame(imWin)
@@ -462,10 +467,7 @@ def openImage():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    imWin = tk.Toplevel(root)
-    imWin.configure(bg="black")
-    Win2 = Frame(imWin)
-    Win2.grid(row=0, column=0, sticky="nsew")
+
 
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
