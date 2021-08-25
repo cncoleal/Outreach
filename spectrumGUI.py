@@ -20,14 +20,16 @@ from tkinter import filedialog
 root = Tk()
 # root.withdraw()
 root.title('Spectrometer')
-root.geometry("600x600+140+0")
+root.geometry("600x+140+0")
+print(root.winfo_screenwidth())
+print(root.winfo_screenheight())
 #root.attributes("-fullscreen", 1)+
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=1, sticky="nsew")
 
 butWin = tk.Toplevel(root) # Tk()
-butWin.geometry("140x600")
+butWin.geometry("140x600+0+0")
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
