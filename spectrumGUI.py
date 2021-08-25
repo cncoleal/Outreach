@@ -21,6 +21,7 @@ from tkinter import filedialog
 root = Tk()
 root.title('Spectrometer')
 root.geometry("600x600")
+#root.attributes("-fullscreen", 1)
 root.configure(bg="white")
 frame = Frame(root, bg="blue")
 frame.pack()
@@ -278,13 +279,14 @@ def export_csv(name, normalized_results):
 
 # export diagram
 def export_diagram(name, normalized_results):
+    global output_filename
     antialias = 4
     w = 600 * antialias
     h2 = 300 * antialias
 
     h = h2 - 20 * antialias
-    sd = Image.new('RGB', (w, h2), (255, 255, 255))
-    draw = ImageDraw.Draw(sd)
+    sd = PIL.Image.new('RGB', (w, h2), (255, 255, 255))
+    draw = PIL.ImageDraw.Draw(sd)
 
     w1 = 380.0
     w2 = 780.0
@@ -339,9 +341,6 @@ def export_diagram(name, normalized_results):
 #######################################################
 # High level functions
 #######################################################
-# export diagram
-def export_diagram(name, normalized_results):
-    antialias = 4
 # Take photo
 def take_photo(): 
     # global variables
@@ -372,16 +371,7 @@ def take_photo():
     #labelframe = LabelFrame(root, text="This is a LabelFrame")
     #labelframe.pack(fill="both", expand="yes")
 
-    ## To open image
-    newWin = tk.Tk()
-    newWin.Tk()
-
-
-    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
-
-    rawIm = Label(newWin, image=renderRaw)
-    rawIm.image = renderRaw
-    rawIm.pack()
+    
 
     #left = Label(root, image=rawIm)
     #left.image = rawIm
@@ -392,6 +382,7 @@ def take_photo():
 
 
     return
+
 
 
 
@@ -451,11 +442,19 @@ def createSpectrum():
 # File Viewing functions
 #######################################################
 
-   # def openimgfile(raw_filename):
-    #    img = mpimg.imread(raw_filename)
-    #    imgplot = plt.imshow(img)
+def openImage():
+    ## To open image
+    renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
+    rawIm = Label(frame1, image=renderRaw)
+    rawIm.image = renderRaw
+    rawIm.grid(row=0,column=1, columnspan=5)
 
-    #    plt.show()
+def openSpectrum():
+    ## To open spectrum
+    renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
+    specIm = Label(frame1, height=4, width=10, image=renderSpec)
+    specIm.image = renderSpec
+    specIm.grid(row=0,column=1, columnspan=5)   
 
 
 
@@ -465,16 +464,26 @@ def createSpectrum():
 ###################################################
 # GUI Build 
 ###################################################
+frame1 = Frame(root)
+frame1.pack(fill=X)
 
-button_takePicture = Button(root, text="Take Picture", bg="#fdad5c", height=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
-button_createSpectrum = Button(root, text="Create Spectrum", bg='#40e0d0', height=10, command=createSpectrum) #, command=createSpectrum)
+button_takePicture = Button(frame1, text="Take Picture", bg="#fdad5c", height=4, width=10, command=take_photo)#, command=lambda: take_picture(raw_filename))
+button_viewPicture = Button(frame1, text="View Image", bg="#fdad5c", height=4,  width=10,command=openImage)
+button_createSpectrum = Button(frame1, text="Create Spectrum", bg="#fdad5c", height=4,width=10, command=createSpectrum) #, command=createSpectrum)
+button_viewSpectrum = Button(frame1, text="View Spectrum", bg="#fdad5c", height=4,width=10, command=openSpectrum)
+
+
+exit_button = Button(frame1, text="Exit",height=1,width=10, command=root.destroy)
+exit_button.grid(row=4,column=0)
 
 # New windows
 
 #button_viewRawPicture = Button(root, text )
 
-button_takePicture.pack(fill=tk.X, side=tk.LEFT, anchor=NW, expand=True)
-button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
+button_takePicture.grid(row=0,column=0) #pack(side=LEFT, padx=5, pady=5)
+button_viewPicture.grid(row=1,column=0) #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
+button_createSpectrum.grid(row=2,column=0) #pack(side=LEFT, padx=5, pady=5)
+button_viewSpectrum.grid(row=3,column=0) #pack(side=LEFT, padx=5, pady=5)
 
 
 #a1 = Tk()
@@ -484,7 +493,7 @@ button_createSpectrum.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
 #button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
 
 #button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-
+print(frame1.grid_size())
 
 root.mainloop()
 
