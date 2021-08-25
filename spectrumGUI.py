@@ -35,6 +35,8 @@ imWin = tk.Toplevel(root)
 imWin.configure(bg="black")
 Win2 = Frame(imWin)
 Win2.grid(row=0, column=0, sticky="nsew")
+Win3 = Frame(imWin)
+Win3.grid(row=0, column=0, sticky="nsew")
 
 
 # frame1 = Frame(root)
@@ -469,7 +471,7 @@ def openImage():
     print(raw_filename)
     print(renderRaw)
     #rawIm = Label(frame1, image=renderRaw)
-    rawIm = Label(imWin, image=renderRaw)
+    rawIm = Label(Win2, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
 
@@ -504,7 +506,7 @@ def openSpectrum():
     simg = PIL.Image.open(output_filename)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
     # renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
-    specIm = Label(imWin, height=4, width=10, image=renderSpec)
+    specIm = Label(Win3, height=4, width=10, image=renderSpec)
     specIm.image = renderSpec
     #specIm.image.pack(anchor=E)
     specIm.grid(row=0,column=0, columnspan=1)
