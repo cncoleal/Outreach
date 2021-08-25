@@ -14,8 +14,7 @@ import PIL.ImageFont
 from tkinter import * 
 import tkinter as tk
 from tkinter import filedialog
-#import matplotlib.pyplot as plt
-#import matplotlib.image as mpimg
+
 
 # create tkinter object
 root = Tk()
@@ -447,14 +446,16 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(PIL.Image.open(raw_filename))
     rawIm = Label(frame1, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.grid(row=0,column=1, columnspan=5)
+    rawIm.pack(anchor=E)
+    #rawIm.grid(row=0,column=2, columnspan=4)
 
 def openSpectrum():
     ## To open spectrum
     renderSpec = PIL.ImageTk.PhotoImage(PIL.Image.open(output_filename))
     specIm = Label(frame1, height=4, width=10, image=renderSpec)
     specIm.image = renderSpec
-    specIm.grid(row=0,column=1, columnspan=5)   
+    specIm.image.pack(anchor=E)
+    #specIm.grid(row=0,column=2, columnspan=4)
 
 
 
