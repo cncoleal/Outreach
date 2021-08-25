@@ -341,7 +341,7 @@ def export_diagram(name, normalized_results):
         draw.text((x - tx[0] / 2, h + 5 * antialias), wls, font=font, fill="#000")
 
     # save chart
-    sd = sd.resize((int(w / antialias), int(h / antialias)), Image.ANTIALIAS)
+    sd = sd.resize((int(w / antialias), int(h / antialias)), PIL.Image.ANTIALIAS)
     output_filename = name + "_chart.png"
     sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
 
