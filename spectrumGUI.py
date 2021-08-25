@@ -415,7 +415,7 @@ def createSpectrum():
 
     # 3. Draw aperture and scan line
     spectrum_angle = -0.01
-    draw = ImageDraw.Draw(im)
+    draw = PIL.ImageDraw.Draw(im)
     draw_aperture(aperture, draw)
     draw_scan_line(aperture, draw, spectrum_angle)
 
