@@ -21,7 +21,7 @@ root = Tk()
 
 # get screen width and height
 wid = root.winfo_screenwidth()
-hgt = 480 #root.winfo_screenheight()
+hgt = 200 #root.winfo_screenheight()
 
 # set width of button window
 wid_but = 140
