@@ -29,12 +29,12 @@ butWin = tk.Toplevel(root) # Tk()
 butWin.geometry("140x600")
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
-Win1.grid(row=0, column=0,sticky="nsew")
+#Win1.grid(row=0, column=0,sticky="nsew")
 
 imWin = tk.Toplevel(root)
 imWin.configure(bg="black")
 Win2 = Frame(imWin)
-Win2.grid(row=0, column=0, sticky="nsew")
+#Win2.grid(row=0, column=0, sticky="nsew")
 
 
 # frame1 = Frame(root)
@@ -271,6 +271,7 @@ def inform_user_of_exposure(max_result):
 
 # save image with overlay
 def save_image_with_overlay(im, name):
+    global output_filename
     output_filename = name + "_out.jpg"
     ImageFile.MAXBLOCK = 2 ** 20
     im.save(output_filename, "JPEG", quality=80, optimize=True, progressive=True)
