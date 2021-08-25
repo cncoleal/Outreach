@@ -18,10 +18,10 @@ from tkinter import filedialog
 
 # create tkinter object
 root = Tk()
-root.title('Spectrometer')
-root.geometry("600x600")
+#root.title('Spectrometer')
+#root.geometry("600x600")
 #root.attributes("-fullscreen", 1)
-root.configure(bg="black")
+#root.configure(bg="black")
 #frame = Frame(root, bg="blue")
 #frame.grid(row=0, column=0, sticky="nsew")
 
