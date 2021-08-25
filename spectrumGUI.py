@@ -476,7 +476,7 @@ def openSpectrum():
 frame1 = Frame(root)
 frame1.grid(row=0, column=0, sticky="nsew")
 frame2 = Frame(frameWin)
-frame1.grid(row=0, column=0, sticky="nsew")
+frame2.grid(row=0, column=0, sticky="nsew")
 
 
 button_takePicture = Button(frame2, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
