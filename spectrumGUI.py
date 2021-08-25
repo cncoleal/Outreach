@@ -25,7 +25,7 @@ root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
-imWin = Tk()
+imWin = tk.Toplevel(root) # Tk()
 imWin.geometry("140x600")
 imWin.configure(bg="white")
 frameWin = Frame(imWin)
