@@ -132,30 +132,69 @@ def wavelength_to_color(lambda2):
 # Lower level functions
 #######################################################
 
+camera = picamera.PiCamera()
+ON = True
 
-# def contrast():
-# 	camera.contrast = y.get()
-#         if camera.contrast < -99:
-#                 camera.contrast += 5
-#         elif camera.contrast > 99:
-#                 camera.contrast -= 5
-#         else:
-# 		camera.contrast += 5
-#         print "Contrast", camera.contrast
-#         y.set(camera.contrast)
-#
-#
-#
-# contrastButton = Button(root, text="  Contrast   ", command=contrast)
-# contrastButton.grid(row=4, column=1)
-#
-# y = Scale(root, from_=-50, to=50, resolution=1, orient=HORIZONTAL)
-# y.grid(row=10, column=1)
-# y.set(camera.contrast)
-# print "Contrast", camera.contrast
-#
-# z = Label(root, text="Contrast")
-# z.grid(row=10, column=0)
+zoom = 1.0
+previewTime = 3
+awbcount = 0
+effectno = 0
+delay = 5
+threshPercent = 1.8
+step = 1
+numImages = 1
+captureCount = 0
+numSav = 0
+
+def prevTime():
+	global previewTime
+	previewTime += 1
+        print "Preview time", previewTime, "s"
+	return previewTime
+	preview()
+
+def preview():
+	camera.preview_fullscreen = False
+	camera.preview_window = (170, -120, 860, 950)
+	camera.video_stabilization = True
+	#camera.brightness=w.get()
+	camera.start_preview()
+	print "Brightness",camera.brightness
+        camera.contrast=y.get()
+        print "Contrast",camera.contrast
+        #camera.saturation=xy.get()
+        #print "Saturation",camera.saturation
+	for t in range (previewTime, 0, -1):
+		camera.brightness = w.get()
+       		time.sleep(1)
+
+
+def contrast():
+	camera.contrast = y.get()
+        if camera.contrast < -99:
+                camera.contrast += 5
+        elif camera.contrast > 99:
+                camera.contrast -= 5
+        else:
+		camera.contrast += 5
+        print "Contrast", camera.contrast
+        y.set(camera.contrast)
+
+
+
+contrastButton = Button(root, text="  Contrast   ", command=contrast)
+contrastButton.grid(row=4, column=1)
+
+y = Scale(frame, from_=-50, to=50, resolution=1, orient=HORIZONTAL)
+y.grid(row=10, column=1)
+y.set(camera.contrast)
+print "Contrast", camera.contrast
+
+z = Label(frame, text="Contrast")
+z.grid(row=10, column=0)
+
+previewButton = Button(frame, text="    Preview    ", command=preview)
+previewButton.grid(row=1, column=1)
 
 # Take picture
 def take_picture(name, shutter):
@@ -477,16 +516,7 @@ def openSpectrum():
 def openVideo():
     global cap
     cap = cv2.VideoCapture(0)
-    cap.set(cv2.CAP_PROP_EXPOSURE, -4)
-
-    def on_change(value):
-        print(value)
-        # imageCopy = img2.copy()
-        #
-        # cv2.putText(imageCopy, str(val), (0, imageCopy.shape[0] - 10),
-        #             cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 4)
-        # cv2.imshow(windowName, imageCopy)
-
+    #cap.set(cv2.CAP_PROP_EXPOSURE, -4)
 
     if not cap.isOpened():
         print("Cannot open camera")
@@ -506,7 +536,7 @@ def openVideo():
         windowName = 'Video Capture'
 
         cv2.imshow(windowName, img2)
-        cv2.createTrackbar('slider', windowName, 0, 100, on_change)
+        #cv2.createTrackbar('slider', windowName, 0, 100, on_change)
         cv2.moveWindow(windowName, wid_but, -10)
         cv2.setMouseCallback(windowName, killWindow)
 
