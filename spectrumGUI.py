@@ -497,11 +497,14 @@ def openVideo():
             imgtk = PIL.ImageTk.PhotoImage(image=img)
             lmain.imgtk = imgtk
             lmain.configure(image=imgtk)
+            time.wait = 10
+            video_stream()
+            #lmain.after(30, video_stream())
         return
 
     video_stream()
 
-    lmain.after(30, video_stream())
+
 
     return
 
