@@ -521,11 +521,11 @@ def pic_capture():
         # Display the resulting frame
         w = root.winfo_width()
         h = root.winfo_height()
-        simg = PIL.Image.fromarray(gray)
-        renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
-        specIm = Label(frame, image=renderSpec)
-        specIm.image = renderSpec
-        specIm.grid(row=0, column=0, columnspan=1)
+        newimg = PIL.Image.fromarray(gray)
+        renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
+        vidImg = Label(frame, image=renderVid)
+        vidImg.image = renderVid
+        vidImg.grid(row=0, column=0, columnspan=1)
 
         if cv2.waitKey(1) == ord('q'):
             break
