@@ -519,19 +519,26 @@ def pic_capture():
         # Our operations on the frame come here
         gray = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGB)
         # Display the resulting frame
-        w = root.winfo_width()
-        h = root.winfo_height()
-        newimg = PIL.Image.fromarray(gray)
-        renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
-        vidImg = Label(frame, image=renderVid)
-        vidImg.image = renderVid
-        vidImg.grid(row=0, column=0, columnspan=1)
+        return gray
 
-        if cv2.waitKey(1) == ord('q'):
-            break
+        # if cv2.waitKey(1) == ord('q'):
+        #     break
     # When everything done, release the capture
     cap.release()
     cv2.destroyAllWindows()
+
+def openVideo():
+    w = root.winfo_width()
+    h = root.winfo_height()
+
+    img = pic_capture()
+
+    newimg = PIL.Image.fromarray(img)
+    renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
+    vidImg = Label(frame, image=renderVid)
+    vidImg.image = renderVid
+    vidImg.grid(row=0, column=0, columnspan=1)
+
 
 #
 # def pic_capture():
@@ -613,7 +620,7 @@ button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=pic_capture)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
