@@ -483,8 +483,8 @@ def pic_capture():
         # Our operations on the frame come here
         img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # Display the resulting frame
-        cv2.imshow('Video Capture', cv2.resize(img, (wid-wid_but, hgt-50)))
-        print(cv2.getWindowImageRect('Video Capture'))
+        cv2.imshow('Video Capture', cv2.resize(img, (1000, 800)))
+        #print(cv2.getWindowImageRect('Video Capture')) # 660x430
         #cv2.imshow('Video Capture', img)
         #cv2.resize('', wid-wid_but, hgt-50)
         #cv2.moveWindow('image', 0, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
