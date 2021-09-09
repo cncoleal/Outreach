@@ -492,16 +492,27 @@ def new_picture():
     camera.start_preview(alpha=128)
     preview_overlay(camera, overlay)
 
-
 def pic_capture():
     with picamera.PiCamera() as camera:
-        # camera.resolution = (1280, 720)
-        #camera.start_preview()
-        # time.sleep(1)
-        #or i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
-        while True:
-            camera.capture_continuous('image.png')
-            #print('Captured image %s' % filename)
+        stream = io.BytesIO()
+        for foo in camera.capture_continuous(stream, format='png'):
+            # Truncate the stream to the current position (in case
+            # prior iterations output a longer image)
+            stream.truncate()
+            stream.seek(0)
+            if process(stream):
+                break
+
+#
+# def pic_capture():
+#     with picamera.PiCamera() as camera:
+#         # camera.resolution = (1280, 720)
+#         #camera.start_preview()
+#         # time.sleep(1)
+#         #or i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
+#         while True:
+#             camera.capture_continuous('image.png')
+#             #print('Captured image %s' % filename)
             #if i == 100:
         #         break
         #     time.sleep(60)
