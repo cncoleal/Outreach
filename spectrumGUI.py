@@ -462,7 +462,7 @@ def openSpectrum():
 
 def killWindow(event, x, y, flags, param):
     if event == cv2.EVENT_FLAG_ALTKEY:
-        cap.release()
+        #cap.release()
         cv2.destroyAllWindows()
 
 def pic_capture():
