@@ -417,7 +417,19 @@ def createSpectrum():
     export_diagram(name, normalized_results)
     return
 
+def video_loop(vs):
+    w = root.winfo_width()
+    h = root.winfo_height()
 
+    ok, frameCap = vs.read()
+    if ok:
+        cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
+        vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
+        renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
+        vidCap = Label(frame, image=renderVid)
+        vidCap.image = renderVid
+        vidCap.grid(row=0, column=0, columnspan=1)
+    root.after(30, video_loop(vs))  #
 
 
 
@@ -451,21 +463,11 @@ def openVideo():
     """ Initialize application which uses OpenCV + Tkinter. It displays
         a video stream in a Tkinter window and stores current snapshot on disk """
     ## To open video capture
-    w = root.winfo_width()
-    h = root.winfo_height()
-
     vs = cv2.VideoCapture(0)
 
+    video_loop(vs)
     # read frame from video stream
-    ok, frameCap = vs.read()
-    if ok:
-        cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
-        vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
-        renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
-        vidCap = Label(frame, image=renderVid)
-        vidCap.image = renderVid
-        vidCap.grid(row=0, column=0, columnspan=1)
-    root.after(30, window.video_loop)  #
+
 
 
 
