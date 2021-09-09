@@ -42,21 +42,6 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
-# imWin = tk.Toplevel(root)
-# imWin.configure(bg="black")
-# Win2 = Frame(imWin)
-# Win2.grid(row=0, column=0, sticky="nsew")
-
-
-# Win3 = Frame(imWin)
-# Win3.grid(row=0, column=0, sticky="nsew")
-
-
-# frame1 = Frame(root)
-# frame1.grid(row=0, column=0, sticky="nsew")
-# frame2 = Frame(frameWin)
-# frame2.grid(row=0, column=0, sticky="nsew")
-
 # Notes (11/16/20): 
 
 # Fix gui font size (later)
@@ -153,13 +138,14 @@ def take_picture(name, shutter):
     camera = picamera.PiCamera()
     try:
         print("allowing camera to warmup")
-        camera.vflip = True
-        camera.framerate = Fraction(1, 2)
-        camera.shutter_speed = shutter
-        camera.iso = 100
-        camera.exposure_mode = 'off'
-        camera.awb_mode = 'off'
-        camera.awb_gains = (1, 1)
+        # camera.vflip = True
+        # camera.framerate = Fraction(1, 2)
+        # camera.shutter_speed = shutter
+        # camera.iso = 100
+        # camera.exposure_mode = 'off'
+        # camera.awb_mode = 'off'
+        # camera.awb_gains = (1, 1)
+        # time.sleep(3)
         time.sleep(3)
         print("capturing image")
         camera.capture(name, resize=(1296, 972))
@@ -391,9 +377,6 @@ def acquire_photo():
 
 
 
-# def acquire_video():
-#     takeVideo()
-#     return
 
 def createSpectrum():
     # get pictures aperature
@@ -431,6 +414,10 @@ def createSpectrum():
     export_diagram(name, normalized_results)
     return
 
+def killWindow(event, x, y, flags, param):
+    if event == cv2.EVENT_FLAG_ALTKEY:
+        #cap.release()
+        cv2.destroyAllWindows()
 
 
 
@@ -460,15 +447,11 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
-def killWindow(event, x, y, flags, param):
-    if event == cv2.EVENT_FLAG_ALTKEY:
-        #cap.release()
-        cv2.destroyAllWindows()
 
-def pic_capture():
+
+def openVideo():
     global cap
     cap = cv2.VideoCapture(0)
-
 
     if not cap.isOpened():
         print("Cannot open camera")
@@ -489,22 +472,13 @@ def pic_capture():
         cv2.moveWindow('Video Capture', wid_but, -10)
         cv2.setMouseCallback('Video Capture', killWindow)
 
-        #print(cv2.getWindowImageRect('Video Capture')) # 660x430
-        #cv2.imshow('Video Capture', img)
-        #cv2.resize('', wid-wid_but, hgt-50)
-        #cv2.moveWindow('image', 0, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
-        #cv2.waitKey(0)
         if cv2.waitKey(1)  & 0xFF == ord('q'):
             break
     # When everything done, release the capture
     cap.release()
     cv2.destroyAllWindows()
 
-# def destroy():
-#     #cap.release()
-#     cv2.destroyAllWindows()
-#     root.destroy()
-# create function "captureVideo"
+
 
 ###################################################
 # GUI Build 
@@ -513,7 +487,7 @@ button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=pic_capture)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
