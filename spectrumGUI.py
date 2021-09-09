@@ -170,21 +170,11 @@ def take_picture(name, shutter):
 # def take_video():
 #     camera = picamera.PiCamera()
 #     try:
-#         print("allowing camera to warmup")
-#         camera.vflip = True
-#         camera.framerate = Fraction(1, 2)
-#         camera.shutter_speed = shutter
-#         camera.iso = 100
-#         camera.exposure_mode = 'off'
-#         camera.awb_mode = 'off'
-#         camera.awb_gains = (1, 1)
-#         print("capturing video")
-#         camera.start_preview()
-#         time.sleep(10)
-#         camera.stop_preview()
+#         camera.capture(name, resize=(1296, 972))
 #     finally:
 #         camera.close()
-
+#     return name
+#
 # Find aperture
  
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
@@ -440,20 +430,7 @@ def createSpectrum():
     print("generating chart")
     export_diagram(name, normalized_results)
     return
-#
-# def video_loop(vs):
-#     w = root.winfo_width()
-#     h = root.winfo_height()
 
-    # ok, frameCap = vs.read()
-    # if ok:
-    #     cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
-    #     vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
-    #     renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
-    #     vidCap = Label(frame, image=renderVid)
-    #     vidCap.image = renderVid
-    #     vidCap.grid(row=0, column=0, columnspan=1)
-    # root.after(30, video_loop(vs))  #
 
 
 
@@ -484,171 +461,28 @@ def openSpectrum():
     specIm.grid(row=0,column=0, columnspan=1)
 
 
-def openVideo():
-    lmain = Label(frame)
-    lmain.grid(row=0,column=0, columnspan=1)
-
-def new_picture():
-    camera = picamera.PiCamera()
-    camera.start_preview(alpha=128)
-    preview_overlay(camera, overlay)
-
-# def pic_capture():
-#     with picamera.PiCamera() as camera:
-#         stream = io.BytesIO()
-#         for foo in camera.capture_continuous(stream, format='png'):
-#             # Truncate the stream to the current position (in case
-#             # prior iterations output a longer image)
-#             stream.truncate()
-#             stream.seek(0)
-#             if process(stream):
-#                 break
-
-
 def pic_capture():
-    w = root.winfo_width()
-    h = root.winfo_height()
-
     cap = cv2.VideoCapture(0)
-
-    vidImg = Label(frame)
-    vidImg.grid(row=0, column=0, columnspan=1)
-
-    def video_loop():
-        """ Get frame from the video stream and show it in Tkinter """
-        ok, frameCap = cap.read()  # read frame from video stream
-        if ok:  # frame captured without any errors
-            cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
-            newimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
-            renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)  # convert image for tkinter
-
-            #vidImg.config = renderVid  # anchor imgtk so it does not be deleted by garbage-collector
-            vidImg.config(image=renderVid)
-            #  # show the image
-        vidImg.after(30, video_loop())
-
-    video_loop()
-
-
-# def pic_capture():
-#     w = root.winfo_width()
-#     h = root.winfo_height()
-#
-#     cap = cv2.VideoCapture(0)
-#     if not cap.isOpened():
-#         print("Cannot open camera")
-#         exit()
-#     while True:
-#         # Capture frame-by-frame
-#         ret, frameCap = cap.read()
-#         # if frame is read correctly ret is True
-#         if not ret:
-#             print("Can't receive frame (stream end?). Exiting ...")
-#             break
-#         # Our operations on the frame come here
-#         img = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGB)
-#
-#         newimg = PIL.Image.fromarray(img)
-#         renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
-#         vidImg = Label(frame, image=renderVid)
-#         vidImg.image = renderVid
-#         vidImg.grid(row=0, column=0, columnspan=1)
-#
-
+    if not cap.isOpened():
+        print("Cannot open camera")
+        exit()
+    while True:
+        # Capture frame-by-frame
+        ret, frame = cap.read()
+        # if frame is read correctly ret is True
+        if not ret:
+            print("Can't receive frame (stream end?). Exiting ...")
+            break
+        # Our operations on the frame come here
+        img = cv.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # Display the resulting frame
-        # return gray
-
-
-        # if cv2.waitKey(1) == ord('q'):
-        #     break
+        cv2.imshow('frame', img)
+        cv2.moveWindow('image', 200, 200)
+        if cv.waitKey(1) == ord('q'):
+            break
     # When everything done, release the capture
-    # cap.release()
-    # cv2.destroyAllWindows()
-
-# def openVideo():
-#
-#
-#
-#     img = pic_capture()
-#
-#     newimg = PIL.Image.fromarray(img)
-#     renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
-#     vidImg = Label(frame, image=renderVid)
-#     vidImg.image = renderVid
-#     vidImg.grid(row=0, column=0, columnspan=1)
-
-
-
-#
-# def pic_capture():
-#     with picamera.PiCamera() as camera:
-#         # camera.resolution = (1280, 720)
-#         #camera.start_preview()
-#         # time.sleep(1)
-#         #or i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
-#         while True:
-#             camera.capture_continuous('image.png')
-#             #print('Captured image %s' % filename)
-            #if i == 100:
-        #         break
-        #     time.sleep(60)
-        # camera.stop_preview()
-    # cap = cv2.VideoCapture(0)
-    #
-    # def video_stream():
-    #     ok, frameC = cap.read()
-    #     if ok:
-    #         cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
-    #         img = PIL.Image.fromarray(cv2image)
-    #         imgtk = PIL.ImageTk.PhotoImage(image=img)
-    #         lmain.imgtk = imgtk
-    #         lmain.configure(image=imgtk)
-    #         #time.wait = 10
-    #         #video_stream()
-    #         #lmain.after(30, video_stream())
-    #
-    #
-    # video_stream()
-
-
-
-
-
-# def openVideo():
-#     w = root.winfo_width()
-#     h = root.winfo_height()
-#     simg = PIL.Image.open(output_filename)
-#     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
-#     specIm = Label(frame, image=renderSpec)
-#     specIm.image = renderSpec
-#     specIm.grid(row=0, column=0, columnspan=1)
-#
-
-# def openVideo():
-#     """ Initialize application which uses OpenCV + Tkinter. It displays
-#         a video stream in a Tkinter window and stores current snapshot on disk """
-#     ## To open video capture
-#     w = root.winfo_width()
-#     h = root.winfo_height()
-#
-#     vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
-#     renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
-#     vidCap = Label(frame, image=renderVid)
-#     vidCap.image = renderVid
-#     vidCap.grid(row=0, column=0, columnspan=1)
-
-
-
-
-    # vs = cv2.VideoCapture(0)
-    #
-    # video_loop(vs)
-    # read frame from video stream
-
-
-
-
-
+    cap.release()
+    cv.destroyAllWindows()
 
 # create function "captureVideo"
 
