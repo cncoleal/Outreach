@@ -420,11 +420,14 @@ def createSpectrum():
 
 def video_loop(window):
     """ Get frame from the video stream and show it in Tkinter """
+    w = root.winfo_width()
+    h = root.winfo_height()
+
     ok, frameCap = window.vs.read()  # read frame from video stream
     if ok:  # frame captured without any errors
         cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
         window.current_image = PIL.Image.fromarray(cv2image)  # convert image for PIL
-        imgtk = PIL.ImageTk.PhotoImage(image=window.current_image)  # convert image for tkinter
+        imgtk = PIL.ImageTk.PhotoImage(window.current_image.resize((w,h)), master=root)  # convert image for tkinter
         window.panel.imgtk = imgtk  # anchor imgtk so it does not be deleted by garbage-collector
         window.panel.config(image=imgtk)  # show the image
     window.after(30, window.video_loop)  # call the same function after 30 milliseconds
@@ -469,19 +472,21 @@ def openVideo(window):
 
     window.vs = cv2.VideoCapture(0)  # capture video frames, 0 is your default video camera
 
-    window.vs.set(cv2.CAP_PROP_FRAME_WIDTH, 864)
-    window.vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 486)
+    # window.vs.set(cv2.CAP_PROP_FRAME_WIDTH, 864)
+    # window.vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 486)
     window.output_path = output_path  # store output path
     window.current_image = None  # current image from the camera
     #defaultbg = window.root.cget('bg')  # set de default grey color to use in labels background
-    w = root.winfo_width()  # width for the Tk root
-    h = root.winfo_height()  # height for the Tk root
-    window.resizable(0, 0)
-    ws = window.winfo_screenwidth()  # width of the screen
-    hs = window.winfo_screenheight()  # height of the screen
-    x = (ws / 2) - (w / 2)
-    y = (hs / 2) - (h / 2)
-    window.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    # w = root.winfo_width()  # width for the Tk root
+    # h = root.winfo_height()  # height for the Tk root
+    # window.resizable(0, 0)
+    # ws = window.winfo_screenwidth()  # width of the screen
+    # hs = window.winfo_screenheight()  # height of the screen
+    # x = (ws / 2) - (w / 2)
+    # y = (hs / 2) - (h / 2)
+    # window.geometry('%dx%d+%d+%d' % (w, h, x, y))
+
+
     window.title("Continuous Capture")  # set window title
     window.protocol('WM_DELETE_WINDOW', window.destructor(frame))
 
