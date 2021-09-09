@@ -502,8 +502,7 @@ def openVideo():
             #lmain.after(30, video_stream())
 
 
-    while True:
-        video_stream()
+    video_stream()
 
 
 
