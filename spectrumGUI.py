@@ -493,7 +493,7 @@ def openSpectrum():
 
 def openVideo():
     lmain = Label(frame)
-    lmain.grid(row=0,column=0, columnspan=1))
+    lmain.grid(row=0,column=0, columnspan=1)
 
     cap = cv2.VideoCapture(0)
 
