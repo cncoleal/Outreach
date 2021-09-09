@@ -416,20 +416,20 @@ def createSpectrum():
     print("generating chart")
     export_diagram(name, normalized_results)
     return
+#
+# def video_loop(vs):
+#     w = root.winfo_width()
+#     h = root.winfo_height()
 
-def video_loop(vs):
-    w = root.winfo_width()
-    h = root.winfo_height()
-
-    ok, frameCap = vs.read()
-    if ok:
-        cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
-        vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
-        renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
-        vidCap = Label(frame, image=renderVid)
-        vidCap.image = renderVid
-        vidCap.grid(row=0, column=0, columnspan=1)
-    root.after(30, video_loop(vs))  #
+    # ok, frameCap = vs.read()
+    # if ok:
+    #     cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
+    #     vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
+    #     renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
+    #     vidCap = Label(frame, image=renderVid)
+    #     vidCap.image = renderVid
+    #     vidCap.grid(row=0, column=0, columnspan=1)
+    # root.after(30, video_loop(vs))  #
 
 
 
@@ -459,14 +459,67 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
-def openVideo():
-    """ Initialize application which uses OpenCV + Tkinter. It displays
-        a video stream in a Tkinter window and stores current snapshot on disk """
-    ## To open video capture
-    vs = cv2.VideoCapture(0)
+# def openVideo():
+#     """ Initialize application which uses OpenCV + Tkinter. It displays
+#         a video stream in a Tkinter window and stores current snapshot on disk """
+#     ## To open video capture
+#     w = root.winfo_width()
+#     h = root.winfo_height()
+#
+#     vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
+#     renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
+#     vidCap = Label(frame, image=renderVid)
+#     vidCap.image = renderVid
+#     vidCap.grid(row=0, column=0, columnspan=1)
 
-    video_loop(vs)
+
+
+
+    # vs = cv2.VideoCapture(0)
+    #
+    # video_loop(vs)
     # read frame from video stream
+
+def take_video():
+    # print("initialising camera continuous capture")
+    # camera = picamera.PiCamera()
+    # try:
+    #     print("allowing camera to warmup")
+    #     camera.vflip = True
+    #     camera.framerate = Fraction(1, 2)
+    #     camera.shutter_speed = shutter
+    #     camera.iso = 100
+    #     camera.exposure_mode = 'off'
+    #     camera.awb_mode = 'off'
+    #     camera.awb_gains = (1, 1)
+    #     time.sleep(3)
+    #     print("capturing video")
+    #     # camera.capture(name, resize=(1296, 972))
+    #     camera.capture_continuous(name, format=None, use_video_port=False,
+    #                               resize=(1296, 972), splitter_port=0, burst=False,
+    #                               **options)
+
+
+    camera = picamera.PiCamera()
+    try:
+        camera.preview_fullscreen = false
+        vidwin = Label(frame, image=camera.start_preview())
+        vidwin.grid(row=0, column=0, columnspan=1)
+        #time.sleep(10)
+        #camera.stop_preview()
+    finally:
+        camera.close()
+
+
+    #
+    # camera = PiCamera()
+    # camera.resolution(640,480)
+    # camera.preview_fullscreen = false
+    # camera.preview_window(0,0,640,480)
+    # camera.start_preview()
+    # sleep(10)
+    # camera.stop_preview()
+    #
 
 
 
@@ -480,7 +533,7 @@ button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="fdad5c", height=4, command=openVideo())
+button_captureVideo = Button(butWin, text="Video Capture", bg="fdad5c", height=4, command=takeVideo())
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
