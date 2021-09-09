@@ -497,9 +497,13 @@ def openVideo():
             imgtk = PIL.ImageTk.PhotoImage(image=img)
             lmain.imgtk = imgtk
             lmain.configure(image=imgtk)
-        lmain.after(30, video_stream())
+        return
 
     video_stream()
+
+    lmain.after(30, video_stream())
+
+    return
 
 # def openVideo():
 #     w = root.winfo_width()
