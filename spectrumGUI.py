@@ -481,7 +481,7 @@ def pic_capture():
 
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
-        cv2.moveWindow('Video Capture', wid_but, -20)
+        cv2.moveWindow('Video Capture', wid_but, -10)
 
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
         #cv2.imshow('Video Capture', img)
@@ -494,6 +494,10 @@ def pic_capture():
     cap.release()
     cv2.destroyAllWindows()
 
+def destroy():
+    cap.release()
+    cv2.destroyAllWindows()
+    root.destroy()
 # create function "captureVideo"
 
 ###################################################
@@ -506,7 +510,7 @@ button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=pic_capture)
 
 
-exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
+exit_button = Button(butWin, text="Exit",height=1, command=destroy)
 exit_button.grid(row=5,column=0)
 
 # New windows
