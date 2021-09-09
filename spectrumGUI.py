@@ -463,7 +463,7 @@ def openSpectrum():
 
 def pic_capture():
     cap = cv2.VideoCapture(0)
-    cv2.namedWindow("Video Capture", cv2.WINDOW_NORMAL)
+    #cv2.namedWindow("Video Capture", cv2.WINDOW_NORMAL)
     # cv2.getWindowImageRect('Frame')
     # Create window with freedom of dimensions
     #m = cv2.imread("earth.jpg")  # Read image
@@ -481,15 +481,17 @@ def pic_capture():
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
-        img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        img2 = cv2.resize(img1, (wid - wid_but, hgt - 50))
         # Display the resulting frame
-        cv2.imshow('Video Capture', cv2.resize(img, (1000, 800)))
+        cv2.imshow('Video Capture', img2)
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
         #cv2.imshow('Video Capture', img)
         #cv2.resize('', wid-wid_but, hgt-50)
         #cv2.moveWindow('image', 0, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
-        if cv2.waitKey(1) == ord('q'):
-            break
+        cv2.waitKey(0)
+        # if cv2.waitKey(1) == ord('q'):
+        #     # break
     # When everything done, release the capture
     cap.release()
     cv2.destroyAllWindows()
