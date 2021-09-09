@@ -132,6 +132,31 @@ def wavelength_to_color(lambda2):
 # Lower level functions
 #######################################################
 
+
+# def contrast():
+# 	camera.contrast = y.get()
+#         if camera.contrast < -99:
+#                 camera.contrast += 5
+#         elif camera.contrast > 99:
+#                 camera.contrast -= 5
+#         else:
+# 		camera.contrast += 5
+#         print "Contrast", camera.contrast
+#         y.set(camera.contrast)
+#
+#
+#
+# contrastButton = Button(root, text="  Contrast   ", command=contrast)
+# contrastButton.grid(row=4, column=1)
+#
+# y = Scale(root, from_=-50, to=50, resolution=1, orient=HORIZONTAL)
+# y.grid(row=10, column=1)
+# y.set(camera.contrast)
+# print "Contrast", camera.contrast
+#
+# z = Label(root, text="Contrast")
+# z.grid(row=10, column=0)
+
 # Take picture
 def take_picture(name, shutter):
     print("initialising camera")
@@ -141,7 +166,7 @@ def take_picture(name, shutter):
         # camera.vflip = True
         # camera.framerate = Fraction(1, 2)
         # camera.shutter_speed = shutter
-        # camera.iso = 100
+        camera.iso = 100
         # camera.exposure_mode = 'off'
         # camera.awb_mode = 'off'
         # camera.awb_gains = (1, 1)
@@ -452,6 +477,15 @@ def openSpectrum():
 def openVideo():
     global cap
     cap = cv2.VideoCapture(0)
+    cap.set(cv2.CAP_PROP_EXPOSURE, -4)
+
+    def on_change(value):
+        imageCopy = img2.copy()
+
+        cv2.putText(imageCopy, str(val), (0, imageCopy.shape[0] - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 4)
+        cv2.imshow(windowName, imageCopy)
+
 
     if not cap.isOpened():
         print("Cannot open camera")
@@ -464,13 +498,16 @@ def openVideo():
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
-        img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-        img2 = cv2.resize(img1, (wid - wid_but, hgt))
+        #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+        img2 = cv2.resize(frame, (wid - wid_but, hgt))
 
         # Display the resulting frame
-        cv2.imshow('Video Capture', img2)
-        cv2.moveWindow('Video Capture', wid_but, -10)
-        cv2.setMouseCallback('Video Capture', killWindow)
+        windowName = 'Video Capture'
+
+        cv2.imshow(windowName, img2)
+        cv2.createTrackbar('slider', windowName, 0, 100, on_change)
+        cv2.moveWindow(windowName, wid_but, -10)
+        cv2.setMouseCallback(windowName, killWindow)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
