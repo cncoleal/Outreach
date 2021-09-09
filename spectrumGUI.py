@@ -454,10 +454,10 @@ def openVideo():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    rpi.vs = cv2.VideoCapture(0)
+    vs = cv2.VideoCapture(0)
 
     # read frame from video stream
-    ok, frameCap = rpi.vs.read()
+    ok, frameCap = vs.read()
     if ok:
         cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
         vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
