@@ -487,22 +487,30 @@ def openVideo():
     lmain = Label(frame)
     lmain.grid(row=0,column=0, columnspan=1)
 
-    cap = cv2.VideoCapture(0)
-
-    def video_stream():
-        ok, frameC = cap.read()
-        if ok:
-            cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
-            img = PIL.Image.fromarray(cv2image)
-            imgtk = PIL.ImageTk.PhotoImage(image=img)
-            lmain.imgtk = imgtk
-            lmain.configure(image=imgtk)
-            #time.wait = 10
-            #video_stream()
-            #lmain.after(30, video_stream())
+def new_picture():
+    camera = picamera.PiCamera()
+    camera.start_preview(alpha=128)
+    preview_overlay(camera, overlay)
 
 
-    video_stream()
+    # cap = cv2.VideoCapture(0)
+    #
+    # def video_stream():
+    #     ok, frameC = cap.read()
+    #     if ok:
+    #         cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
+    #         img = PIL.Image.fromarray(cv2image)
+    #         imgtk = PIL.ImageTk.PhotoImage(image=img)
+    #         lmain.imgtk = imgtk
+    #         lmain.configure(image=imgtk)
+    #         #time.wait = 10
+    #         #video_stream()
+    #         #lmain.after(30, video_stream())
+    #
+    #
+    # video_stream()
+
+
 
 
 
@@ -551,7 +559,7 @@ button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo())
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=new_picture)
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
