@@ -1,5 +1,6 @@
 # import libraries
 import os
+import io
 import math
 import time
 import picamera
