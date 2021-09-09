@@ -518,8 +518,10 @@ def pic_capture():
             break
         # Our operations on the frame come here
         gray = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGB)
+
         # Display the resulting frame
         return gray
+
 
         # if cv2.waitKey(1) == ord('q'):
         #     break
@@ -531,16 +533,15 @@ def openVideo():
     w = root.winfo_width()
     h = root.winfo_height()
 
+    for i in range(1,100):
+        img = pic_capture()
 
-    img = pic_capture()
-
-    newimg = PIL.Image.fromarray(img)
-    renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
-    vidImg = Label(frame, image=renderVid)
-    vidImg.image = renderVid
-    vidImg.grid(row=0, column=0, columnspan=1)
-
-    vidImg.after(30, openVideo())
+        newimg = PIL.Image.fromarray(img)
+        renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
+        vidImg = Label(frame, image=renderVid)
+        vidImg.image = renderVid
+        vidImg.grid(row=0, column=0, columnspan=1)
+        time.wait(10)
 
 
 #
