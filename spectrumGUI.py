@@ -541,7 +541,7 @@ def openVideo():
         vidImg = Label(frame, image=renderVid)
         vidImg.image = renderVid
         vidImg.grid(row=0, column=0, columnspan=1)
-        time.wait(10)
+        time.sleep(1)
 
 
 #
