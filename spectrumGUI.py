@@ -480,11 +480,12 @@ def openVideo():
     cap.set(cv2.CAP_PROP_EXPOSURE, -4)
 
     def on_change(value):
-        imageCopy = img2.copy()
-
-        cv2.putText(imageCopy, str(val), (0, imageCopy.shape[0] - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 4)
-        cv2.imshow(windowName, imageCopy)
+        print(value)
+        # imageCopy = img2.copy()
+        #
+        # cv2.putText(imageCopy, str(val), (0, imageCopy.shape[0] - 10),
+        #             cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0, 0, 0), 4)
+        # cv2.imshow(windowName, imageCopy)
 
 
     if not cap.isOpened():
