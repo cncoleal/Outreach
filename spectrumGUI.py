@@ -400,12 +400,13 @@ def acquire_photo():
 
 def video_stream(lmain, cap):
 
-    _, frameC = cap.read()
-    cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
-    img = PIL.Image.fromarray(cv2image)
-    imgtk = PIL.ImageTk.PhotoImage(image=img)
-    lmain.imgtk = imgtk
-    lmain.configure(image=imgtk)
+    ok, frameC = cap.read()
+    if ok:
+        cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
+        img = PIL.Image.fromarray(cv2image)
+        imgtk = PIL.ImageTk.PhotoImage(image=img)
+        lmain.imgtk = imgtk
+        lmain.configure(image=imgtk)
     lmain.after(30, video_stream(lmain, cap))
 
     return
