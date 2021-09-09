@@ -465,7 +465,7 @@ def pic_capture():
     cap = cv2.VideoCapture(0)
     cv2.namedWindow("Video Capture", cv2.WINDOW_NORMAL)
     # cv2.getWindowImageRect('Frame')
-    print(cv2.getWindowImageRect('Video Capture'))# Create window with freedom of dimensions
+    # Create window with freedom of dimensions
     #m = cv2.imread("earth.jpg")  # Read image
     #imS = cv2.resize(im, (960, 540))  # Resize image
     #cv2.imshow("output", imS)
@@ -483,8 +483,9 @@ def pic_capture():
         # Our operations on the frame come here
         img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # Display the resulting frame
-        #cv2.imshow('Video Capture', cv2.resize(img, (wid-wid_but, hgt-50)))
-        cv2.imshow('Video Capture', img)
+        cv2.imshow('Video Capture', cv2.resize(img, (wid-wid_but, hgt-50)))
+        print(cv2.getWindowImageRect('Video Capture'))
+        #cv2.imshow('Video Capture', img)
         #cv2.resize('', wid-wid_but, hgt-50)
         #cv2.moveWindow('image', 0, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
         if cv2.waitKey(1) == ord('q'):
