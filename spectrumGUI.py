@@ -474,10 +474,10 @@ def pic_capture():
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
-        img = cv.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         # Display the resulting frame
         cv2.imshow('frame', img)
-        cv2.moveWindow('image', 200, 200)
+        cv2.moveWindow('image', wid_but, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
         if cv.waitKey(1) == ord('q'):
             break
     # When everything done, release the capture
