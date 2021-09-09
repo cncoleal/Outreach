@@ -166,6 +166,24 @@ def take_picture(name, shutter):
     	camera.close()
     return name
 
+# def take_video():
+#     camera = picamera.PiCamera()
+#     try:
+#         print("allowing camera to warmup")
+#         camera.vflip = True
+#         camera.framerate = Fraction(1, 2)
+#         camera.shutter_speed = shutter
+#         camera.iso = 100
+#         camera.exposure_mode = 'off'
+#         camera.awb_mode = 'off'
+#         camera.awb_gains = (1, 1)
+#         print("capturing video")
+#         camera.start_preview()
+#         time.sleep(10)
+#         camera.stop_preview()
+#     finally:
+#         camera.close()
+
 # Find aperture
  
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
@@ -367,7 +385,7 @@ def export_diagram(name, normalized_results):
 # High level functions
 #######################################################
 # Take photo
-def take_photo(): 
+def acquire_photo():
     # global variables
     global name
     global raw_filename
@@ -380,6 +398,19 @@ def take_photo():
 
     return
 
+def video_stream(cap):
+    _, frameC = cap.read()
+    cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
+    img = PIL.Image.fromarray(cv2image)
+    imgtk = PIL.ImageTk.PhotoImage(image=img)
+    lmain.imgtk = imgtk
+    lmain.configure(image=imgtk)
+    lmain.after(1, video_stream)
+
+    return
+# def acquire_video():
+#     takeVideo()
+#     return
 
 def createSpectrum():
     # get pictures aperature
@@ -459,6 +490,25 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
+
+def openVideo():
+    lmain = Label(frame)
+    lmain.grid(row=0,column=0, columnspan=1))
+
+    cap = cv2.VideoCapture(0)
+
+    video_stream(cap)
+
+# def openVideo():
+#     w = root.winfo_width()
+#     h = root.winfo_height()
+#     simg = PIL.Image.open(output_filename)
+#     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
+#     specIm = Label(frame, image=renderSpec)
+#     specIm.image = renderSpec
+#     specIm.grid(row=0, column=0, columnspan=1)
+#
+
 # def openVideo():
 #     """ Initialize application which uses OpenCV + Tkinter. It displays
 #         a video stream in a Tkinter window and stores current snapshot on disk """
@@ -480,47 +530,7 @@ def openSpectrum():
     # video_loop(vs)
     # read frame from video stream
 
-def takeVideo():
-    # print("initialising camera continuous capture")
-    # camera = picamera.PiCamera()
-    # try:
-    #     print("allowing camera to warmup")
-    #     camera.vflip = True
-    #     camera.framerate = Fraction(1, 2)
-    #     camera.shutter_speed = shutter
-    #     camera.iso = 100
-    #     camera.exposure_mode = 'off'
-    #     camera.awb_mode = 'off'
-    #     camera.awb_gains = (1, 1)
-    #     time.sleep(3)
-    #     print("capturing video")
-    #     # camera.capture(name, resize=(1296, 972))
-    #     camera.capture_continuous(name, format=None, use_video_port=False,
-    #                               resize=(1296, 972), splitter_port=0, burst=False,
-    #                               **options)
 
-
-    camera = picamera.PiCamera()
-    # try:
-    #     # camera.preview_fullscreen = False
-    #     # vidwin = Label(frame, image=camera.start_preview())
-    #     # vidwin.grid(row=0, column=0, columnspan=1)
-    #     camera.start_preview()
-    #     time.sleep(10)
-    #     camera.stop_preview()
-    # finally:
-    #     camera.close()
-
-
-    #
-    # camera = PiCamera()
-    # camera.resolution(640,480)
-    # camera.preview_fullscreen = false
-    # camera.preview_window(0,0,640,480)
-    # camera.start_preview()
-    # sleep(10)
-    # camera.stop_preview()
-    #
 
 
 
@@ -534,11 +544,11 @@ button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=takeVideo())
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo())
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
-exit_button.grid(row=4,column=0)
+exit_button.grid(row=5,column=0)
 
 # New windows
 button_takePicture.grid(row=0,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
