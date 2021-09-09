@@ -13,6 +13,7 @@ import PIL.ImageFile
 import PIL.ImageFont
 from tkinter import * 
 import tkinter as tk
+import cv2
 from tkinter import filedialog
 
 
@@ -358,15 +359,9 @@ def export_diagram(name, normalized_results):
     output_filename = name + "_chart.png"
     sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
 
-#def loadImage():
- #   im = PIL.Image.open(raw_filename)
-   # render = PIL.ImageTk.PhotoImage(load)
-#def openimgfile():
- #   currdir = os.getcwd()
-  #  raw_name = filedialog.askopenfile(initialdir=currdir, title=raw_filename,
-                       #           filetype=(("PNG", "*.png"), ("JPEG", "*.jpg;.*jpeg"), ("All files", "*.*")))
 
-    #return im
+
+
 
 #######################################################
 # High level functions
@@ -383,52 +378,7 @@ def take_photo():
     # run take picture function
     take_picture(raw_filename,shutter)
 
-
-    # sets the title of the
-    # Toplevel widget
-
-
-    # open image file
-    #rawIm = PIL.Image.open(raw_filename)
-
-    #filename = filedialog.askopenfilename(initialdir=os.getcwd(), title=raw_filename, filetypes=(("jpg images", ".jpg"), ("all files", "*.*")))
-    #rawIm = ImageTk.PhotoImage(Image.open(file=filename))
-
-
-   # labelframe = LabelFrame(root)
-
-    # sets the geometry of toplevel
-    #labelframe = LabelFrame(root, text="This is a LabelFrame")
-    #labelframe.pack(fill="both", expand="yes")
-
-    
-
-    #left = Label(root, image=rawIm)
-    #left.image = rawIm
-    #left.pack()
-
-    # A Label widget to show in toplevel
-
-
-
     return
-
-
-
-
-
-# Create file save entry button 
-#  e = Entry(root, width=35, borderwidth=5)
-#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-#  e.pack(side=tk.BOTTOM, anchor=S)
-#  e.insert(0, "Enter file save name here")
-#  raw_filename = e.get()
-
-	# add functionality: if empty, use auto name
-#	if (blank): 
-#		name = sys.argv[1]
-#    	shutter = int(sys.argv[2])
-#    	raw_filename = name + "_raw.jpg"
 
 
 def createSpectrum():
@@ -468,6 +418,24 @@ def createSpectrum():
     return
 
 
+def video_loop(window):
+    """ Get frame from the video stream and show it in Tkinter """
+    ok, frameCap = window.vs.read()  # read frame from video stream
+    if ok:  # frame captured without any errors
+        cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
+        window.current_image = PIL.Image.fromarray(cv2image)  # convert image for PIL
+        imgtk = PIL.ImageTk.PhotoImage(image=window.current_image)  # convert image for tkinter
+        window.panel.imgtk = imgtk  # anchor imgtk so it does not be deleted by garbage-collector
+        window.panel.config(image=imgtk)  # show the image
+    window.root.after(30, window.video_loop)  # call the same function after 30 milliseconds
+
+def destructor(window):
+    window.root.destroy()
+    window.vs.release()  # release web camera
+    window.destroyAllWindows()  # it is not mandatory in this application
+
+
+
 #######################################################
 # File Viewing functions
 #######################################################
@@ -493,47 +461,63 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
+def openVideo(window):
+    """ Initialize application which uses OpenCV + Tkinter. It displays
+        a video stream in a Tkinter window and stores current snapshot on disk """
+    ## To open video capture
+    output_path = "./"
 
+    window.vs = cv2.VideoCapture(0)  # capture video frames, 0 is your default video camera
 
+    window.vs.set(cv2.CAP_PROP_FRAME_WIDTH, 864)
+    window.vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 486)
+    window.output_path = output_path  # store output path
+    window.current_image = None  # current image from the camera
+    #defaultbg = window.root.cget('bg')  # set de default grey color to use in labels background
+    w = root.winfo_width()  # width for the Tk root
+    h = root.winfo_height()  # height for the Tk root
+    window.root.resizable(0, 0)
+    ws = window.root.winfo_screenwidth()  # width of the screen
+    hs = window.root.winfo_screenheight()  # height of the screen
+    x = (ws / 2) - (w / 2)
+    y = (hs / 2) - (h / 2)
+    window.root.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    window.root.title("Continuous Capture")  # set window title
+    window.root.protocol('WM_DELETE_WINDOW', window.destructor(frame))
 
+    window.panel = tk.Label(window.root)  # initialize image panel
+    window.panel.grid(row=0, rowspan=10, column=8, columnspan=25, padx=4, pady=6)
 
+    #self.botQuit = tk.Button(self.root, width=6, font=('arial narrow', 18, 'normal'), text="CLOSE",
+                             #activebackground="#00dfdf")
+    #self.botQuit.grid(row=10, column=32)
+    #self.botQuit.configure(command=self.destructor)
+
+    window.video_loop(frame)
+
+# create function "captureVideo"
 
 ###################################################
 # GUI Build 
 ###################################################
-
-
-# vi = openImage(root)
-# vi.grid(row=0, column=0, sticky="nsew")
-
-
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=take_photo)#, command=lambda: take_picture(raw_filename))
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
+button_captureVideo = Button(butWin, text="Video Capture", bg = "fdad5c", height=4, command=openVideo(frame))
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
 exit_button.grid(row=4,column=0)
 
 # New windows
-
-#button_viewRawPicture = Button(root, text )
-
 button_takePicture.grid(row=0,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
 button_viewPicture.grid(row=1,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
 button_createSpectrum.grid(row=2,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
 button_viewSpectrum.grid(row=3,column=0,sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
+button_captureVideo.grid(row=4, column=0, sticky="nsew")
 
 
-#a1 = Tk()
-
-#a1.title('Raw Image File')
-#a1.minsize(400,400)
-#button_rawImage = Button(text="Open file", width=10, height=10, command=viewRawFile)
-
-#button_rawImage.pack(fill=tk.X, side=tk.LEFT, anchor=NW ,expand=True)
-# print(.grid_size())
 
 root.mainloop()
 
