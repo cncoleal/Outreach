@@ -418,24 +418,7 @@ def createSpectrum():
     return
 
 
-def video_loop(window):
-    """ Get frame from the video stream and show it in Tkinter """
-    w = root.winfo_width()
-    h = root.winfo_height()
 
-    ok, frameCap = window.vs.read()  # read frame from video stream
-    if ok:  # frame captured without any errors
-        cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
-        window.current_image = PIL.Image.fromarray(cv2image)  # convert image for PIL
-        imgtk = PIL.ImageTk.PhotoImage(window.current_image.resize((w,h)), master=root)  # convert image for tkinter
-        window.panel.imgtk = imgtk  # anchor imgtk so it does not be deleted by garbage-collector
-        window.panel.config(image=imgtk)  # show the image
-    window.after(30, window.video_loop)  # call the same function after 30 milliseconds
-
-def destructor(window):
-    window.destroy()
-    window.vs.release()  # release web camera
-    window.destroyAllWindows()  # it is not mandatory in this application
 
 
 
@@ -464,41 +447,27 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
-def openVideo(window):
+def openVideo():
     """ Initialize application which uses OpenCV + Tkinter. It displays
         a video stream in a Tkinter window and stores current snapshot on disk """
     ## To open video capture
-    output_path = "./"
+    w = root.winfo_width()
+    h = root.winfo_height()
 
-    window.vs = cv2.VideoCapture(0)  # capture video frames, 0 is your default video camera
+    rpi.vs = cv2.VideoCapture(0)
 
-    # window.vs.set(cv2.CAP_PROP_FRAME_WIDTH, 864)
-    # window.vs.set(cv2.CAP_PROP_FRAME_HEIGHT, 486)
-    window.output_path = output_path  # store output path
-    window.current_image = None  # current image from the camera
-    #defaultbg = window.root.cget('bg')  # set de default grey color to use in labels background
-    # w = root.winfo_width()  # width for the Tk root
-    # h = root.winfo_height()  # height for the Tk root
-    # window.resizable(0, 0)
-    # ws = window.winfo_screenwidth()  # width of the screen
-    # hs = window.winfo_screenheight()  # height of the screen
-    # x = (ws / 2) - (w / 2)
-    # y = (hs / 2) - (h / 2)
-    # window.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    # read frame from video stream
+    ok, frameCap = rpi.vs.read()
+    if ok:
+        cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
+        vidimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
+        renderVid = PIL.ImageTk.PhotoImage(vidimg.resize((w, h)), master=root)
+        vidCap = Label(frame, image=renderVid)
+        vidCap.image = renderVid
+        vidCap.grid(row=0, column=0, columnspan=1)
+    root.after(30, window.video_loop)  #
 
 
-   # window.title("Continuous Capture")  # set window title
-   # window.protocol('WM_DELETE_WINDOW', window.destructor(frame))
-
-    window.panel = tk.Label(window)  # initialize image panel
-    window.panel.grid(row=0, rowspan=10, column=8, columnspan=25, padx=4, pady=6)
-
-    #self.botQuit = tk.Button(self.root, width=6, font=('arial narrow', 18, 'normal'), text="CLOSE",
-                             #activebackground="#00dfdf")
-    #self.botQuit.grid(row=10, column=32)
-    #self.botQuit.configure(command=self.destructor)
-
-    window.video_loop(frame)
 
 # create function "captureVideo"
 
@@ -509,7 +478,7 @@ button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg = "fdad5c", height=4, command=openVideo(frame))
+button_captureVideo = Button(butWin, text="Video Capture", bg="fdad5c", height=4, command=openVideo())
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
