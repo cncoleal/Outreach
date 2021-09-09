@@ -460,8 +460,9 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
-def killWindow(event):
+def killWindow(event, x, y, flags, param):
     if event == cv2.EVENT_FLAG_ALTKEY:
+        cap.release()
         cv2.destroyAllWindows()
 
 def pic_capture():
@@ -485,7 +486,7 @@ def pic_capture():
 
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
-        cv2.moveWindow('Video Capture', wid_but, -15)
+        cv2.moveWindow('Video Capture', wid_but, -10)
         cv2.setMouseCallback('Video Capture', killWindow)
 
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
