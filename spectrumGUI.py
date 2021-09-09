@@ -502,7 +502,7 @@ def takeVideo():
 
     camera = picamera.PiCamera()
     try:
-        camera.preview_fullscreen = false
+        camera.preview_fullscreen = False
         vidwin = Label(frame, image=camera.start_preview())
         vidwin.grid(row=0, column=0, columnspan=1)
         #time.sleep(10)
