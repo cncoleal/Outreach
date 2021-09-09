@@ -485,8 +485,8 @@ def pic_capture():
         img2 = cv2.resize(img1, (wid - wid_but, hgt))
 
         # Display the resulting frame
-        cv2.moveWindow('Video Capture', 0, -50)
         cv2.imshow('Video Capture', img2)
+        cv2.moveWindow('Video Capture', 0, -50)
 
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
         #cv2.imshow('Video Capture', img)
