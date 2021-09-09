@@ -506,7 +506,7 @@ def openVideo():
         windowName = 'Video Capture'
 
         cv2.imshow(windowName, img2)
-        cv2.createTrackbar('slider', windowName, 0, 100, on_change)
+        cv2.createTrackbar('slider', windowName, -1, -13, on_change)
         cv2.moveWindow(windowName, wid_but, -10)
         cv2.setMouseCallback(windowName, killWindow)
 
