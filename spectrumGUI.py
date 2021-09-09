@@ -37,7 +37,7 @@ frame.grid(row=0, column=0, sticky="nsew")
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
-butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt-50, 0, 0))
+butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt-50, wid_but, 0))
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
