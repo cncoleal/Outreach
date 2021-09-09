@@ -487,8 +487,8 @@ def openVideo(window):
     # window.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
 
-    window.title("Continuous Capture")  # set window title
-    window.protocol('WM_DELETE_WINDOW', window.destructor(frame))
+   # window.title("Continuous Capture")  # set window title
+   # window.protocol('WM_DELETE_WINDOW', window.destructor(frame))
 
     window.panel = tk.Label(window)  # initialize image panel
     window.panel.grid(row=0, rowspan=10, column=8, columnspan=25, padx=4, pady=6)
