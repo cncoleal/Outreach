@@ -493,16 +493,38 @@ def new_picture():
     camera.start_preview(alpha=128)
     preview_overlay(camera, overlay)
 
+# def pic_capture():
+#     with picamera.PiCamera() as camera:
+#         stream = io.BytesIO()
+#         for foo in camera.capture_continuous(stream, format='png'):
+#             # Truncate the stream to the current position (in case
+#             # prior iterations output a longer image)
+#             stream.truncate()
+#             stream.seek(0)
+#             if process(stream):
+#                 break
+
 def pic_capture():
-    with picamera.PiCamera() as camera:
-        stream = io.BytesIO()
-        for foo in camera.capture_continuous(stream, format='png'):
-            # Truncate the stream to the current position (in case
-            # prior iterations output a longer image)
-            stream.truncate()
-            stream.seek(0)
-            if process(stream):
-                break
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("Cannot open camera")
+        exit()
+    while True:
+        # Capture frame-by-frame
+        ret, frameCap = cap.read()
+        # if frame is read correctly ret is True
+        if not ret:
+            print("Can't receive frame (stream end?). Exiting ...")
+            break
+        # Our operations on the frame come here
+        gray = cv2.cvtColor(frameCap, cv.COLOR_BGR2GRAY)
+        # Display the resulting frame
+        cv2.imshow('frame', gray)
+        if cv2.waitKey(1) == ord('q'):
+            break
+    # When everything done, release the capture
+    cap.release()
+    cv2.destroyAllWindows()
 
 #
 # def pic_capture():
