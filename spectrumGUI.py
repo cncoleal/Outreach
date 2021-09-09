@@ -500,7 +500,7 @@ def takeVideo():
     #                               **options)
 
 
-    # camera = picamera.PiCamera()
+    camera = picamera.PiCamera()
     # try:
     #     # camera.preview_fullscreen = False
     #     # vidwin = Label(frame, image=camera.start_preview())
