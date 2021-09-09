@@ -463,12 +463,7 @@ def openSpectrum():
 
 def pic_capture():
     cap = cv2.VideoCapture(0)
-    #cv2.namedWindow("Video Capture", cv2.WINDOW_NORMAL)
-    # cv2.getWindowImageRect('Frame')
-    # Create window with freedom of dimensions
-    #m = cv2.imread("earth.jpg")  # Read image
-    #imS = cv2.resize(im, (960, 540))  # Resize image
-    #cv2.imshow("output", imS)
+
 
     if not cap.isOpened():
         print("Cannot open camera")
@@ -482,10 +477,10 @@ def pic_capture():
             break
         # Our operations on the frame come here
         img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        img2 = cv2.resize(img1, (wid - wid_but, hgt))
+        #img2 = cv2.resize(img1, (wid - wid_but, hgt))
 
         # Display the resulting frame
-        cv2.imshow('Video Capture', img2)
+        cv2.imshow('Video Capture', img1)
         cv2.moveWindow('Video Capture', wid_but, 0)
 
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
