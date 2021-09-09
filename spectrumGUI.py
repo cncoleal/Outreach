@@ -482,21 +482,21 @@ def pic_capture():
 
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
-        cv2.moveWindow('Video Capture', wid_but, -10)
+        cv2.moveWindow('Video Capture', wid_but, -15)
 
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
         #cv2.imshow('Video Capture', img)
         #cv2.resize('', wid-wid_but, hgt-50)
         #cv2.moveWindow('image', 0, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
         #cv2.waitKey(0)
-        if cv2.waitKey(0) == True:
+        if cv2.waitKey(1) == ord('q'):
             break
     # When everything done, release the capture
     cap.release()
     cv2.destroyAllWindows()
 
 def destroy():
-    cap.release()
+    #cap.release()
     cv2.destroyAllWindows()
     root.destroy()
 # create function "captureVideo"
