@@ -500,16 +500,16 @@ def takeVideo():
     #                               **options)
 
 
-    camera = picamera.PiCamera()
-    try:
-        # camera.preview_fullscreen = False
-        # vidwin = Label(frame, image=camera.start_preview())
-        # vidwin.grid(row=0, column=0, columnspan=1)
-        camera.start_preview()
-        time.sleep(10)
-        camera.stop_preview()
-    finally:
-        camera.close()
+    # camera = picamera.PiCamera()
+    # try:
+    #     # camera.preview_fullscreen = False
+    #     # vidwin = Label(frame, image=camera.start_preview())
+    #     # vidwin.grid(row=0, column=0, columnspan=1)
+    #     camera.start_preview()
+    #     time.sleep(10)
+    #     camera.stop_preview()
+    # finally:
+    #     camera.close()
 
 
     #
