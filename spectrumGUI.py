@@ -30,14 +30,14 @@ wid_but = 140
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt-50, wid_but, 0))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt, wid_but, 0))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
-butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt-50, 1, 0))
+butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt, 1, 0))
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
@@ -482,7 +482,7 @@ def pic_capture():
             break
         # Our operations on the frame come here
         img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        img2 = cv2.resize(img1, (wid - wid_but, hgt - 50))
+        img2 = cv2.resize(img1, (wid - wid_but, hgt))
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
