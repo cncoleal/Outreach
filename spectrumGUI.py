@@ -531,14 +531,16 @@ def openVideo():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    while True:
-        img = pic_capture()
 
-        newimg = PIL.Image.fromarray(img)
-        renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
-        vidImg = Label(frame, image=renderVid)
-        vidImg.image = renderVid
-        vidImg.grid(row=0, column=0, columnspan=1)
+    img = pic_capture()
+
+    newimg = PIL.Image.fromarray(img)
+    renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)
+    vidImg = Label(frame, image=renderVid)
+    vidImg.image = renderVid
+    vidImg.grid(row=0, column=0, columnspan=1)
+
+    vidImg.after(30, openVideo())
 
 
 #
