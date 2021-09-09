@@ -464,15 +464,15 @@ def openVideo():
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
-        #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-        img2 = cv2.resize(frame, (wid - wid_but, hgt))
+        img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+        img2 = cv2.resize(img1, (wid - wid_but, hgt))
 
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
         cv2.moveWindow('Video Capture', wid_but, -10)
         cv2.setMouseCallback('Video Capture', killWindow)
 
-        if cv2.waitKey(1)  & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     # When everything done, release the capture
     cap.release()
