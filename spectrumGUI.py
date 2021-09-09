@@ -511,6 +511,9 @@ def pic_capture():
 
     cap = cv2.VideoCapture(0)
 
+    vidImg = Label(frame)
+    vidImg.grid(row=0, column=0, columnspan=1)
+
     def video_loop():
         """ Get frame from the video stream and show it in Tkinter """
         ok, frameCap = cap.read()  # read frame from video stream
@@ -518,9 +521,10 @@ def pic_capture():
             cv2image = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGBA)  # convert colors from BGR to RGBA
             newimg = PIL.Image.fromarray(cv2image)  # convert image for PIL
             renderVid = PIL.ImageTk.PhotoImage(newimg.resize((w, h)), master=root)  # convert image for tkinter
-            vidImg = Label(frame, image=renderVid)
-            vidImg.image = renderVid  # anchor imgtk so it does not be deleted by garbage-collector
-            vidImg.grid(row=0, column=0, columnspan=1)  # show the image
+
+            #vidImg.config = renderVid  # anchor imgtk so it does not be deleted by garbage-collector
+            vidImg.config(image=renderVid)
+            #  # show the image
         vidImg.after(30, video_loop())
 
     video_loop()
