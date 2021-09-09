@@ -148,7 +148,7 @@ def take_picture(name, shutter):
         # time.sleep(3)
         time.sleep(3)
         print("capturing image")
-        camera.capture(name, resize=(1296, 972))
+        camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
     finally:
     	camera.close()
     return name
