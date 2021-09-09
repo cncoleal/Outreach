@@ -465,7 +465,7 @@ def pic_capture():
     cap = cv2.VideoCapture(0)
     cv2.namedWindow("Video Capture", cv2.WINDOW_NORMAL)
     # cv2.getWindowImageRect('Frame')
-    print(cv2.getWindowImageRect('Frame'))# Create window with freedom of dimensions
+    print(cv2.getWindowImageRect('Video Capture'))# Create window with freedom of dimensions
     #m = cv2.imread("earth.jpg")  # Read image
     #imS = cv2.resize(im, (960, 540))  # Resize image
     #cv2.imshow("output", imS)
