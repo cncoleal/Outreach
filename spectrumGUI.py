@@ -464,8 +464,8 @@ def openVideo():
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
-        img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        img2 = cv2.resize(img1, (wid - wid_but, hgt))
+        #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+        img2 = cv2.resize(frame, (wid - wid_but, hgt))
 
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
