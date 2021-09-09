@@ -427,10 +427,10 @@ def video_loop(window):
         imgtk = PIL.ImageTk.PhotoImage(image=window.current_image)  # convert image for tkinter
         window.panel.imgtk = imgtk  # anchor imgtk so it does not be deleted by garbage-collector
         window.panel.config(image=imgtk)  # show the image
-    window.root.after(30, window.video_loop)  # call the same function after 30 milliseconds
+    window.after(30, window.video_loop)  # call the same function after 30 milliseconds
 
 def destructor(window):
-    window.root.destroy()
+    window.destroy()
     window.vs.release()  # release web camera
     window.destroyAllWindows()  # it is not mandatory in this application
 
@@ -476,16 +476,16 @@ def openVideo(window):
     #defaultbg = window.root.cget('bg')  # set de default grey color to use in labels background
     w = root.winfo_width()  # width for the Tk root
     h = root.winfo_height()  # height for the Tk root
-    window.root.resizable(0, 0)
-    ws = window.root.winfo_screenwidth()  # width of the screen
-    hs = window.root.winfo_screenheight()  # height of the screen
+    window.resizable(0, 0)
+    ws = window.winfo_screenwidth()  # width of the screen
+    hs = window.winfo_screenheight()  # height of the screen
     x = (ws / 2) - (w / 2)
     y = (hs / 2) - (h / 2)
-    window.root.geometry('%dx%d+%d+%d' % (w, h, x, y))
-    window.root.title("Continuous Capture")  # set window title
-    window.root.protocol('WM_DELETE_WINDOW', window.destructor(frame))
+    window.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    window.title("Continuous Capture")  # set window title
+    window.protocol('WM_DELETE_WINDOW', window.destructor(frame))
 
-    window.panel = tk.Label(window.root)  # initialize image panel
+    window.panel = tk.Label(window)  # initialize image panel
     window.panel.grid(row=0, rowspan=10, column=8, columnspan=25, padx=4, pady=6)
 
     #self.botQuit = tk.Button(self.root, width=6, font=('arial narrow', 18, 'normal'), text="CLOSE",
