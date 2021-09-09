@@ -521,7 +521,7 @@ def pic_capture():
             vidImg = Label(frame, image=renderVid)
             vidImg.image = renderVid  # anchor imgtk so it does not be deleted by garbage-collector
             vidImg.grid(row=0, column=0, columnspan=1)  # show the image
-        window.after(30, window.video_loop)
+        vidImg.after(30, video_loop())
 
     video_loop()
 
