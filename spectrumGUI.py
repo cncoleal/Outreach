@@ -405,7 +405,7 @@ def video_stream(lmain, cap):
     imgtk = PIL.ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    lmain.after(1, video_stream)
+    lmain.after(30, video_stream())
 
     return
 # def acquire_video():
