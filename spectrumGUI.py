@@ -460,6 +460,9 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
+def killWindow(event):
+    if event == cv2.EVENT_FLAG_ALTKEY:
+        cv2.destroyAllWindows()
 
 def pic_capture():
     global cap
@@ -483,6 +486,7 @@ def pic_capture():
         # Display the resulting frame
         cv2.imshow('Video Capture', img2)
         cv2.moveWindow('Video Capture', wid_but, -15)
+        cv2.setMouseCallback('Video Capture', killWindow)
 
         #print(cv2.getWindowImageRect('Video Capture')) # 660x430
         #cv2.imshow('Video Capture', img)
@@ -495,10 +499,10 @@ def pic_capture():
     cap.release()
     cv2.destroyAllWindows()
 
-def destroy():
-    #cap.release()
-    cv2.destroyAllWindows()
-    root.destroy()
+# def destroy():
+#     #cap.release()
+#     cv2.destroyAllWindows()
+#     root.destroy()
 # create function "captureVideo"
 
 ###################################################
@@ -511,7 +515,7 @@ button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=pic_capture)
 
 
-exit_button = Button(butWin, text="Exit",height=1, command=destroy)
+exit_button = Button(butWin, text="Exit",height=1, command=root.destroy())
 exit_button.grid(row=5,column=0)
 
 # New windows
