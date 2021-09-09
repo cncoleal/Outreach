@@ -519,7 +519,14 @@ def pic_capture():
         # Our operations on the frame come here
         gray = cv2.cvtColor(frameCap, cv2.COLOR_BGR2GRAY)
         # Display the resulting frame
-        cv2.imshow('frame', gray)
+        w = root.winfo_width()
+        h = root.winfo_height()
+        simg = PIL.Image(gray)
+        renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
+        specIm = Label(frame, image=renderSpec)
+        specIm.image = renderSpec
+        specIm.grid(row=0, column=0, columnspan=1)
+
         if cv2.waitKey(1) == ord('q'):
             break
     # When everything done, release the capture
