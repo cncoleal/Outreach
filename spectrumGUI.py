@@ -480,7 +480,7 @@ def openSpectrum():
     # video_loop(vs)
     # read frame from video stream
 
-def take_video():
+def takeVideo():
     # print("initialising camera continuous capture")
     # camera = picamera.PiCamera()
     # try:
