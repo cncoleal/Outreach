@@ -500,15 +500,12 @@ def openVideo():
             #time.wait = 10
             #video_stream()
             #lmain.after(30, video_stream())
-        return
 
-    for i in range(1, 10):
+
+    while True:
         video_stream()
 
 
-
-
-    return
 
 # def openVideo():
 #     w = root.winfo_width()
