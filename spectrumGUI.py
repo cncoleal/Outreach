@@ -494,7 +494,7 @@ def pic_capture():
         #cv2.resize('', wid-wid_but, hgt-50)
         #cv2.moveWindow('image', 0, 0) #(wid-wid_but, hgt-50, wid_but, 0) (lxw+delx+dely)
         #cv2.waitKey(0)
-        if cv2.waitKey(1) == ord('q'):
+        if cv2.waitKey(1)  & 0xFF == ord('q'):
             break
     # When everything done, release the capture
     cap.release()
