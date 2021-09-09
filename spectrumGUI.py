@@ -517,7 +517,7 @@ def pic_capture():
             print("Can't receive frame (stream end?). Exiting ...")
             break
         # Our operations on the frame come here
-        gray = cv2.cvtColor(frameCap, cv2.COLOR_BGR2GRAY)
+        gray = cv2.cvtColor(frameCap, cv2.COLOR_BGR2RGB)
         # Display the resulting frame
         w = root.winfo_width()
         h = root.winfo_height()
