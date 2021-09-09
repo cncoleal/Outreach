@@ -398,15 +398,15 @@ def acquire_photo():
 
     return
 
-def video_stream(lmain):
-    cap = cv2.VideoCapture(0)
+def video_stream(lmain, cap):
+
     _, frameC = cap.read()
     cv2image = cv2.cvtColor(frameC, cv2.COLOR_BGR2RGBA)
     img = PIL.Image.fromarray(cv2image)
     imgtk = PIL.ImageTk.PhotoImage(image=img)
     lmain.imgtk = imgtk
     lmain.configure(image=imgtk)
-    lmain.after(30, video_stream(lmain))
+    lmain.after(30, video_stream(lmain, cap))
 
     return
 # def acquire_video():
@@ -496,9 +496,9 @@ def openVideo():
     lmain = Label(frame)
     lmain.grid(row=0,column=0, columnspan=1)
 
+    cap = cv2.VideoCapture(0)
 
-
-    video_stream(lmain)
+    video_stream(lmain, cap)
 
 # def openVideo():
 #     w = root.winfo_width()
