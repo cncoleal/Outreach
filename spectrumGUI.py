@@ -521,7 +521,7 @@ def pic_capture():
         # Display the resulting frame
         w = root.winfo_width()
         h = root.winfo_height()
-        simg = PIL.Image(gray)
+        simg = PIL.Image.fromarray(gray)
         renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
         specIm = Label(frame, image=renderSpec)
         specIm.image = renderSpec
