@@ -526,7 +526,8 @@ def openSpectrum():
 
 # testing openVideo function
 def openVideo():
-       picamera.start_preview(fullscreen=False, window=(100, 200, 300, 400))
+    camera = picamera.PiCamera()
+    camera.start_preview(fullscreen=False, window=(100, 200, 300, 400))
 
 
 # openVideo Function that Works
