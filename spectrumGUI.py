@@ -41,7 +41,7 @@ frame.grid(row=0, column=0, sticky="nsew")
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
-butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt, 1, -10))
+butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt, 1, -50))
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
@@ -618,7 +618,7 @@ button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
 
-exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
+exit_button = Button(butWin, text="Exit",height=2, command=root.destroy)
 exit_button.grid(row=5,column=0, sticky='nsew')
 
 # New windows
