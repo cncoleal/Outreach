@@ -34,9 +34,9 @@ wid_but = 140
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but-10, hgt+30, wid_but, -30))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
 root.configure(bg="black")
-frame = Frame(root, bg="blue")
+frame = Frame(root, bg="black")
 frame.grid(row=0, column=0, sticky="s")
 
 # side window: displays buttons
@@ -520,7 +520,7 @@ def openImage():
 
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
-    rawIm = Label(frame, image=renderRaw)
+    rawIm = Label(root, image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0, columnspan=1)
 
