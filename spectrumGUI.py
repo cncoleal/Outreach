@@ -508,9 +508,7 @@ def killWindow(event, x, y, flags, param):
 def openImage():
     camera.stop_preview()
     # get size of frame
-    wid_but = 140 + 5
-
-    w = 800 - wid_but - 10
+    w = root.winfo_width()
     h = 470
 
 
