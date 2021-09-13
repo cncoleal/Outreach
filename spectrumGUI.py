@@ -515,7 +515,7 @@ def openImage():
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
-    h = 470
+    h = hgt-80
 
 
     rimg = PIL.Image.open(raw_filename)
