@@ -38,6 +38,9 @@ root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
 root.configure(bg="black")
 frame = Frame(root, bg="black")
 frame.grid(row=0, column=0, sticky="s")
+#
+# imWin = tk.Toplevel(root)
+# imWin.geometry
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
@@ -522,7 +525,7 @@ def openImage():
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(root, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.grid(row=0,column=0, columnspan=1)
+    rawIm.grid(row=1,column=0, sticky="s")
 
 
 def openSpectrum():
@@ -553,7 +556,7 @@ def openVideo():
 
     #shutter = int(5)
     #camera = picamera.PiCamera()
-    camera.start_preview(fullscreen=False, window=(wid_but,40, 800-wid_but,hgt-80))#(wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(wid_but,45, 800-wid_but,hgt-80))#(wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness - tkScale.get()
