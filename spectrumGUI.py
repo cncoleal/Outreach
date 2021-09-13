@@ -539,7 +539,7 @@ def setBrightness(ev=None):
 
 
 global tkScale
-tkScale = tk.Scale(root,from_=0, to=100,length=300,orient=tk.HORIZONTAL,command=setBrightness)
+tkScale = tk.Scale(root,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
 tkScale.set(50)
 tkScale.grid(row=0, column=0)
 
