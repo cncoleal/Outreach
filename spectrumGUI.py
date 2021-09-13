@@ -537,7 +537,7 @@ def openVideo():
     # set width of button window
     wid_but = 140+5
 
-    camera = picamera.PiCamera()
+    #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
 
 
