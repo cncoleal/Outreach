@@ -209,19 +209,19 @@ def take_picture(name, shutter):
     camera.stop_preview()
     print("initialising camera")
     #camera = picamera.PiCamera()
-    camera.preview_fullscreen = False
-    camera.preview_window = (170, -120, 860, 950)
+    #camera.preview_fullscreen = False
+    #camera.preview_window = (170, -120, 860, 950)
     try:
         camera.start_preview()
         print("allowing camera to warmup")
-        camera.vflip = True
+        #camera.vflip = True
         camera.framerate = Fraction(1, 2)
         camera.shutter_speed = shutter
-        camera.iso = 600
-        camera.exposure_mode = 'off'
-        camera.awb_mode = 'off'
-        camera.awb_gains = (1, 1)
-        time.sleep(3)
+        camera.iso = 1600
+        #camera.exposure_mode = 'off'
+        #camera.awb_mode = 'off'
+        #camera.awb_gains = (1, 1)
+        #time.sleep(3)
         time.sleep(3)
         print("capturing image")
         camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
@@ -541,13 +541,13 @@ def openVideo():
     shutter = int(15)
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
-    camera.vflip = True
+    #camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter
     camera.iso = 600
-    camera.exposure_mode = 'off'
-    camera.awb_mode = 'off'
-    camera.awb_gains = (1, 1)
+    #camera.exposure_mode = 'off'
+    #camera.awb_mode = 'off'
+    #camera.awb_gains = (1, 1)
 
 
 # openVideo Function that Works
