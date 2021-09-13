@@ -226,7 +226,7 @@ def take_picture(name, shutter):
         camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
         camera.exposure_mode = 'nightpreview'
         #camera.framerate = Fraction(1, 3)
-        # camera.shutter_speed = shutter
+        camera.shutter_speed = 5
         # camera.iso = 1000
         # camera.exposure_mode = 'off'
         # camera.awb_mode = 'off'
