@@ -548,7 +548,7 @@ def openVideo():
     camera.shutter_speed = shutter
     #camera.iso = 1000
     camera.exposure_mode = 'off'
-    camera.exposure_compensation = 6
+    camera.exposure_compensation = 25
     camera.awb_mode = 'auto'
     #camera.awb_gains = ()
 
