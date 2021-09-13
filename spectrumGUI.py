@@ -21,9 +21,9 @@ from tkinter import filedialog
 # create tkinter object
 root = Tk()
 # globals
-global wid
-global hgt
-global wid_but
+# global wid
+# global hgt
+# global wid_but
 
 # get screen width and height
 wid = root.winfo_screenwidth()
@@ -527,6 +527,11 @@ def openSpectrum():
 
 # testing openVideo function
 def openVideo():
+    wid = root.winfo_screenwidth()
+    hgt = root.winfo_screenheight()
+    # set width of button window
+    wid_but = 140
+
     camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid-wid_but, hgt, wid_but, 0))
 
@@ -581,11 +586,12 @@ exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
 exit_button.grid(row=5,column=0)
 
 # New windows
-button_takePicture.grid(row=0,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
-button_viewPicture.grid(row=1,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
-button_createSpectrum.grid(row=2,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
-button_viewSpectrum.grid(row=3,column=0,sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
-button_captureVideo.grid(row=4, column=0, sticky="nsew")
+button_captureVideo.grid(row=0, column=0, sticky="nsew")
+button_takePicture.grid(row=1,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
+button_viewPicture.grid(row=2,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
+button_createSpectrum.grid(row=3,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
+button_viewSpectrum.grid(row=4,column=0,sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
+
 
 
 
