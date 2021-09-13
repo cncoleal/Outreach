@@ -538,10 +538,10 @@ def openVideo():
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
     camera.vflip = True
-    camera.framerate = Fraction(1, 3)
+    #camera.framerate = Fraction(1, 3)
     camera.shutter_speed = shutter
-    #camera.iso = 1600
-    camera.exposure_mode = 'spotlight'
+    camera.iso = 1000
+    camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
 
