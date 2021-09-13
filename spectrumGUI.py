@@ -215,9 +215,9 @@ def take_picture(name, shutter):
       #  camera.start_preview()
         print("allowing camera to warmup")
         camera.vflip = True
-        camera.framerate = Fraction(1, 3)
+        #camera.framerate = Fraction(1, 3)
         camera.shutter_speed = shutter
-        camera.iso = 1600
+        camera.iso = 1000
         camera.exposure_mode = 'off'
         camera.awb_mode = 'off'
         camera.awb_gains = (1, 1)
