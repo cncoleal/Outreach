@@ -42,6 +42,11 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
+# globals
+global iso_value
+iso_value = 100
+
+
 # Notes (11/16/20): 
 
 # Fix gui font size (later)
@@ -205,14 +210,14 @@ def take_picture(name, shutter):
     try:
         camera.start_preview()
         print("allowing camera to warmup")
-        # camera.vflip = True
-        # camera.framerate = Fraction(1, 2)
-        # camera.shutter_speed = shutter
-        camera.iso = 100
-        # camera.exposure_mode = 'off'
-        # camera.awb_mode = 'off'
-        # camera.awb_gains = (1, 1)
-        # time.sleep(3)
+        camera.vflip = True
+        camera.framerate = Fraction(1, 2)
+        camera.shutter_speed = shutter
+        camera.iso = iso_value
+        camera.exposure_mode = 'off'
+        camera.awb_mode = 'off'
+        camera.awb_gains = (1, 1)
+        time.sleep(3)
         time.sleep(3)
         print("capturing image")
         camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
@@ -516,39 +521,46 @@ def openSpectrum():
     specIm.grid(row=0,column=0, columnspan=1)
 
 
-
+# testing openVideo function
 def openVideo():
-    global cap
-    cap = cv2.VideoCapture(0)
-    #cap.set(cv2.CAP_PROP_EXPOSURE, -4)
+    class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
 
-    if not cap.isOpened():
-        print("Cannot open camera")
-        exit()
-    while True:
-        # Capture frame-by-frame
-        ret, frame = cap.read()
-        # if frame is read correctly ret is True
-        if not ret:
-            print("Can't receive frame (stream end?). Exiting ...")
-            break
-        # Our operations on the frame come here
-        #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-        img2 = cv2.resize(frame, (wid - wid_but, hgt))
+    start_preview(fullscreen=False, window=(100, 200, 300, 400))
 
-        # Display the resulting frame
-        windowName = 'Video Capture'
 
-        cv2.imshow(windowName, img2)
-        #cv2.createTrackbar('slider', windowName, 0, 100, on_change)
-        cv2.moveWindow(windowName, wid_but, -10)
-        cv2.setMouseCallback(windowName, killWindow)
-
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-    # When everything done, release the capture
-    cap.release()
-    cv2.destroyAllWindows()
+# openVideo Function that Works
+# def openVideo():
+#     global cap
+#     cap = cv2.VideoCapture(0)
+#     #cap.set(cv2.CAP_PROP_EXPOSURE, -4)
+#
+#     if not cap.isOpened():
+#         print("Cannot open camera")
+#         exit()
+#     while True:
+#         # Capture frame-by-frame
+#         ret, frame = cap.read()
+#         # if frame is read correctly ret is True
+#         if not ret:
+#             print("Can't receive frame (stream end?). Exiting ...")
+#             break
+#         # Our operations on the frame come here
+#         #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
+#         img2 = cv2.resize(frame, (wid - wid_but, hgt))
+#
+#         # Display the resulting frame
+#         windowName = 'Video Capture'
+#
+#         cv2.imshow(windowName, img2)
+#         #cv2.createTrackbar('slider', windowName, 0, 100, on_change)
+#         cv2.moveWindow(windowName, wid_but, -10)
+#         cv2.setMouseCallback(windowName, killWindow)
+#
+#         if cv2.waitKey(1) & 0xFF == ord('q'):
+#             break
+#     # When everything done, release the capture
+#     cap.release()
+#     cv2.destroyAllWindows()
 
 
 
