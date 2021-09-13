@@ -531,17 +531,13 @@ def openSpectrum():
 
 # testing openVideo function
 def openVideo():
-    wid = root.winfo_screenwidth()
-    hgt = root.winfo_screenheight()
-    print(wid)
-    print(hgt)
     # set width of button window
     wid_but = 140+5
 
     shutter = int(15)
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
-    #camera.vflip = True
+    camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter
     camera.iso = 600
