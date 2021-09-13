@@ -37,8 +37,7 @@ root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
-frame.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
-frame.grid(row=0, column=0, sticky="nsew")
+frame.grid(row=0, column=0, sticky="nsew", anchor='s')
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
