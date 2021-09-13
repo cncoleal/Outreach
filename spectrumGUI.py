@@ -51,7 +51,7 @@ global camera
 global output_filename
 camera = picamera.PiCamera()
 name = 'test'
-output_filename = name + "_out.jpg"
+output_filename = name + "_chart.png"
 
 
 # Notes (11/16/20): 
@@ -384,7 +384,7 @@ def export_csv(name, normalized_results):
 
 # export diagram
 def export_diagram(name, normalized_results):
-    global output_filename
+    # global output_filename
     antialias = 4
     w = 600 * antialias
     h2 = 300 * antialias
@@ -543,7 +543,7 @@ def openVideo():
     shutter = int(5)
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 20, 800-wid_but-17, 500))
-    camera.vflip = True
+    #camera.vflip = True
     #camera.framerate = Fraction(1, 3)
     camera.shutter_speed = shutter
     camera.iso = 1000
