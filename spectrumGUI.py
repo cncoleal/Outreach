@@ -535,7 +535,7 @@ def openVideo():
     wid_but = 140
 
     camera = picamera.PiCamera()
-    camera.start_preview(fullscreen=False, window=(140, 0, 800, 480))
+    camera.start_preview(fullscreen=False, window=(140, 0, 800, 100))
 
 
 # openVideo Function that Works
