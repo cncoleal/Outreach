@@ -413,18 +413,18 @@ def openImage():
 
 
     rimg = PIL.Image.open(raw_filename)
-    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=frame)
+    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(frame, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.grid(row=0,column=0)
+    rawIm.grid(row=0,column=0,columnspan=1)
 
 
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
     h = root.winfo_height()
-   ## To open spectrum
 
+    ## To open spectrum
     simg = PIL.Image.open(output_filename)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
     specIm = Label(frame, image=renderSpec)
@@ -432,62 +432,23 @@ def openSpectrum():
     specIm.grid(row=0,column=0, columnspan=1)
 
 
-#class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
-
 def setBrightness(ev=None):
     camera.brightness = tkScale.get()
 
 
-
-
-# testing openVideo function
 def openVideo():
     # set width of button window
-    wid_but = 140 + 5
+    setwidth = wid_but+5
 
-    camera.start_preview(fullscreen=False, window=(wid_but,45, 800-wid_but,hgt-80))#(wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(setwidth,45, 800-setwidth,hgt-80))#(wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness = tkScale.get()
     camera.sensor_mode = 3
-    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+    camera.iso = 0
+    camera.framerate_range = (0.167, 6)
     camera.exposure_mode = 'nightpreview'
 
-
-# openVideo Function that Works
-# def openVideo():
-#     global cap
-#     cap = cv2.VideoCapture(0)
-#     #cap.set(cv2.CAP_PROP_EXPOSURE, -4)
-#
-#     if not cap.isOpened():
-#         print("Cannot open camera")
-#         exit()
-#     while True:
-#         # Capture frame-by-frame
-#         ret, frame = cap.read()
-#         # if frame is read correctly ret is True
-#         if not ret:
-#             print("Can't receive frame (stream end?). Exiting ...")
-#             break
-#         # Our operations on the frame come here
-#         #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-#         img2 = cv2.resize(frame, (wid - wid_but, hgt))
-#
-#         # Display the resulting frame
-#         windowName = 'Video Capture'
-#
-#         cv2.imshow(windowName, img2)
-#         #cv2.createTrackbar('slider', windowName, 0, 100, on_change)
-#         cv2.moveWindow(windowName, wid_but, -10)
-#         cv2.setMouseCallback(windowName, killWindow)
-#
-#         if cv2.waitKey(1) & 0xFF == ord('q'):
-#             break
-#     # When everything done, release the capture
-#     cap.release()
-#     cv2.destroyAllWindows()
 
 
 
@@ -497,11 +458,11 @@ def openVideo():
 global tkScale
 tkScale = tk.Scale(frame,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
 tkScale.set(50)
-tkScale.grid(row=0, column=0)
+tkScale.grid(row=1, column=0, sticky='s')
 
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)#, command=lambda: take_picture(raw_filename))
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
-button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
+button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
@@ -511,10 +472,10 @@ exit_button.grid(row=5,column=0, sticky='nsew')
 
 # New windows
 button_captureVideo.grid(row=0, column=0, sticky="nsew")
-button_takePicture.grid(row=1,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
-button_viewPicture.grid(row=2,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
-button_createSpectrum.grid(row=3,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
-button_viewSpectrum.grid(row=4,column=0,sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
+button_takePicture.grid(row=1,column=0, sticky="nsew")
+button_viewPicture.grid(row=2,column=0, sticky="nsew")
+button_createSpectrum.grid(row=3,column=0, sticky="nsew")
+button_viewSpectrum.grid(row=4,column=0,sticky="nsew")
 
 
 
@@ -529,64 +490,6 @@ root.mainloop()
 
 
 
-
-
-
-
-
-
-###################################################
-# MISC Code
-###################################################
-
-
-# Create file save entry button 
-#  e = Entry(root, width=35, borderwidth=5)
-#e.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
-#  e.pack(side=tk.BOTTOM, anchor=S)
-#  e.insert(0, "Enter file save name here")
-#  raw_filename = e.get()
-
-	# add functionality: if empty, use auto name
-#	if (blank): 
-#		name = sys.argv[1]
-#    	shutter = int(sys.argv[2])
-#    	raw_filename = name + "_raw.jpg"
-
-
-
-# Create Buttons
-#button_takePicture = Button(root, text="Take Picture", padx=40, pady = 20)#, command=lambda: take_picture(raw_filename))
-#button_createSpectrum = Button(root, text="Create Spectrum", padx=40, pady=20) #, command=createSpectrum)
-#b1 = Frame(root, bg="black", bd=3)
-#b2 = Frame(root, bg='black', bd=3)
-
-
-
-#button_takePicture['font'] = myFont
-#button_createSpectrum['font'] = myFont
-# button frames
-
-
-# Pack 
-
-# Button Locations
-#button_takePicture.grid(row=0, column=0, columnspan = 2)
-#button_createSpectrum.grid(row=0, column=2, columnspan=2)
-
-# Auto column adjustments
-#h = button_takePicture.winfo_height()
-#w = button_takePicture.winfo_width()
-
-#button_takePicture.columnconfigure(0, weight=2)
-#button_createSpectrum.columnconfigure(2, weight=2)
-
-
-
-# Display images: 
-# initial picture
-# image with overlay
-# final spectrum 
 
 
 
