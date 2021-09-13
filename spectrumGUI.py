@@ -534,6 +534,8 @@ def openSpectrum():
 
 #class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
 
+def setBrightness(ev=None):
+    camera.brightness = tkScale.get()
 
 
 global tkScale
@@ -559,8 +561,7 @@ def openVideo():
     #sleep = (10)
 
 
-def setBrightness(ev=None):
-    camera.brightness = tkScale.get()
+
     # camera.vflip = True
     # #camera.framerate = Fraction(1, 3)
     # camera.shutter_speed = shutter
