@@ -553,7 +553,7 @@ def openVideo():
 
     #shutter = int(5)
     #camera = picamera.PiCamera()
-    camera.start_preview(fullscreen=False, window=(wid_but,20, 800-wid_but,hgt-40))#(wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(wid_but,40, 800-wid_but,hgt-80))#(wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness - tkScale.get()
