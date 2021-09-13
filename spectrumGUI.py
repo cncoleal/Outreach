@@ -217,7 +217,7 @@ def take_picture(name, shutter):
         camera.vflip = True
         camera.framerate = Fraction(1, 2)
         camera.shutter_speed = shutter
-        camera.iso = 100
+        camera.iso = 600
         camera.exposure_mode = 'off'
         camera.awb_mode = 'off'
         camera.awb_gains = (1, 1)
@@ -544,7 +544,7 @@ def openVideo():
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter
-    camera.iso = 100
+    camera.iso = 600
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
