@@ -226,7 +226,7 @@ def take_picture(name, shutter):
         print("capturing image")
         camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
         camera.stop_preview()
-    finally:
+
     	#camera.close()
     return name
 
