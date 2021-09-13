@@ -46,8 +46,9 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
-camera = picamera.PiCamera()
 global camera
+camera = picamera.PiCamera()
+
 
 # Notes (11/16/20): 
 
