@@ -47,20 +47,6 @@ Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
 
-
-# Notes (11/16/20): 
-
-# Fix gui font size (later)
-# Add in displayed images (3 images)
-# Want to still save csv file? 
-# Allow ability for user to define filesave name
-# Change colors? 
-# How to navigate multiple windows on RPi display? (Back buttons?)
-
-# Notes (2/3/21)
-# Need to run with python3
-
-
 ########### FUNCTION DEFINTIONS #######################
 
 
@@ -137,79 +123,55 @@ def wavelength_to_color(lambda2):
 #######################################################
 # Lower level functions
 #######################################################
-#
-# camera = picamera.PiCamera()
-# ON = True
-#
-# zoom = 1.0
-# previewTime = 3
-# awbcount = 0
-# effectno = 0
-# delay = 5
-# threshPercent = 1.8
-# step = 1
-# numImages = 1
-# captureCount = 0
-# numSav = 0
-#
-# def prevTime():
-# 	global previewTime
-# 	previewTime += 1
-#         print("Preview time", previewTime, "s")
-# 	return previewTime
-# 	preview()
-#
-# def preview():
-# 	camera.preview_fullscreen = False
-# 	camera.preview_window = (170, -120, 860, 950)
-# 	camera.video_stabilization = True
-# 	#camera.brightness=w.get()
-# 	camera.start_preview()
-# 	print "Brightness",camera.brightness
-#         camera.contrast=y.get()
-#         print "Contrast",camera.contrast
-#         #camera.saturation=xy.get()
-#         #print "Saturation",camera.saturation
-# 	for t in range (previewTime, 0, -1):
-# 		camera.brightness = w.get()
-#        		time.sleep(1)
-#
+class video2pic:
+    def __init__(self):
+        camera = picamera.PiCamera()
+        camera.start_preview()
+        Button(butWin, text="Video Capture", bg="#fdad5c", height=4,
+               command=lambda .camTask('openVideo')).grid(row=1, column=0, sticky="nsew")
+        Button(butWin, text="Take Picture", bg="#fdad5c", height=4,
+               command=lambda .camTask('acquire_photo')).grid(row=0, column=0, sticky="nsew")
+        root.mainloop()
 
-# def contrast():
-# 	camera.contrast = y.get()
-#         if camera.contrast < -99:
-#                 camera.contrast += 5
-#         elif camera.contrast > 99:
-#                 camera.contrast -= 5
-#         else:
-# 		camera.contrast += 5
-#         print "Contrast", camera.contrast
-#         y.set(camera.contrast)
-#
-#
-#
-# contrastButton = Button(root, text="  Contrast   ", command=contrast)
-# contrastButton.grid(row=4, column=1)
-#
-# y = Scale(frame, from_=-50, to=50, resolution=1, orient=HORIZONTAL)
-# y.grid(row=10, column=1)
-# y.set(camera.contrast)
-# print "Contrast", camera.contrast
-#
-# z = Label(frame, text="Contrast")
-# z.grid(row=10, column=0)
-#
-# previewButton = Button(frame, text="    Preview    ", command=preview)
-# previewButton.grid(row=1, column=1)
+    def camTask(self, op):
+        if op == 'openVideo':
+            camera.stop_preview()
+            camera.start_preview(fullscreen=False, window=(wid_but, 10, 800 - wid_but - 10, 470))
+        elif op == 'acquire_photo':
+            camera.stop_preview()
+            acquire_photo()
 
-# Take picture
+def acquire_photo():
+    # global variables
+    global name
+    global raw_filename
+    name = "test" # Need to add in button for this later! sys.argv[1]
+    shutter = int(10) # Need to add in button for this later! int(sys.argv[2])
+    # save filename as a global variable
+    raw_filename = name + "_raw.jpg"
+    # run take picture function
+    take_picture(raw_filename,shutter)
+
+    return
+# testing openVideo function
+def openVideo():
+    # set width of button window
+    wid_but = 140 + 5
+
+    camera = picamera.PiCamera()
+    global camera
+
+    camera.start_preview(fullscreen=False, window=(wid_but, 10, 800 - wid_but - 10, 470))
+
+
+
 def take_picture(name, shutter):
+    wid = root.winfo_screenwidth()
+    hgt = root.winfo_screenheight()
     print("initialising camera")
     camera = picamera.PiCamera()
-    camera.preview_fullscreen = False
-    camera.preview_window = (170, -120, 860, 950)
     try:
-        camera.start_preview()
+        camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
         print("allowing camera to warmup")
         camera.vflip = True
         camera.framerate = Fraction(1, 2)
@@ -227,16 +189,7 @@ def take_picture(name, shutter):
     	camera.close()
     return name
 
-# def take_video():
-#     camera = picamera.PiCamera()
-#     try:
-#         camera.capture(name, resize=(1296, 972))
-#     finally:
-#         camera.close()
-#     return name
-#
-# Find aperture
- 
+
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
     middle_x = int(pic_width / 2)
     middle_y = int(pic_height / 2)
@@ -436,18 +389,7 @@ def export_diagram(name, normalized_results):
 # High level functions
 #######################################################
 # Take photo
-def acquire_photo():
-    # global variables
-    global name
-    global raw_filename
-    name = "test" # Need to add in button for this later! sys.argv[1]
-    shutter = int(10) # Need to add in button for this later! int(sys.argv[2])
-    # save filename as a global variable
-    raw_filename = name + "_raw.jpg"
-    # run take picture function
-    take_picture(raw_filename,shutter)
 
-    return
 
 
 
@@ -522,74 +464,22 @@ def openSpectrum():
     specIm.grid(row=0,column=0, columnspan=1)
 
 
-#class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
-
-
-# testing openVideo function
-def openVideo():
-    wid = root.winfo_screenwidth()
-    hgt = root.winfo_screenheight()
-    print(wid)
-    print(hgt)
-    # set width of button window
-    wid_but = 140+5
-
-    camera = picamera.PiCamera()
-    camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
-
-
-# openVideo Function that Works
-# def openVideo():
-#     global cap
-#     cap = cv2.VideoCapture(0)
-#     #cap.set(cv2.CAP_PROP_EXPOSURE, -4)
-#
-#     if not cap.isOpened():
-#         print("Cannot open camera")
-#         exit()
-#     while True:
-#         # Capture frame-by-frame
-#         ret, frame = cap.read()
-#         # if frame is read correctly ret is True
-#         if not ret:
-#             print("Can't receive frame (stream end?). Exiting ...")
-#             break
-#         # Our operations on the frame come here
-#         #img1 = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
-#         img2 = cv2.resize(frame, (wid - wid_but, hgt))
-#
-#         # Display the resulting frame
-#         windowName = 'Video Capture'
-#
-#         cv2.imshow(windowName, img2)
-#         #cv2.createTrackbar('slider', windowName, 0, 100, on_change)
-#         cv2.moveWindow(windowName, wid_but, -10)
-#         cv2.setMouseCallback(windowName, killWindow)
-#
-#         if cv2.waitKey(1) & 0xFF == ord('q'):
-#             break
-#     # When everything done, release the capture
-#     cap.release()
-#     cv2.destroyAllWindows()
-
-
-
 ###################################################
 # GUI Build 
 ###################################################
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)#, command=lambda: take_picture(raw_filename))
+#button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)#, command=lambda: take_picture(raw_filename))
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
+#button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
 
 exit_button = Button(butWin, text="Exit",height=1, command=root.destroy)
 exit_button.grid(row=5,column=0)
 
 # New windows
-button_captureVideo.grid(row=0, column=0, sticky="nsew")
-button_takePicture.grid(row=1,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
+#button_captureVideo.grid(row=0, column=0, sticky="nsew")
+#button_takePicture.grid(row=1,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
 button_viewPicture.grid(row=2,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)#fill=tk.X, side=tk.LEFT, anchor=SW, expand=True)
 button_createSpectrum.grid(row=3,column=0, sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
 button_viewSpectrum.grid(row=4,column=0,sticky="nsew") #pack(side=LEFT, padx=5, pady=5)
