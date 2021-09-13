@@ -457,6 +457,7 @@ def acquire_photo():
 
 
 def createSpectrum():
+    camera.stop_preview()
     # get pictures aperature
     im = PIL.Image.open(raw_filename)
     print("locating aperture")
@@ -504,6 +505,7 @@ def killWindow(event, x, y, flags, param):
 # File Viewing functions
 #######################################################
 def openImage():
+    camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
     h = root.winfo_height()
@@ -516,6 +518,7 @@ def openImage():
 
 
 def openSpectrum():
+    camera.stop_preview()
     ## To open spectrum
     w = root.winfo_width()
     h = root.winfo_height()
