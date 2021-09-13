@@ -20,10 +20,6 @@ from tkinter import filedialog
 
 # create tkinter object
 root = Tk()
-# globals
-# global wid
-# global hgt
-# global wid_but
 
 # get screen width and height
 wid = root.winfo_screenwidth()
@@ -37,7 +33,7 @@ root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
 root.configure(bg="black")
 frame = Frame(root, bg="black")
-frame.grid(row=0, column=0, sticky="s")
+frame.grid(row=0, column=0, sticky="nsew")
 #
 # imWin = tk.Toplevel(root)
 # imWin.geometry
@@ -47,7 +43,7 @@ butWin = tk.Toplevel(root) # Tk()
 butWin.geometry('%dx%d+%d+%d' % (wid_but, hgt+30, 1, -30))
 butWin.configure(bg="white")
 Win1 = Frame(butWin)
-Win1.grid(row=0, column=0,sticky="nsew")
+Win1.grid(row=0, column=0, sticky="nsew")
 
 global name
 global camera
