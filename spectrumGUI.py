@@ -456,9 +456,9 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(frame,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
+tkScale = tk.Scale(root,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
 tkScale.set(50)
-tkScale.grid(row=1, column=0, sticky='s')
+tkScale.grid(row=0, column=0, sticky='s')
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
