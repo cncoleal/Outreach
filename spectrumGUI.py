@@ -618,7 +618,7 @@ button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
 
-exit_button = Button(butWin, text="Exit",height=2, command=root.destroy)
+exit_button = Button(butWin, text="Exit",height=3, command=root.destroy)
 exit_button.grid(row=5,column=0, sticky='nsew')
 
 # New windows
