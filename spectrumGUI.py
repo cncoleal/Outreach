@@ -529,11 +529,13 @@ def openSpectrum():
 def openVideo():
     wid = root.winfo_screenwidth()
     hgt = root.winfo_screenheight()
+    print(wid)
+    print(hgt)
     # set width of button window
     wid_but = 140
 
     camera = picamera.PiCamera()
-    camera.start_preview(fullscreen=False, window=(wid-wid_but, hgt, wid_but, 0))
+    camera.start_preview(fullscreen=False, window=(200, 100, 300, 400))
 
 
 # openVideo Function that Works
