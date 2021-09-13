@@ -508,8 +508,11 @@ def killWindow(event, x, y, flags, param):
 def openImage():
     camera.stop_preview()
     # get size of frame
-    w = root.winfo_width()
-    h = root.winfo_height()
+    wid_but = 140 + 5
+
+    w = 800 - wid_but - 10
+    h = 470
+
 
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
@@ -520,11 +523,10 @@ def openImage():
 
 def openSpectrum():
     camera.stop_preview()
+    w = root.winfo_width()
+    h = root.winfo_height()
    ## To open spectrum
-    wid_but = 140 + 5
 
-    w = 800-wid_but-10
-    h = 470
     simg = PIL.Image.open(output_filename)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
     specIm = Label(frame, image=renderSpec)
