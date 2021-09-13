@@ -543,8 +543,8 @@ def openVideo():
     shutter = int(5)
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 20, 800-wid_but-17, 500))
-    camera.resolution = (800-wid_but-17, 500)
-    camera.sensor_mode = 7
+    camera.resolution (2592,1944)
+    camera.sensor_mode = 3
     camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
     camera.exposure_mode = 'nightpreview'  # raises the gains, and lowers the iso
