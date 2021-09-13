@@ -548,8 +548,8 @@ def openVideo():
     camera.shutter_speed = shutter
     camera.iso = 1000
     camera.exposure_mode = 'off'
-    camera.awb_mode = 'off'
-    camera.awb_gains = (1, 1)
+    camera.awb_mode = 'auto'
+    #camera.awb_gains = ()
 
 
 # openVideo Function that Works
