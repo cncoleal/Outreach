@@ -131,9 +131,8 @@ def wavelength_to_color(lambda2):
 # Take picture
 def take_picture(name, shutter):
     camera.stop_preview()
-    print("initialising camera")
-
-    print("allowing camera to warmup")
+    #print("initialising camera")
+    #print("allowing camera to warmup")
     camera.vflip = True
     camera.resolution = (2592, 1944)
     camera.brightness = tkScale.get()
@@ -141,41 +140,12 @@ def take_picture(name, shutter):
     camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
     camera.exposure_mode = 'nightpreview'
-    #camera.framerate = Fraction(1, 3)
-    #camera.shutter_speed = 20
-    # camera.iso = 1000
-    # camera.exposure_mode = 'off'
-    # camera.awb_mode = 'off'
-    # camera.awb_gains = (1, 1)
-    # #time.sleep(3)
-    # time.sleep(3)
-    #print("capturing image")
+
     time.sleep(3)
     camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-    #camera.stop_preview()
-
-
-    # camera.start_preview(fullscreen=False, window=(wid_but,45, 800-wid_but,hgt-80))#(wid_but, 20, 800-wid_but-17, 500))
-    # camera.vflip = True
-    # camera.resolution = (2592,1944)
-    # camera.brightness - tkScale.get()
-    # camera.sensor_mode = 3
-    # camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-    # camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-    # camera.exposure_mode = 'nightpreview
 
     return name
 
-# def take_video():
-#     camera = picamera.PiCamera()
-#     try:
-#         camera.capture(name, resize=(1296, 972))
-#     finally:
-#         camera.close()
-#     return name
-#
-# Find aperture
- 
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
     middle_x = int(pic_width / 2)
     middle_y = int(pic_height / 2)
@@ -367,8 +337,6 @@ def export_diagram(name, normalized_results):
 
 
 
-
-
 #######################################################
 # High level functions
 #######################################################
@@ -440,7 +408,7 @@ def killWindow(event, x, y, flags, param):
 def openImage():
     camera.stop_preview()
     # get size of frame
-    w = root.winfo_width()
+    w = 800-wid_but
     h = hgt-80
 
 
