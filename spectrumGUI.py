@@ -535,6 +535,12 @@ def openSpectrum():
 #class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
 
 
+def setBrightness(ev=None):
+    global tkScale
+    camera.brightness = tkScale.get()
+
+
+
 # testing openVideo function
 def openVideo():
     # set width of button window
@@ -544,13 +550,18 @@ def openVideo():
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 20, 800-wid_but-17, 500))
     camera.resolution (2592,1944)
+    camera.brightness = 50
     camera.sensor_mode = 3
-    camera.iso = 1600  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-    camera.framerate_range = (0.2,6)#(0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-    camera.exposure_mode = 'nightpreview'  # raises the gains, and lowers the iso
+    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
+    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+    camera.exposure_mode = 'off'
+    camera.awb_gains# raises the gains, and lowers the iso
     #sleep = (10)
 
-
+    tkScale = tk.Scale(root,from_=0, to=100,length=300,orient=tk.HORIZONTAL,command=setBrightness)
+    tkScale
+    tkScale.set(50)
+    tkScale.grid(row=0, column=0)
     # camera.vflip = True
     # #camera.framerate = Fraction(1, 3)
     # camera.shutter_speed = shutter
