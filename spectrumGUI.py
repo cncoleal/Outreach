@@ -554,8 +554,8 @@ def openVideo():
     camera.sensor_mode = 3
     camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-    camera.exposure_mode = 'off'
-    camera.awb_gains# raises the gains, and lowers the iso
+    camera.exposure_mode = 'nightpreview'
+    # raises the gains, and lowers the iso
     #sleep = (10)
 
     tkScale = tk.Scale(root,from_=0, to=100,length=300,orient=tk.HORIZONTAL,command=setBrightness)
