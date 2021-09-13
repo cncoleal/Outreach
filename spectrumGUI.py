@@ -546,7 +546,7 @@ def openVideo():
     camera.resolution (2592,1944)
     camera.sensor_mode = 3
     camera.iso = 1600  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+    camera.framerate_range = (0.2,6)#(0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
     camera.exposure_mode = 'nightpreview'  # raises the gains, and lowers the iso
     #sleep = (10)
 
