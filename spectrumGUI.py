@@ -443,7 +443,7 @@ def acquire_photo():
     global name
     global raw_filename
     name = "test" # Need to add in button for this later! sys.argv[1]
-    shutter = int(10) # Need to add in button for this later! int(sys.argv[2])
+    shutter = int(15) # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
     raw_filename = name + "_raw.jpg"
     # run take picture function
@@ -538,6 +538,13 @@ def openVideo():
 
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 10, 800-wid_but-10, 470))
+    camera.vflip = True
+    camera.framerate = Fraction(1, 2)
+    camera.shutter_speed = shutter
+    camera.iso = 100
+    camera.exposure_mode = 'off'
+    camera.awb_mode = 'off'
+    camera.awb_gains = (1, 1)
 
 
 # openVideo Function that Works
