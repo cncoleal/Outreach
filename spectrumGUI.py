@@ -32,11 +32,8 @@ wid_but = 140
 root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
 root.configure(bg="black")
-frame = Frame(root, bg="black")
+frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
-#
-# imWin = tk.Toplevel(root)
-# imWin.geometry
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
@@ -52,18 +49,6 @@ camera = picamera.PiCamera()
 name = 'test'
 output_filename = name + "_chart.png"
 
-
-# Notes (11/16/20): 
-
-# Fix gui font size (later)
-# Add in displayed images (3 images)
-# Want to still save csv file? 
-# Allow ability for user to define filesave name
-# Change colors? 
-# How to navigate multiple windows on RPi display? (Back buttons?)
-
-# Notes (2/3/21)
-# Need to run with python3
 
 
 ########### FUNCTION DEFINTIONS #######################
@@ -142,101 +127,32 @@ def wavelength_to_color(lambda2):
 #######################################################
 # Lower level functions
 #######################################################
-#
-# camera = picamera.PiCamera()
-# ON = True
-#
-# zoom = 1.0
-# previewTime = 3
-# awbcount = 0
-# effectno = 0
-# delay = 5
-# threshPercent = 1.8
-# step = 1
-# numImages = 1
-# captureCount = 0
-# numSav = 0
-#
-# def prevTime():
-# 	global previewTime
-# 	previewTime += 1
-#         print("Preview time", previewTime, "s")
-# 	return previewTime
-# 	preview()
-#
-# def preview():
-# 	camera.preview_fullscreen = False
-# 	camera.preview_window = (170, -120, 860, 950)
-# 	camera.video_stabilization = True
-# 	#camera.brightness=w.get()
-# 	camera.start_preview()
-# 	print "Brightness",camera.brightness
-#         camera.contrast=y.get()
-#         print "Contrast",camera.contrast
-#         #camera.saturation=xy.get()
-#         #print "Saturation",camera.saturation
-# 	for t in range (previewTime, 0, -1):
-# 		camera.brightness = w.get()
-#        		time.sleep(1)
-#
-
-# def contrast():
-# 	camera.contrast = y.get()
-#         if camera.contrast < -99:
-#                 camera.contrast += 5
-#         elif camera.contrast > 99:
-#                 camera.contrast -= 5
-#         else:
-# 		camera.contrast += 5
-#         print "Contrast", camera.contrast
-#         y.set(camera.contrast)
-#
-#
-#
-# contrastButton = Button(root, text="  Contrast   ", command=contrast)
-# contrastButton.grid(row=4, column=1)
-#
-# y = Scale(frame, from_=-50, to=50, resolution=1, orient=HORIZONTAL)
-# y.grid(row=10, column=1)
-# y.set(camera.contrast)
-# print "Contrast", camera.contrast
-#
-# z = Label(frame, text="Contrast")
-# z.grid(row=10, column=0)
-#
-# previewButton = Button(frame, text="    Preview    ", command=preview)
-# previewButton.grid(row=1, column=1)
 
 # Take picture
 def take_picture(name, shutter):
     camera.stop_preview()
     print("initialising camera")
-    #camera = picamera.PiCamera()
-    #camera.preview_fullscreen = False
-    #camera.preview_window = (170, -120, 860, 950)
-    try:
-      #  camera.start_preview()
-        print("allowing camera to warmup")
-        camera.vflip = True
-        camera.resolution = (2592, 1944)
-        camera.brightness - tkScale.get()
-        camera.sensor_mode = 3
-        camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-        camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-        camera.exposure_mode = 'nightpreview'
-        #camera.framerate = Fraction(1, 3)
-        camera.shutter_speed = 20
-        # camera.iso = 1000
-        # camera.exposure_mode = 'off'
-        # camera.awb_mode = 'off'
-        # camera.awb_gains = (1, 1)
-        # #time.sleep(3)
-        # time.sleep(3)
-        print("capturing image")
-        camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-        #camera.stop_preview()
-    finally:
-        h = 5
+
+    print("allowing camera to warmup")
+    camera.vflip = True
+    camera.resolution = (2592, 1944)
+    camera.brightness - tkScale.get()
+    camera.sensor_mode = 3
+    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
+    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+    camera.exposure_mode = 'nightpreview'
+    #camera.framerate = Fraction(1, 3)
+    camera.shutter_speed = 20
+    # camera.iso = 1000
+    # camera.exposure_mode = 'off'
+    # camera.awb_mode = 'off'
+    # camera.awb_gains = (1, 1)
+    # #time.sleep(3)
+    # time.sleep(3)
+    print("capturing image")
+    camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
+    #camera.stop_preview()
+
     return name
 
 # def take_video():
