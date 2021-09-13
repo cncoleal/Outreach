@@ -46,7 +46,8 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
-
+camera = picamera.PiCamera()
+global camera
 
 # Notes (11/16/20): 
 
@@ -204,8 +205,9 @@ def wavelength_to_color(lambda2):
 
 # Take picture
 def take_picture(name, shutter):
+    camera.stop_preview()
     print("initialising camera")
-    camera = picamera.PiCamera()
+    #camera = picamera.PiCamera()
     camera.preview_fullscreen = False
     camera.preview_window = (170, -120, 860, 950)
     try:
