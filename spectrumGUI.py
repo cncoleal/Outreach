@@ -138,7 +138,7 @@ def take_picture(name, shutter):
     camera.resolution = (2592, 1944)
     camera.brightness - tkScale.get()
     camera.sensor_mode = 3
-    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
+    camera.iso = 64  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
     camera.exposure_mode = 'nightpreview'
     #camera.framerate = Fraction(1, 3)
