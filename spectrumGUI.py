@@ -543,12 +543,12 @@ def openVideo():
     shutter = int(5)
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 20, 800-wid_but-17, 500))
-    #camera.vflip = True
+    camera.vflip = True
     #camera.framerate = Fraction(1, 3)
     camera.shutter_speed = shutter
     camera.iso = 1000
     camera.exposure_mode = 'off'
-    camera.awb_mode = 'auto'
+    camera.awb_mode = 'night'
     #camera.awb_gains = ()
 
 
