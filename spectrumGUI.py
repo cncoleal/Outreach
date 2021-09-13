@@ -446,7 +446,7 @@ def acquire_photo():
     global raw_filename
     global shutter
     # Need to add in button for this later! sys.argv[1]
-    shutter = int(15) # Need to add in button for this later! int(sys.argv[2])
+    shutter = int(5) # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
     raw_filename = name + "_raw.jpg"
     # run take picture function
@@ -520,9 +520,11 @@ def openImage():
 
 def openSpectrum():
     camera.stop_preview()
-    ## To open spectrum
-    w = root.winfo_width()
-    h = root.winfo_height()
+   ## To open spectrum
+    wid_but = 140 + 5
+
+    w = 800-wid_but-10
+    h = 470
     simg = PIL.Image.open(output_filename)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
     specIm = Label(frame, image=renderSpec)
