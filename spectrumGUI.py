@@ -20,6 +20,10 @@ from tkinter import filedialog
 
 # create tkinter object
 root = Tk()
+# globals
+global wid
+global hgt
+global wid_but
 
 # get screen width and height
 wid = root.winfo_screenwidth()
@@ -42,9 +46,6 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
-# globals
-global iso_value
-iso_value = 100
 
 
 # Notes (11/16/20): 
@@ -213,7 +214,7 @@ def take_picture(name, shutter):
         camera.vflip = True
         camera.framerate = Fraction(1, 2)
         camera.shutter_speed = shutter
-        camera.iso = iso_value
+        camera.iso = 100
         camera.exposure_mode = 'off'
         camera.awb_mode = 'off'
         camera.awb_gains = (1, 1)
@@ -527,7 +528,7 @@ def openSpectrum():
 # testing openVideo function
 def openVideo():
     camera = picamera.PiCamera()
-    camera.start_preview(fullscreen=False, window=(100, 200, 300, 400))
+    camera.start_preview(fullscreen=False, window=(wid-wid_but, hgt, wid_but, 0))
 
 
 # openVideo Function that Works
