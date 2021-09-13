@@ -209,10 +209,10 @@ def take_picture(name, shutter):
     camera.stop_preview()
     print("initialising camera")
     #camera = picamera.PiCamera()
-    camera.preview_fullscreen = False
-    camera.preview_window = (170, -120, 860, 950)
+    #camera.preview_fullscreen = False
+    #camera.preview_window = (170, -120, 860, 950)
     try:
-        camera.start_preview()
+      #  camera.start_preview()
         print("allowing camera to warmup")
         camera.vflip = True
         camera.framerate = Fraction(1, 3)
@@ -225,7 +225,7 @@ def take_picture(name, shutter):
         time.sleep(3)
         print("capturing image")
         camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-        camera.stop_preview()
+        #camera.stop_preview()
     finally:
         h = 5
     return name
