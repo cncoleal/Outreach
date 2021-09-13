@@ -522,10 +522,10 @@ def openImage():
 
 
     rimg = PIL.Image.open(raw_filename)
-    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
-    rawIm = Label(root, image=renderRaw)
+    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=frame)
+    rawIm = Label(frame, image=renderRaw)
     rawIm.image = renderRaw
-    rawIm.grid(row=0,column=0, sticky="s")
+    rawIm.grid(row=0,column=0)
 
 
 def openSpectrum():
