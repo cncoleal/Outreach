@@ -46,8 +46,12 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0,sticky="nsew")
 
+global name
 global camera
+global output_filename
 camera = picamera.PiCamera()
+name = 'test'
+output_filename = name + "_out.jpg"
 
 
 # Notes (11/16/20): 
@@ -357,8 +361,6 @@ def inform_user_of_exposure(max_result):
 
 # save image with overlay
 def save_image_with_overlay(im, name):
-    global output_filename
-    output_filename = name + "_out.jpg"
     PIL.ImageFile.MAXBLOCK = 2 ** 20
     im.save(output_filename, "JPEG", quality=80, optimize=True, progressive=True)
 
@@ -441,10 +443,9 @@ def export_diagram(name, normalized_results):
 # Take photo
 def acquire_photo():
     # global variables
-    global name
     global raw_filename
     global shutter
-    name = "test" # Need to add in button for this later! sys.argv[1]
+    # Need to add in button for this later! sys.argv[1]
     shutter = int(15) # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
     raw_filename = name + "_raw.jpg"
