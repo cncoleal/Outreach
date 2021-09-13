@@ -521,11 +521,12 @@ def openSpectrum():
     specIm.grid(row=0,column=0, columnspan=1)
 
 
+#class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
+
+
 # testing openVideo function
 def openVideo():
-    class picamera.PiRenderer(parent, layer=0, alpha=255, fullscreen=True, window=None, crop=None, rotation=0, vflip=False, hflip=False)
-
-    start_preview(fullscreen=False, window=(100, 200, 300, 400))
+       picamera.start_preview(fullscreen=False, window=(100, 200, 300, 400))
 
 
 # openVideo Function that Works
