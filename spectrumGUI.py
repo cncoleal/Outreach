@@ -547,7 +547,7 @@ def openVideo():
     #camera.framerate = Fraction(1, 3)
     camera.shutter_speed = shutter
     #camera.iso = 1000
-    camera.exposure_mode = 'night'
+    camera.exposure_mode = 'auto'
     camera.awb_mode = 'auto'
     #camera.awb_gains = ()
 
