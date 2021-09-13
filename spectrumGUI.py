@@ -219,14 +219,20 @@ def take_picture(name, shutter):
       #  camera.start_preview()
         print("allowing camera to warmup")
         camera.vflip = True
+        camera.resolution = (2592, 1944)
+        camera.brightness - tkScale.get()
+        camera.sensor_mode = 3
+        camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
+        camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+        camera.exposure_mode = 'nightpreview'
         #camera.framerate = Fraction(1, 3)
-        camera.shutter_speed = shutter
-        camera.iso = 1000
-        camera.exposure_mode = 'off'
-        camera.awb_mode = 'off'
-        camera.awb_gains = (1, 1)
-        #time.sleep(3)
-        time.sleep(3)
+        # camera.shutter_speed = shutter
+        # camera.iso = 1000
+        # camera.exposure_mode = 'off'
+        # camera.awb_mode = 'off'
+        # camera.awb_gains = (1, 1)
+        # #time.sleep(3)
+        # time.sleep(3)
         print("capturing image")
         camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
         #camera.stop_preview()
@@ -538,19 +544,17 @@ def setBrightness(ev=None):
     camera.brightness = tkScale.get()
 
 
-global tkScale
-tkScale = tk.Scale(root,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
-tkScale.set(50)
-tkScale.grid(row=0, column=0)
+
 
 # testing openVideo function
 def openVideo():
     # set width of button window
     wid_but = 140 + 5
 
-    shutter = int(5)
+    #shutter = int(5)
     #camera = picamera.PiCamera()
     camera.start_preview(fullscreen=False, window=(wid_but, 20, 800-wid_but-17, 500))
+    camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness - tkScale.get()
     camera.sensor_mode = 3
@@ -611,6 +615,11 @@ def openVideo():
 ###################################################
 # GUI Build 
 ###################################################
+global tkScale
+tkScale = tk.Scale(frame,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
+tkScale.set(50)
+tkScale.grid(row=0, column=0)
+
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)#, command=lambda: take_picture(raw_filename))
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum) #, command=createSpectrum)
