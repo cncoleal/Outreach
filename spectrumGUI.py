@@ -464,7 +464,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(frame,from_=0, to=100, width=3, length=wid-wid_but,orient=tk.VERTICAL,command=setBrightness)
+tkScale = tk.Scale(frame,from_=0, to=100, width=20, length=hgt-80,orient=tk.VERTICAL,command=setBrightness)
 tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
