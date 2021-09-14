@@ -454,7 +454,7 @@ def openVideo():
 
     setwidth = wid_but+wid_slide+4
 
-    camera.start_preview(fullscreen=False, window=(setwidth,-30, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(setwidth,0, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness = tkScale.get()
@@ -475,9 +475,9 @@ tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)
-button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
+button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=4,  command=openImage)
 button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
-button_viewSpectrum = Button(butWin, text="View Spectrum", bg="#fdad5c", height=4, command=openSpectrum)
+button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=4, command=openSpectrum)
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
 
