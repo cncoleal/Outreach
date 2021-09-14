@@ -54,7 +54,9 @@ global camera
 global output_filename
 camera = picamera.PiCamera()
 name = 'test'
-output_filename = name + "_chart.png"
+output_chart = name + "_chart.png"
+output_raw = name + "_raw.png"
+output_filename = name + "_out.png"
 
 
 
@@ -339,8 +341,8 @@ def export_diagram(name, normalized_results):
 
     # save chart
     sd = sd.resize((int(w / antialias), int(h / antialias)), PIL.Image.ANTIALIAS)
-    output_filename = name + "_chart.png"
-    sd.save(output_filename, "PNG", quality=95, optimize=True, progressive=True)
+    output_chart = name + "_chart.png"
+    sd.save(output_chart, "PNG", quality=95, optimize=True, progressive=True)
 
 
 
