@@ -542,11 +542,11 @@ button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, c
 button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
 
 
-button_takePicture = Button(butWin, text="Take Picture", bg="#C8C372", height=5, command=acquire_photo)
-button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#C8C372", height=5,  command=openImage)
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
+button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 #button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
-button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#C8C372", height=5, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#C8C372",  height=5, command=openVideo)
+button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
 
 
 exit_button = Button(butWin, text="Exit",height=5, command=root.destroy)
