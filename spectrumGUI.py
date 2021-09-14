@@ -504,22 +504,27 @@ def openVideo():
 
 def shutterp001():
     camera.shutter_speed = 1000
+    global shutter
     shutter = 1000
 
 def shutterp01():
     camera.shutter_speed = 10000
+    global shutter
     shutter = 10000
 
 def shutterp1():
     camera.shutter_speed = 100000
+    global shutter
     shutter = 100000
 
 def shutter1p():
     camera.shutter_speed = 1000000
+    global shutter
     shutter = 1000000
 
 def shutter10p():
     camera.shutter_speed = 10000000
+    global shutter
     shutter = 10000000
 
 ###################################################
