@@ -418,6 +418,7 @@ def killWindow(event, x, y, flags, param):
 # File Viewing functions
 #######################################################
 def openImage():
+    createSpectrum()
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
@@ -476,7 +477,7 @@ tkScale.grid(row=0, column=0, sticky='nsew')
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=4,  command=openImage)
-button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
+#button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=4, command=openSpectrum)
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
 
@@ -488,7 +489,7 @@ exit_button.grid(row=5,column=0, sticky='nsew')
 button_captureVideo.grid(row=0, column=0, sticky="nsew")
 button_takePicture.grid(row=1,column=0, sticky="nsew")
 button_viewPicture.grid(row=2,column=0, sticky="nsew")
-button_createSpectrum.grid(row=3,column=0, sticky="nsew")
+#button_createSpectrum.grid(row=3,column=0, sticky="nsew")
 button_viewSpectrum.grid(row=4,column=0,sticky="nsew")
 
 
