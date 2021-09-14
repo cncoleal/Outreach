@@ -410,7 +410,7 @@ def openImage():
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
-    h = root.winfo_height()-30
+    h = root.winfo_height()
 
     rimg = PIL.Image.open(output_out)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
@@ -422,7 +422,7 @@ def openImage():
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
-    h = root.winfo_height()-30
+    h = root.winfo_height()
 
     ## To open spectrum
     simg = PIL.Image.open(output_chart)
