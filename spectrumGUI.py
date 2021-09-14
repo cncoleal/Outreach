@@ -295,7 +295,6 @@ def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
     overlay_filename = 'test_out.png'
     im.save(overlay_filename, "PNG", quality=80, optimize=True, progressive=True)
-    print('there')
 # normalize results
 def normalize_results(results, max_result):
     for wavelength in results:
@@ -457,7 +456,7 @@ def openSpectrum():
 
 
 def setShutter(ev=None):
-    valuelist = [1000, 10000, 100000, 1000000, 10000000]
+    valuelist = [1,10, 100, 1000, 10000, 100000, 1000000, 10000000]
     value = tkScale.get()
     newvalue = min(valuelist, key=lambda x: abs(x - float(value)))
     tkScale.set(newvalue)
@@ -507,7 +506,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(sliWin,from_=1000, to=10000000, width=50, length=hgt, showvalue=0, orient=tk.VERTICAL,command=setShutter)
+tkScale = tk.Scale(sliWin,from_=1, to=10000000, width=50, length=hgt, showvalue=0, orient=tk.VERTICAL,command=setShutter)
 tkScale.set(1000)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
