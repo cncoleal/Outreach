@@ -54,6 +54,7 @@ global camera
 global output_filename
 camera = picamera.PiCamera()
 name = 'test'
+
 output_chart = name + "_chart.png"
 output_raw = name + "_raw.png"
 output_filename = name + "_out.png"
@@ -150,7 +151,7 @@ def take_picture(name, shutter):
     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
     camera.exposure_mode = 'nightpreview'
 
-    time.sleep(3)
+    time.sleep(10)
     camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
 
     return name
@@ -273,7 +274,7 @@ def inform_user_of_exposure(max_result):
 # save image with overlay
 def save_image_with_overlay(im, name):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
-    im.save(output_filename, "JPEG", quality=80, optimize=True, progressive=True)
+    im.save(output_filename, "PNG", quality=80, optimize=True, progressive=True)
 
 # normalize results
 def normalize_results(results, max_result):
@@ -341,7 +342,7 @@ def export_diagram(name, normalized_results):
 
     # save chart
     sd = sd.resize((int(w / antialias), int(h / antialias)), PIL.Image.ANTIALIAS)
-    output_chart = name + "_chart.png"
+    #output_chart = name + "_chart.png"
     sd.save(output_chart, "PNG", quality=95, optimize=True, progressive=True)
 
 
