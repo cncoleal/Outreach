@@ -27,7 +27,7 @@ hgt = root.winfo_screenheight()
 
 # set width of button window
 wid_but = 140
-wid_slide = 40
+wid_slide = 60
 
 # root: main window displays images
 root.title('Spectrometer')
@@ -38,7 +38,7 @@ frame.grid(row=0, column=0, sticky="nsew")
 
 # slider window: displays slider
 sliWin = tk.Toplevel(root)
-sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt, 1, -30))
+sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt, wid_but, 0))
 sliWin.configure(bg='white')
 Win2 = Frame(sliWin)
 Win2.grid(row=0,column=0, sticky='nsew')
