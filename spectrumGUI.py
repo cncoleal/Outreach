@@ -155,7 +155,7 @@ def take_picture(name, shutter):
     camera.exposure_mode = 'nightpreview'
 
     time.sleep(3)
-    camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
+    camera.capture(name,format='.png', resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
 
     return name
 
@@ -373,7 +373,7 @@ def acquire_photo():
 def createSpectrum():
     camera.stop_preview()
     # get pictures aperature
-    im = PIL.Image.open(raw_filename)
+    im = PIL.Image.open(output_raw)
     print("locating aperture")
     pic_pixels = im.load()
     aperture = find_aperture(pic_pixels, im.size[0], im.size[1])
