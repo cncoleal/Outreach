@@ -7,12 +7,14 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 #import PIL.Image
-# import PIL
-import PIL.Image
-import PIL.ImageTk
-import PIL.ImageDraw
-import PIL.ImageFile
-import PIL.ImageFont
+import PIL
+from PIL import Image, ImageTk, ImageDraw, ImageFile, ImageFont
+#
+# import PIL.Image
+# import PIL.ImageTk
+# import PIL.ImageDraw
+# import PIL.ImageFile
+# import PIL.ImageFont
 from tkinter import * 
 import tkinter as tk
 from tkinter import filedialog
