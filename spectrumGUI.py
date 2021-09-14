@@ -275,9 +275,9 @@ def inform_user_of_exposure(max_result):
         print("consider reducing shutter time")
 
 # save image with overlay
-def save_image_with_overlay(im, name):
+def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
-    im.save(output_filename, "PNG", quality=80, optimize=True, progressive=True)
+    im.save('test_out.png', "PNG", quality=80, optimize=True, progressive=True)
 
 # normalize results
 def normalize_results(results, max_result):
@@ -373,7 +373,7 @@ def acquire_photo():
 def createSpectrum():
     camera.stop_preview()
     # get pictures aperature
-    im = PIL.Image.open(output_raw)
+    im = PIL.Image.open('test_raw.jpg')
     print("locating aperture")
     pic_pixels = im.load()
     aperture = find_aperture(pic_pixels, im.size[0], im.size[1])
@@ -394,8 +394,9 @@ def createSpectrum():
     # inform user of issues with exposure
     inform_user_of_exposure(max_result)
 
+
     # save images
-    save_image_with_overlay(im, name)
+    save_image_with_overlay(im)
     normalized_results = normalize_results(results, max_result)
 
     # save csv
