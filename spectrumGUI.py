@@ -450,9 +450,9 @@ def setBrightness(ev=None):
 def openVideo():
     # set width of button window
     w = root.winfo_width()
-    h = root.winfo_height()-30
+    h = root.winfo_height()-15
 
-    setwidth = wid_but+wid_slide+5
+    setwidth = wid_but+wid_slide+4
 
     camera.start_preview(fullscreen=False, window=(setwidth,1, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
