@@ -486,6 +486,11 @@ def openSpectrum():
 ## Using original camera settings
 def openVideo():
     # set width of button window
+    # make background frame black
+    backgnd = Label(frame, bd=0, bg='#000000')
+    backgnd.grid(row=0, column=0, columnspan=1)
+
+    #
     w = root.winfo_width()
     h = root.winfo_height()
 
