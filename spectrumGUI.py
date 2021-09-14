@@ -450,11 +450,11 @@ def setBrightness(ev=None):
 def openVideo():
     # set width of button window
     w = root.winfo_width()
-    h = root.winfo_height()+60
+    h = root.winfo_height()
 
     setwidth = wid_but+wid_slide+4
 
-    camera.start_preview(fullscreen=False, window=(setwidth,-45, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(setwidth,-30, w ,830))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness = tkScale.get()
