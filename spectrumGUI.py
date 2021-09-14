@@ -450,7 +450,7 @@ def setBrightness(ev=None):
 def openVideo():
     # set width of button window
     w = root.winfo_width()
-    h = root.winfo_height()
+    h = root.winfo_height()+60
 
     setwidth = wid_but+wid_slide+4
 
