@@ -417,7 +417,7 @@ def openImage():
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
-    h = root.winfo_height()
+    h = root.winfo_height()-20
 
     # w = 800-wid_but
     # h = hgt-80
@@ -433,7 +433,7 @@ def openImage():
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
-    h = root.winfo_height()
+    h = root.winfo_height()-20
 
     ## To open spectrum
     simg = PIL.Image.open(output_filename)
@@ -450,7 +450,7 @@ def setBrightness(ev=None):
 def openVideo():
     # set width of button window
     w = root.winfo_width()
-    h = root.winfo_height()
+    h = root.winfo_height()-20
 
     setwidth = wid_but+wid_slide+5
 
