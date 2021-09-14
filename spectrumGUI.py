@@ -6,10 +6,6 @@ import time
 import picamera
 from fractions import Fraction
 from collections import OrderedDict
-#import PIL.Image
-#import PIL
-#from PIL import Image, ImageTk, ImageDraw, ImageFile, ImageFont
-
 import PIL.Image
 import PIL.ImageTk
 import PIL.ImageDraw
@@ -262,23 +258,6 @@ def inform_user_of_exposure(max_result):
 # Lower level functions
 #######################################################
 
-# Take picture -- working code CC wrote
-# def take_picture(imname, shutter):
-#     camera.stop_preview()
-#     #print("initialising camera")
-#     #print("allowing camera to warmup")
-#     camera.vflip = True
-#     camera.resolution = (2592, 1944)
-#     camera.brightness = tkScale.get()
-#     camera.sensor_mode = 3
-#     camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-#     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-#     camera.exposure_mode = 'nightpreview'
-#
-#     time.sleep(3)
-#     camera.capture(imname, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-#     #print(name)
-#    # return imname
 
 ## Use old image view code:
 def take_picture(imname, shutter):
@@ -372,10 +351,6 @@ def export_diagram(normalized_results):
 #######################################################
 # Take photo
 def acquire_photo():
-    # global variables
-    # Need to add in button for this later! sys.argv[1]
-     # Need to add in button for this later! int(sys.argv[2])
-    # save filename as a global variable
     # run take picture function
     take_picture(output_raw,shutter)
     createSpectrum()
@@ -456,32 +431,7 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
-#
-# def setShutter(ev=None):
-#     valuelist = [1,10, 100, 1000, 10000, 100000, 1000000, 10000000]
-#     value = tkScale.get()
-#     newvalue = min(valuelist, key=lambda x: abs(x - float(value)))
-#     tkScale.set(newvalue)
-#     camera.shutter_speed = newvalue
-#     #camera.brightness = tkScale.get()
 
-
-# openVideo CC wrote that works
-# def openVideo():
-#     # set width of button window
-#     w = root.winfo_width()
-#     h = root.winfo_height()
-#
-#     setwidth = wid_but+wid_slide+4
-#
-#     camera.start_preview(fullscreen=False, window=(setwidth, -15, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
-#     camera.vflip = True
-#     camera.resolution = (2592,1944)
-#     camera.brightness = tkScale.get()
-#     camera.sensor_mode = 3
-#     camera.iso = 0
-#     camera.framerate_range = (0.167, 6)
-#     camera.exposure_mode = 'nightpreview'
 
 ## Using original camera settings
 def openVideo():
@@ -535,11 +485,6 @@ def shutter10p():
 ###################################################
 # GUI Build 
 ###################################################
-# global tkScale
-# tkScale = tk.Scale(sliWin,from_=1, to=10000000, width=50, length=hgt, orient=tk.VERTICAL,command=setShutter)
-# tkScale.set(1000)
-# tkScale.grid(row=0, column=0, sticky='nsew')
-
 button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
 button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
