@@ -292,7 +292,7 @@ def take_picture(imname, shutter):
         time.sleep(3)
         print("capturing image")
         camera.capture(imname, resize=(wid - wid_but, hgt))
-
+        print(shutter)
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
