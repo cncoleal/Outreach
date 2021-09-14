@@ -71,7 +71,7 @@ output_out = name + "_out.png"
 
 
 #######################################################
-# Sub-functions
+# Analysis on Raw Image
 #######################################################
 
 def get_spectrum_y_bound(pix, x, middle_y, spectrum_threshold, spectrum_threshold_duration):
@@ -138,29 +138,6 @@ def wavelength_to_color(lambda2):
         factor = 0.2 + 0.8 * (780 - lambda2) / (780 - 600)
     return int(255 * color[0] * factor), int(255 * color[1] * factor), int(255 * color[2] * factor)
 
-
-
-#######################################################
-# Lower level functions
-#######################################################
-
-# Take picture
-def take_picture(name, shutter):
-    camera.stop_preview()
-    #print("initialising camera")
-    #print("allowing camera to warmup")
-    camera.vflip = True
-    camera.resolution = (2592, 1944)
-    camera.brightness = tkScale.get()
-    camera.sensor_mode = 3
-    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-    camera.exposure_mode = 'nightpreview'
-
-    time.sleep(3)
-    camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-    #print(name)
-    return name
 
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
     middle_x = int(pic_width / 2)
@@ -277,11 +254,35 @@ def inform_user_of_exposure(max_result):
     elif exposure > 0.3:
         print("consider reducing shutter time")
 
+
+#######################################################
+# Lower level functions
+#######################################################
+
+# Take picture
+def take_picture(imname, shutter):
+    camera.stop_preview()
+    #print("initialising camera")
+    #print("allowing camera to warmup")
+    camera.vflip = True
+    camera.resolution = (2592, 1944)
+    camera.brightness = tkScale.get()
+    camera.sensor_mode = 3
+    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
+    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+    camera.exposure_mode = 'nightpreview'
+
+    time.sleep(3)
+    camera.capture(imname, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
+    #print(name)
+   # return imname
+
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
+    print('here')
     im.save(output_out, "PNG", quality=80, optimize=True, progressive=True)
-
+    print('there')
 # normalize results
 def normalize_results(results, max_result):
     for wavelength in results:
@@ -365,8 +366,6 @@ def acquire_photo():
     take_picture(output_raw,shutter)
 
     return
-
-
 
 
 def createSpectrum():
