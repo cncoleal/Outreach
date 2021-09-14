@@ -410,8 +410,11 @@ def killWindow(event, x, y, flags, param):
 def openImage():
     camera.stop_preview()
     # get size of frame
-    w = 800-wid_but
-    h = hgt-80
+    w = root.winfo_width()
+    h = root.winfo_height()
+
+    # w = 800-wid_but
+    # h = hgt-80
 
 
     rimg = PIL.Image.open(raw_filename)
