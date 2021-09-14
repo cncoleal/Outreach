@@ -280,8 +280,8 @@ def take_picture(imname, shutter):
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
-    print('here')
-    im.save(output_out, "PNG", quality=80, optimize=True, progressive=True)
+    overlay_filename = 'test_out.png'
+    im.save(overlay_filename, "PNG", quality=80, optimize=True, progressive=True)
     print('there')
 # normalize results
 def normalize_results(results, max_result):
