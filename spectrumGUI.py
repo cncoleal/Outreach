@@ -7,7 +7,7 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 #import PIL.Image
-import PIL
+# import PIL
 import PIL.Image
 import PIL.ImageTk
 import PIL.ImageDraw
