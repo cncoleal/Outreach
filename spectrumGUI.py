@@ -31,14 +31,14 @@ wid_slide = 60
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide, 0))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide,))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
 # slider window: displays slider
 sliWin = tk.Toplevel(root)
-sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt, wid_but, 0))
+sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt+30, wid_but, -30))
 sliWin.configure(bg='white')
 Win2 = Frame(sliWin)
 Win2.grid(row=0,column=0, sticky='nsew')
