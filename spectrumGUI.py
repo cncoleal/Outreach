@@ -475,14 +475,14 @@ tkScale = tk.Scale(sliWin,from_=0, to=100, width=20, length=hgt,orient=tk.VERTIC
 tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)
-button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=4,  command=openImage)
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=6, command=acquire_photo)
+button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=6,  command=openImage)
 #button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
-button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=4, command=openSpectrum)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=4, command=openVideo)
+button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=6, command=openSpectrum)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=6, command=openVideo)
 
 
-exit_button = Button(butWin, text="Exit",height=3, command=root.destroy)
+exit_button = Button(butWin, text="Exit",height=6, command=root.destroy)
 exit_button.grid(row=5,column=0, sticky='nsew')
 
 # New windows
