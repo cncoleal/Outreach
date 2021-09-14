@@ -36,7 +36,12 @@ root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
-
+# slider window: displays slider
+sliWin = tk.Toplevel(root)
+sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt, 1, -30))
+sliWin.configure(bg='white')
+Win2 = Frame(sliWin)
+Win2.grid(row=0,column=0, sticky='nsew')
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
@@ -465,7 +470,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(frame,from_=0, to=100, width=20, length=hgt,orient=tk.VERTICAL,command=setBrightness)
+tkScale = tk.Scale(sliWin,from_=0, to=100, width=20, length=hgt,orient=tk.VERTICAL,command=setBrightness)
 tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
