@@ -38,7 +38,7 @@ frame.grid(row=0, column=0, sticky="nsew")
 
 # slider window: displays slider
 sliWin = tk.Toplevel(root)
-sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt+25, wid_but, -30))
+sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt, wid_but, -30))
 sliWin.configure(bg='white')
 Win2 = Frame(sliWin)
 Win2.grid(row=0,column=0, sticky='nsew')
@@ -417,7 +417,7 @@ def openImage():
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
-    h = hgt-80#root.winfo_height()
+    h = root.winfo_height()
 
     # w = 800-wid_but
     # h = hgt-80
@@ -433,7 +433,7 @@ def openImage():
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
-    h = hgt-80 #root.winfo_height()
+    h = root.winfo_height()
 
     ## To open spectrum
     simg = PIL.Image.open(output_filename)
@@ -454,7 +454,7 @@ def openVideo():
 
     setwidth = wid_but+wid_slide+5
 
-    camera.start_preview(fullscreen=False, window=(setwidth,45, w ,hgt-80))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(setwidth,30, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness = tkScale.get()
