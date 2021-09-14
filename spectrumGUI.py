@@ -32,7 +32,7 @@ wid_but = 140
 root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt, wid_but, 0))
 root.configure(bg="black")
-frame = Frame(root, bg="blue", height=12)
+frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
 
 
@@ -464,9 +464,9 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(frame,from_=0, to=100, height=3, length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
+tkScale = tk.Scale(frame,from_=0, to=100, width=3, length=wid-wid_but,orient=tk.VERTICAL,command=setBrightness)
 tkScale.set(50)
-tkScale.grid(row=1, column=0, sticky='nsew')
+tkScale.grid(row=0, column=0, sticky='nsew')
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=4, command=acquire_photo)
 button_viewPicture = Button(butWin, text="View Image", bg="#fdad5c", height=4,  command=openImage)
