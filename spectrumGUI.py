@@ -416,7 +416,7 @@ def openImage():
 
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
-    rawIm = Label(frame, image=renderRaw)
+    rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0,columnspan=1)
 
