@@ -535,11 +535,11 @@ def shutter10p():
 # tkScale.set(1000)
 # tkScale.grid(row=0, column=0, sticky='nsew')
 
-button_sp001 = Button(sliWin, text="1 ms", bg="#fdad5c", height=5, command=shutterp001)
-button_sp01 = Button(sliWin, text="10 ms", bg="#fdad5c", height=5, command=shutterp01)
-button_sp1 = Button(sliWin, text="100 ms", bg="#fdad5c", height=5, command=shutterp1)
-button_s1p = Button(sliWin, text = "1 s", bg="#fdad5c", height=5, command=shutter1p)
-button_s10p = Button(sliWin, text = "10 s", bg="#fdad5c", height=5, command=shutter10p)
+button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='ffffff',height=5, command=shutterp001)
+button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='ffffff',height=5, command=shutterp01)
+button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='ffffff',height=5, command=shutterp1)
+button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='ffffff',height=5, command=shutter1p)
+button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='ffffff',  height=5, command=shutter10p)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
