@@ -29,7 +29,7 @@ hgt = root.winfo_screenheight()
 
 # set width of button window
 wid_but = 140
-wid_slide = 60
+wid_slide = 100
 
 # root: main window displays images
 root.title('Spectrometer')
@@ -57,7 +57,10 @@ global camera
 global output_chart
 global output_raw
 global output_out
+global shutter
+
 camera = picamera.PiCamera()
+shutter = 1000
 
 # output filenames
 name = 'test'
@@ -281,7 +284,7 @@ def inform_user_of_exposure(max_result):
 def take_picture(imname, shutter):
         camera.vflip = True
         camera.framerate = Fraction(1, 2)
-        camera.shutter_speed = tkScale.get()
+        camera.shutter_speed = shutter #tkScale.get()
         camera.iso = 100
         camera.exposure_mode = 'off'
         camera.awb_mode = 'off'
@@ -454,14 +457,14 @@ def openSpectrum():
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
 
-
-def setShutter(ev=None):
-    valuelist = [1,10, 100, 1000, 10000, 100000, 1000000, 10000000]
-    value = tkScale.get()
-    newvalue = min(valuelist, key=lambda x: abs(x - float(value)))
-    tkScale.set(newvalue)
-    camera.shutter_speed = newvalue
-    #camera.brightness = tkScale.get()
+#
+# def setShutter(ev=None):
+#     valuelist = [1,10, 100, 1000, 10000, 100000, 1000000, 10000000]
+#     value = tkScale.get()
+#     newvalue = min(valuelist, key=lambda x: abs(x - float(value)))
+#     tkScale.set(newvalue)
+#     camera.shutter_speed = newvalue
+#     #camera.brightness = tkScale.get()
 
 
 # openVideo CC wrote that works
@@ -494,21 +497,46 @@ def openVideo():
 
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
-    camera.shutter_speed = tkScale.get()
+    camera.shutter_speed = shutter
     camera.iso = 100
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
 
+def shutterp001():
+    camera.shutter_speed = 1000
+    shutter = 1000
 
+def shutterp01():
+    camera.shutter_speed = 10000
+    shutter = 10000
+
+def shutterp1():
+    camera.shutter_speed = 100000
+    shutter = 100000
+
+def shutter1p():
+    camera.shutter_speed = 1000000
+    shutter = 1000000
+
+def shutter10p():
+    camera.shutter_speed = 10000000
+    shutter = 10000000
 
 ###################################################
 # GUI Build 
 ###################################################
-global tkScale
-tkScale = tk.Scale(sliWin,from_=1, to=10000000, width=50, length=hgt, orient=tk.VERTICAL,command=setShutter)
-tkScale.set(1000)
-tkScale.grid(row=0, column=0, sticky='nsew')
+# global tkScale
+# tkScale = tk.Scale(sliWin,from_=1, to=10000000, width=50, length=hgt, orient=tk.VERTICAL,command=setShutter)
+# tkScale.set(1000)
+# tkScale.grid(row=0, column=0, sticky='nsew')
+
+button_sp001 = Button(sliWin, text="1 ms", bg="#fdad5c", height=5, command=shutterp001)
+button_sp01 = Button(sliWin, text="10 ms", bg="#fdad5c", height=5, command=shutterp01)
+button_sp1 = Button(sliWin, text="100 ms", bg="#fdad5c", height=5, command=shutterp1)
+button_s1p = Button(sliWin, text = "1 s", bg="#fdad5c", height=5, command=shutter1p)
+button_s10p = Button(sliWin, text = "10 s", bg="#fdad5c", height=5, command=shutter10p)
+
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
