@@ -7,6 +7,7 @@ import picamera
 from fractions import Fraction
 from collections import OrderedDict
 #import PIL.Image
+import PIL
 import PIL.Image
 import PIL.ImageTk
 import PIL.ImageDraw
@@ -151,7 +152,7 @@ def take_picture(name, shutter):
     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
     camera.exposure_mode = 'nightpreview'
 
-    time.sleep(10)
+    time.sleep(3)
     camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
 
     return name
