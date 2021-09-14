@@ -31,7 +31,7 @@ wid_slide = 60
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt+20, wid_but+wid_slide,-20))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt+30, wid_but+wid_slide,-30))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
@@ -417,7 +417,7 @@ def openImage():
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
-    h = root.winfo_height()-20
+    h = root.winfo_height()-60
 
     # w = 800-wid_but
     # h = hgt-80
@@ -433,7 +433,7 @@ def openImage():
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
-    h = root.winfo_height()-20
+    h = root.winfo_height()-60
 
     ## To open spectrum
     simg = PIL.Image.open(output_filename)
@@ -450,11 +450,11 @@ def setBrightness(ev=None):
 def openVideo():
     # set width of button window
     w = root.winfo_width()
-    h = root.winfo_height()-20
+    h = root.winfo_height()-60
 
     setwidth = wid_but+wid_slide+5
 
-    camera.start_preview(fullscreen=False, window=(setwidth,30, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(setwidth,0, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness = tkScale.get()
