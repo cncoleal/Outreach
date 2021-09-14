@@ -259,23 +259,36 @@ def inform_user_of_exposure(max_result):
 # Lower level functions
 #######################################################
 
-# Take picture
-def take_picture(imname, shutter):
-    camera.stop_preview()
-    #print("initialising camera")
-    #print("allowing camera to warmup")
-    camera.vflip = True
-    camera.resolution = (2592, 1944)
-    camera.brightness = tkScale.get()
-    camera.sensor_mode = 3
-    camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
-    camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
-    camera.exposure_mode = 'nightpreview'
+# Take picture -- working code CC wrote
+# def take_picture(imname, shutter):
+#     camera.stop_preview()
+#     #print("initialising camera")
+#     #print("allowing camera to warmup")
+#     camera.vflip = True
+#     camera.resolution = (2592, 1944)
+#     camera.brightness = tkScale.get()
+#     camera.sensor_mode = 3
+#     camera.iso = 0  # Auto.This will yield less noise during day exposures and keep the iso down in low light for less noise.
+#     camera.framerate_range = (0.167, 6)  # this should match the values available in sensor mode, allowing upto a 6 second exposure
+#     camera.exposure_mode = 'nightpreview'
+#
+#     time.sleep(3)
+#     camera.capture(imname, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
+#     #print(name)
+#    # return imname
 
-    time.sleep(3)
-    camera.capture(imname, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-    #print(name)
-   # return imname
+## Use old image view code:
+def take_picture(imname, shutter):
+        camera.vflip = True
+        camera.framerate = Fraction(1, 2)
+        camera.shutter_speed = tkScale.get()
+        camera.iso = 100
+        camera.exposure_mode = 'off'
+        camera.awb_mode = 'off'
+        camera.awb_gains = (1, 1)
+        time.sleep(3)
+        print("capturing image")
+        camera.capture(imname, resize=(wid - wid_but, hgt))
 
 # save image with overlay
 def save_image_with_overlay(im):
@@ -443,26 +456,50 @@ def openSpectrum():
     specIm.grid(row=0,column=0, columnspan=1)
 
 
-def setBrightness(ev=None):
-    camera.brightness = tkScale.get()
+def setShutter(ev=None):
+    valuelist = [1000, 10000, 100000, 1000000, 10000000]
+    value = tkScale.get()
+    newvalue = min(valuelist, key=lambda x: abs(x - float(value)))
+    tkScale.set(newvalue)
+    camera.shutter_speed = newvalue
+    #camera.brightness = tkScale.get()
 
 
+# openVideo CC wrote that works
+# def openVideo():
+#     # set width of button window
+#     w = root.winfo_width()
+#     h = root.winfo_height()
+#
+#     setwidth = wid_but+wid_slide+4
+#
+#     camera.start_preview(fullscreen=False, window=(setwidth, -15, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+#     camera.vflip = True
+#     camera.resolution = (2592,1944)
+#     camera.brightness = tkScale.get()
+#     camera.sensor_mode = 3
+#     camera.iso = 0
+#     camera.framerate_range = (0.167, 6)
+#     camera.exposure_mode = 'nightpreview'
+
+## Using original camera settings
 def openVideo():
     # set width of button window
     w = root.winfo_width()
     h = root.winfo_height()
 
-    setwidth = wid_but+wid_slide+4
+    setwidth = wid_but + wid_slide + 4
 
-    camera.start_preview(fullscreen=False, window=(setwidth, -15, w ,h))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False,
+                         window=(setwidth, -15, w, h))  # 800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+
     camera.vflip = True
-    camera.resolution = (2592,1944)
-    camera.brightness = tkScale.get()
-    camera.sensor_mode = 3
-    camera.iso = 0
-    camera.framerate_range = (0.167, 6)
-    camera.exposure_mode = 'nightpreview'
-
+    camera.framerate = Fraction(1, 2)
+    camera.shutter_speed = tkScale.get()
+    camera.iso = 100
+    camera.exposure_mode = 'off'
+    camera.awb_mode = 'off'
+    camera.awb_gains = (1, 1)
 
 
 
@@ -470,7 +507,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(sliWin,from_=0, to=100, width=50, length=hgt,orient=tk.VERTICAL,command=setBrightness)
+tkScale = tk.Scale(sliWin,from_=1000, to=10000000, width=50, length=hgt,orient=tk.VERTICAL,command=setShutter)
 tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
