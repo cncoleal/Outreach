@@ -420,7 +420,7 @@ def openImage():
     w = root.winfo_width()
     h = root.winfo_height()-30
 
-    rimg = PIL.Image.open(raw_filename)
+    rimg = PIL.Image.open(output_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
@@ -433,7 +433,7 @@ def openSpectrum():
     h = root.winfo_height()-30
 
     ## To open spectrum
-    simg = PIL.Image.open(output_filename)
+    simg = PIL.Image.open(output_chart)
     renderSpec = PIL.ImageTk.PhotoImage(simg.resize((w, h)), master=root)
     specIm = Label(frame, image=renderSpec)
     specIm.image = renderSpec
