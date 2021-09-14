@@ -411,7 +411,7 @@ def openImage():
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
-    h = root.winfo_height()
+    h = hgt-80#root.winfo_height()
 
     # w = 800-wid_but
     # h = hgt-80
@@ -427,7 +427,7 @@ def openImage():
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
-    h = root.winfo_height()
+    h = hgt-80 #root.winfo_height()
 
     ## To open spectrum
     simg = PIL.Image.open(output_filename)
