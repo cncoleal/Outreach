@@ -485,14 +485,14 @@ def openSpectrum():
 
 ## Using original camera settings
 def openVideo():
-    # set width of button window
-    # make background frame black
-    backgnd = Label(frame, bd=0, bg='#000000')
-    backgnd.grid(row=0, column=0, columnspan=1)
-
-    #
     w = root.winfo_width()
     h = root.winfo_height()
+    # make background frame black
+    bkimage = PIL.Image.new('RGB', (255, 255), "black")
+    rendbkimage = PIL.ImageTk.PhotoImage(bkimage.resize((w,h)), master=root)
+    backgnd = Label(frame, bd=0, image=rendbkimage)
+    backgnd.image = rendbkimage
+    backgnd.grid(row=0, column=0, columnspan=1)
 
     setwidth = wid_but + wid_slide + 4
 
