@@ -30,10 +30,12 @@ wid_but = 140
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt+30, wid_but, -30))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt, wid_but, 0))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
+
+
 
 # side window: displays buttons
 butWin = tk.Toplevel(root) # Tk()
@@ -456,7 +458,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(root,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
+tkScale = tk.Scale(frame,from_=0, to=100,length=wid-wid_but,orient=tk.HORIZONTAL,command=setBrightness)
 tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='s')
 
