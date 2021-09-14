@@ -373,9 +373,8 @@ def export_diagram(normalized_results):
 # Take photo
 def acquire_photo():
     # global variables
-    global shutter
     # Need to add in button for this later! sys.argv[1]
-    shutter = int(5) # Need to add in button for this later! int(sys.argv[2])
+     # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
     # run take picture function
     take_picture(output_raw,shutter)
