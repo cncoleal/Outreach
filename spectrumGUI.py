@@ -31,7 +31,7 @@ wid_slide = 60
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide,0))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt+20, wid_but+wid_slide,-20))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
