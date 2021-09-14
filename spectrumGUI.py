@@ -59,7 +59,7 @@ camera = picamera.PiCamera()
 name = 'test'
 
 output_chart = name + "_chart.png"
-output_raw = name + "_raw.png"
+output_raw = name + "_raw.jpg"
 output_filename = name + "_out.png"
 
 
@@ -155,7 +155,7 @@ def take_picture(name, shutter):
     camera.exposure_mode = 'nightpreview'
 
     time.sleep(3)
-    camera.capture(name,format='.png', resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
+    camera.capture(name , resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
 
     return name
 
