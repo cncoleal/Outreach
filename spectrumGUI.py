@@ -38,7 +38,7 @@ frame.grid(row=0, column=0, sticky="nsew")
 
 # slider window: displays slider
 sliWin = tk.Toplevel(root)
-sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt, wid_but, -30))
+sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt-20, wid_but, -30))
 sliWin.configure(bg='white')
 Win2 = Frame(sliWin)
 Win2.grid(row=0,column=0, sticky='nsew')
