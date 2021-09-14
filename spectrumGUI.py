@@ -27,10 +27,11 @@ hgt = root.winfo_screenheight()
 
 # set width of button window
 wid_but = 140
+wid_slide = 40
 
 # root: main window displays images
 root.title('Spectrometer')
-root.geometry('%dx%d+%d+%d' % (wid-wid_but, hgt, wid_but, 0))
+root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide, 0))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
 frame.grid(row=0, column=0, sticky="nsew")
@@ -464,7 +465,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(frame,from_=0, to=100, width=20, length=hgt-80,orient=tk.VERTICAL,command=setBrightness)
+tkScale = tk.Scale(frame,from_=0, to=100, width=20, length=hgt,orient=tk.VERTICAL,command=setBrightness)
 tkScale.set(50)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
