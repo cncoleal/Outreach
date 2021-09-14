@@ -364,7 +364,7 @@ def acquire_photo():
     # save filename as a global variable
     # run take picture function
     take_picture(output_raw,shutter)
-
+    createSpectrum()
     return
 
 
@@ -418,7 +418,6 @@ def killWindow(event, x, y, flags, param):
 # File Viewing functions
 #######################################################
 def openImage():
-    createSpectrum()
     camera.stop_preview()
     # get size of frame
     w = root.winfo_width()
