@@ -422,7 +422,7 @@ def openImage():
 def openSpectrum():
     camera.stop_preview()
     w = root.winfo_width()
-    h = root.winfo_height()-40
+    h = root.winfo_height()-35
 
     ## To open spectrum
     simg = PIL.Image.open(output_chart)
