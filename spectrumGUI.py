@@ -29,7 +29,7 @@ hgt = root.winfo_screenheight()
 
 # set width of button window
 wid_but = 140
-wid_slide = 100
+wid_slide = 80
 
 # root: main window displays images
 root.title('Spectrometer')
