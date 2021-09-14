@@ -506,7 +506,7 @@ def openVideo():
 # GUI Build 
 ###################################################
 global tkScale
-tkScale = tk.Scale(sliWin,from_=1, to=10000000, width=50, length=hgt, showvalue=0, orient=tk.VERTICAL,command=setShutter)
+tkScale = tk.Scale(sliWin,from_=1, to=10000000, width=50, length=hgt, orient=tk.VERTICAL,command=setShutter)
 tkScale.set(1000)
 tkScale.grid(row=0, column=0, sticky='nsew')
 
