@@ -54,13 +54,16 @@ Win1.grid(row=0, column=0, sticky="nsew")
 
 global name
 global camera
-global output_filename
+global output_chart
+global output_raw
+global output_out
 camera = picamera.PiCamera()
-name = 'test'
 
+# output filenames
+name = 'test'
 output_chart = name + "_chart.png"
 output_raw = name + "_raw.jpg"
-output_filename = name + "_out.png"
+output_out = name + "_out.png"
 
 
 
@@ -156,7 +159,7 @@ def take_picture(name, shutter):
 
     time.sleep(3)
     camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-    print(name)
+    #print(name)
     return name
 
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
@@ -277,7 +280,7 @@ def inform_user_of_exposure(max_result):
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
-    im.save('test_out.png', "PNG", quality=80, optimize=True, progressive=True)
+    im.save(output_out, "PNG", quality=80, optimize=True, progressive=True)
 
 # normalize results
 def normalize_results(results, max_result):
@@ -298,8 +301,7 @@ def export_csv(name, normalized_results):
     csv.close()
 
 # export diagram
-def export_diagram(name, normalized_results):
-    # global output_filename
+def export_diagram(normalized_results):
     antialias = 4
     w = 600 * antialias
     h2 = 300 * antialias
@@ -345,7 +347,6 @@ def export_diagram(name, normalized_results):
 
     # save chart
     sd = sd.resize((int(w / antialias), int(h / antialias)), PIL.Image.ANTIALIAS)
-    #output_chart = name + "_chart.png"
     sd.save(output_chart, "PNG", quality=95, optimize=True, progressive=True)
 
 
@@ -356,14 +357,12 @@ def export_diagram(name, normalized_results):
 # Take photo
 def acquire_photo():
     # global variables
-    global raw_filename
     global shutter
     # Need to add in button for this later! sys.argv[1]
     shutter = int(5) # Need to add in button for this later! int(sys.argv[2])
     # save filename as a global variable
-    raw_filename = name + "_raw.jpg"
     # run take picture function
-    take_picture(raw_filename,shutter)
+    take_picture(output_raw,shutter)
 
     return
 
@@ -373,7 +372,7 @@ def acquire_photo():
 def createSpectrum():
     camera.stop_preview()
     # get pictures aperature
-    im = PIL.Image.open('test_raw.jpg')
+    im = PIL.Image.open(output_raw)
     print("locating aperture")
     pic_pixels = im.load()
     aperture = find_aperture(pic_pixels, im.size[0], im.size[1])
@@ -405,7 +404,7 @@ def createSpectrum():
     # display image with overlay? 
     # display spectrum 
     print("generating chart")
-    export_diagram(name, normalized_results)
+    export_diagram(normalized_results)
     return
 
 def killWindow(event, x, y, flags, param):
@@ -425,7 +424,7 @@ def openImage():
     w = root.winfo_width()
     h = root.winfo_height()-30
 
-    rimg = PIL.Image.open(output_filename)
+    rimg = PIL.Image.open(output_out)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
