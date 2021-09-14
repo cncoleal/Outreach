@@ -38,7 +38,7 @@ frame.grid(row=0, column=0, sticky="nsew")
 
 # slider window: displays slider
 sliWin = tk.Toplevel(root)
-sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt+30, wid_but, -30))
+sliWin.geometry('%dx%d+%d+%d' % (wid_slide, hgt+25, wid_but, -30))
 sliWin.configure(bg='white')
 Win2 = Frame(sliWin)
 Win2.grid(row=0,column=0, sticky='nsew')
@@ -452,7 +452,7 @@ def openVideo():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    setwidth = wid_but+5
+    setwidth = wid_but+wid_slide+5
 
     camera.start_preview(fullscreen=False, window=(setwidth,45, w ,hgt-80))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
