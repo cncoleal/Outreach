@@ -546,15 +546,20 @@ button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height
 
 
 exit_button = Button(butWin, text="Exit",height=5, command=root.destroy)
-exit_button.grid(row=5,column=0, sticky='nsew')
+exit_button.grid(row=4,column=0, sticky='nsew')
 
 # New windows
 button_captureVideo.grid(row=0, column=0, sticky="nsew")
 button_takePicture.grid(row=1,column=0, sticky="nsew")
 button_viewPicture.grid(row=2,column=0, sticky="nsew")
 #button_createSpectrum.grid(row=3,column=0, sticky="nsew")
-button_viewSpectrum.grid(row=4,column=0,sticky="nsew")
+button_viewSpectrum.grid(row=3,column=0,sticky="nsew")
 
+button_sp001.grid(row=0, column=0, sticky="nsew")
+button_sp01.grid(row=1,column=0, sticky="nsew")
+button_sp1.grid(row=2,column=0, sticky="nsew")
+button_s1p.grid(row=3,column=0,sticky="nsew")
+button_s10p.grid(row=4,column=0,sticky="nsew")
 
 
 
