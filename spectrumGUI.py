@@ -14,7 +14,6 @@ import PIL.ImageFile
 import PIL.ImageFont
 from tkinter import * 
 import tkinter as tk
-#import cv2
 from tkinter import filedialog
 
 
@@ -418,10 +417,6 @@ def openImage():
     # get size of frame
     w = root.winfo_width()
     h = root.winfo_height()-30
-
-    # w = 800-wid_but
-    # h = hgt-80
-
 
     rimg = PIL.Image.open(raw_filename)
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
