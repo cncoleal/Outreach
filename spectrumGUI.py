@@ -14,7 +14,7 @@ import PIL.ImageFile
 import PIL.ImageFont
 from tkinter import * 
 import tkinter as tk
-import cv2
+#import cv2
 from tkinter import filedialog
 
 
