@@ -155,8 +155,8 @@ def take_picture(name, shutter):
     camera.exposure_mode = 'nightpreview'
 
     time.sleep(3)
-    camera.capture(name , resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
-
+    camera.capture(name, resize=(wid - wid_but, hgt))#(wid - wid_but, hgt) (1296, 972)
+    print('name')
     return name
 
 def find_aperture(pic_pixels, pic_width: int, pic_height: int)-> object:
