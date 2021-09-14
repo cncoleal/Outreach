@@ -454,7 +454,7 @@ def openVideo():
 
     setwidth = wid_but+wid_slide+4
 
-    camera.start_preview(fullscreen=False, window=(setwidth,0, w ,480))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
+    camera.start_preview(fullscreen=False, window=(setwidth,0, w ,500))#800-setwidth (wid_but, 20, 800-wid_but-17, 500))
     camera.vflip = True
     camera.resolution = (2592,1944)
     camera.brightness = tkScale.get()
