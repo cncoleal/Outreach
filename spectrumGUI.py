@@ -418,10 +418,13 @@ def openImage():
     rimg1 = rimg.resize((w,h))
 
     # # Setting the points for cropped image
+    height_rimg = 480
+    width_rimg = 660
+
     left = 5
-    top = height / 4
+    top = height_rimg / 4
     right = 330
-    bottom = 3 * height / 4
+    bottom = 3 * height_rimg / 4
     #
     # # Cropped image of above dimension
     # # (It will not change original image)
