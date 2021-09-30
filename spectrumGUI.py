@@ -373,7 +373,8 @@ def createSpectrum():
 
     # 4. Draw graph on picture
     print("analysing image")
-    wavelength_factor = 0.95
+
+    wavelength_factor = 1.415
     #wavelength_factor = 0.892  # 1000/mm
     #wavelength_factor=0.892*2.0*600/650 # 500/mm
     results, max_result = draw_graph(draw, pic_pixels, aperture, spectrum_angle, wavelength_factor)
