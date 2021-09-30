@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fafeb0d-bb20-4981-8370-dc57b39dffc8" name="Changes" comment="test2" />
+    <list default="true" id="4fafeb0d-bb20-4981-8370-dc57b39dffc8" name="Changes" comment="test2">
+      <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +17,17 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1ysKgBEiNeGcqxLKnfTM3M6Neil" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="test2">
       <created>1633034597868</created>
@@ -31,7 +43,21 @@
       <option name="project" value="LOCAL" />
       <updated>1633034808423</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4fafeb0d-bb20-4981-8370-dc57b39dffc8" name="Changes" comment="test2" />
+      <created>1633034974908</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633034974908</updated>
+    </task>
+    <task id="LOCAL-00003" summary="test2">
+      <created>1633035017930</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633035017930</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

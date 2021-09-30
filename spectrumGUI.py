@@ -373,7 +373,6 @@ def createSpectrum():
 
     # 4. Draw graph on picture
     print("analysing image")
-
     wavelength_factor = 1.415
     #wavelength_factor = 0.892  # 1000/mm
     #wavelength_factor=0.892*2.0*600/650 # 500/mm
@@ -414,6 +413,22 @@ def openImage():
     h = root.winfo_height()
 
     rimg = PIL.Image.open(output_out)
+
+    # Crop the image
+    width, height = rimg.size
+    print(width)
+    print(height)
+
+    # # Setting the points for cropped image
+    # left = 5
+    # top = height / 4
+    # right = 164
+    # bottom = 3 * height / 4
+    #
+    # # Cropped image of above dimension
+    # # (It will not change original image)
+    # im1 = im.crop((left, top, right, bottom))
+
     renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
