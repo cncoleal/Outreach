@@ -421,16 +421,20 @@ def openImage():
     height_rimg = 480
     width_rimg = 660
 
-    left = 5
-    top = height_rimg / 4
+    left = 1
+    top = 1
     right = 330
     bottom = 3 * height_rimg / 4
+
+
     #
     # # Cropped image of above dimension
     # # (It will not change original image)
     rimg2 = rimg1.crop((left, top, right, bottom))
 
-    renderRaw = PIL.ImageTk.PhotoImage(rimg2, master=root)
+    rimg3 = rimg2.resize((w, h))
+
+    renderRaw = PIL.ImageTk.PhotoImage(rimg3, master=root)
     rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0,columnspan=1)
