@@ -574,7 +574,7 @@ button_sp1.config(relief=RAISED)
 button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p)
 button_s1p.config(relief=RAISED)
 button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
-button_s10p.config(relief=FLAT)
+button_s10p.config(activebackground="#568156", relief=FLAT)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
