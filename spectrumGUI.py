@@ -372,7 +372,7 @@ def button_start():
 
 def button_main():
     take_picture(output_raw,shutter)
-    createSpectrum()
+    #createSpectrum()
     return
 
 def button_end():
