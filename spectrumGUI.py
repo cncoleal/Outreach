@@ -373,8 +373,8 @@ def acquire_photo():
 
     time.sleep(1)
     # run take picture function
-    take_picture(output_raw,shutter)
-    createSpectrum()
+    #take_picture(output_raw,shutter)
+    #createSpectrum()
 
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
     return
