@@ -274,17 +274,17 @@ def inform_user_of_exposure(max_result):
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-        camera.vflip = True
-        camera.framerate = Fraction(1, 2)
-        camera.shutter_speed = shutter #tkScale.get()
-        camera.iso = 100
-        camera.exposure_mode = 'off'
-        camera.awb_mode = 'off'
-        camera.awb_gains = (1, 1)
-        time.sleep(3)
+        #camera.vflip = True
+        #camera.framerate = Fraction(1, 2)
+        #camera.shutter_speed = shutter #tkScale.get()
+        #camera.iso = 100
+        #camera.exposure_mode = 'off'
+        #camera.awb_mode = 'off'
+        #camera.awb_gains = (1, 1)
+        #time.sleep(3)
         #print("capturing image")
         #camera.capture(imname, resize=(wid - wid_but, hgt))
-        print(shutter)
+        #print(shutter)
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
