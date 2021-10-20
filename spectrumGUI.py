@@ -588,8 +588,8 @@ button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height
 button_captureVideo.config(activebackground="#ffdbb7")
 
 
-exit_button = Button(butWin, text="Exit", bg="#800000", fg='#ffffff',height=5, command=root.destroy)
-exit_button.config(activebackground="#bf0000")
+exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=root.destroy)
+exit_button.config(activebackground="#f26161")
 exit_button.grid(row=4,column=0, sticky='nsew')
 
 # New windows
