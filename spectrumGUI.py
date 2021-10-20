@@ -374,8 +374,8 @@ def button_start():
 def button_main():
 
     # print(shutter)
-    #take_picture(output_raw,shutter)
-    #createSpectrum()
+    take_picture(output_raw,shutter)
+    createSpectrum()
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
