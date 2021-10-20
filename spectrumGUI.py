@@ -379,7 +379,7 @@ def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
     return
 
-def acquire_photo():
+#def acquire_photo():
 
 
 
