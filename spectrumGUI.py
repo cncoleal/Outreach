@@ -282,7 +282,7 @@ def take_picture(imname, shutter):
         camera.awb_mode = 'off'
         camera.awb_gains = (1, 1)
         time.sleep(3)
-        print("capturing image")
+        #print("capturing image")
         camera.capture(imname, resize=(wid - wid_but, hgt))
         print(shutter)
 # save image with overlay
@@ -387,7 +387,7 @@ def createSpectrum():
     camera.stop_preview()
     # get pictures aperature
     im = PIL.Image.open(output_raw)
-    print("locating aperture")
+    #print("locating aperture")
     pic_pixels = im.load()
     aperture = find_aperture(pic_pixels, im.size[0], im.size[1])
 
@@ -398,7 +398,7 @@ def createSpectrum():
     draw_scan_line(aperture, draw, spectrum_angle)
 
     # 4. Draw graph on picture
-    print("analysing image")
+    #print("analysing image")
     wavelength_factor = 1.415
     #wavelength_factor = 0.892  # 1000/mm
     #wavelength_factor=0.892*2.0*600/650 # 500/mm
