@@ -369,9 +369,9 @@ def acquire_photo():
     button_captureVideo.config(bg="#fdad5c", relief=RAISED)
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
-
     button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
 
+    time.sleep(1)
     # run take picture function
     take_picture(output_raw,shutter)
     createSpectrum()
@@ -618,7 +618,7 @@ button_sp1.config(activebackground="#568156",relief=RAISED)
 button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p)
 button_s1p.config(activebackground="#568156",relief=RAISED)
 button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
-button_s10p.config(activebackground="#568156", relief=SUNKEN)
+button_s10p.config(activebackground="#568156", bg="#568156",relief=SUNKEN)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
