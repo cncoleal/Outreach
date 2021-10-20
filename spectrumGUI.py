@@ -555,13 +555,13 @@ def shutter10p():
     shutter = 10000000
 
     # Remove relief on all other buttons
-    button_sp001.config(relief=RAISED)
-    button_sp01.config(relief=RAISED)
-    button_sp1.config(relief=RAISED)
-    button_s1p.config(relief=RAISED)
+    button_sp001.config(bg="#1E4D2B", relief=RAISED)
+    button_sp01.config(bg="#1E4D2B",relief=RAISED)
+    button_sp1.config(bg="#1E4D2B", relief=RAISED)
+    button_s1p.config(bg="#1E4D2B", relief=RAISED)
 
     # set relief
-    button_s10p.config(activebackground="#568156",relief=SUNKEN)
+    button_s10p.config(bg="#568156",relief=SUNKEN)
 
 def set_relief1(button):
     global button1
@@ -578,7 +578,7 @@ def set_relief1(button):
 
 
 button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
-button_sp001.config(activebackground="#568156", command=set_relief1(button_sp001))
+button_sp001.config(activebackground="#568156", relief=RAISED)#command=set_relief1(button_sp001)
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
 button_sp01.config(activebackground="#568156", relief=RAISED)
 button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
