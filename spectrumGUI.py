@@ -578,14 +578,14 @@ button_s10p.config(activebackground="#568156", relief=SUNKEN)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
-button_takePicture.config(activebackground="#ffbe6d")
+button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
-button_viewPicture.config(activebackground="#ffbe6d")
+button_viewPicture.config(activebackground="#ffdbb7")
 #button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
-button_viewSpectrum.config(activebackground="#ffbe6d")
+button_viewSpectrum.config(activebackground="#ffdbb7")
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
-button_captureVideo.config(activebackground="#ffbe6d")
+button_captureVideo.config(activebackground="#ffdbb7")
 
 
 exit_button = Button(butWin, text="Exit",height=5, command=root.destroy)
