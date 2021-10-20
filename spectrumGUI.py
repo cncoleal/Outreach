@@ -377,7 +377,7 @@ def acquire_photo():
     #createSpectrum()
 
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
-    return
+    #return
 
 
 def createSpectrum():
