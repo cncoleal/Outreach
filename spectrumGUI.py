@@ -364,15 +364,15 @@ def export_diagram(normalized_results):
 #######################################################
 # Take photo
 def acquire_photo():
-    # run take picture function
-    take_picture(output_raw,shutter)
-    createSpectrum()
-
     ## In acquire photo
     # turn off depression on other buttons only
     button_captureVideo.config(bg="#fdad5c", relief=RAISED)
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
+
+    # run take picture function
+    take_picture(output_raw,shutter)
+    createSpectrum()
 
     return
 
