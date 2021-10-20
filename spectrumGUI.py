@@ -371,7 +371,7 @@ def button_main():
     camera.awb_gains = (1, 1)
     #time.sleep(3)
     # #print("capturing image")
-    camera.capture(imname, resize=(wid - wid_but, hgt))
+    camera.capture(output_raw, resize=(wid - wid_but, hgt))
     return
     # print(shutter)
     #take_picture(output_raw,shutter)
