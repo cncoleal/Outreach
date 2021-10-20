@@ -421,8 +421,8 @@ def openImage():
     height_rimg = 480
     #width_rimg = 660
 
-    left = -30
-    top = 120
+    left = 100
+    top = 150
     right = 310
     bottom = 3 * height_rimg / 4
 
