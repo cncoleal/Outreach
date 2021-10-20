@@ -412,7 +412,7 @@ def openImage():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    rimg = PIL.Image.open(output_out)
+    rimg = PIL.Image.open(output_raw) #oct change back from output_out to output_raw
 
     # Crop the image (width: 660, height: 480)
     rimg1 = rimg.resize((w,h))
