@@ -363,21 +363,24 @@ def export_diagram(normalized_results):
 # High level functions
 #######################################################
 # Take photo
-def acquire_photo():
-    ## In acquire photo
-    # turn off depression on other buttons only
+def button_start():
     button_captureVideo.config(bg="#fdad5c", relief=RAISED)
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
     button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
+    return
 
-    time.sleep(1)
-    # run take picture function
-    #take_picture(output_raw,shutter)
-    #createSpectrum()
+def button_main():
+    take_picture(output_raw,shutter)
+    createSpectrum()
+    return
 
+def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
-    #return
+    return
+
+def acquire_photo():
+    lambda:[button_start, button_main, button_end]
 
 
 def createSpectrum():
