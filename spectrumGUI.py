@@ -11,7 +11,7 @@ import PIL.ImageTk
 import PIL.ImageDraw
 import PIL.ImageFile
 import PIL.ImageFont
-from tkinter import * 
+from tkinter import *
 import tkinter as tk
 from tkinter import filedialog
 
@@ -27,6 +27,7 @@ hgt = root.winfo_screenheight()
 wid_but = 140
 wid_slide = 80
 
+## TESTESTESt
 # root: main window displays images
 root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
@@ -374,6 +375,7 @@ def createSpectrum():
     # 4. Draw graph on picture
     print("analysing image")
     wavelength_factor = 1.415
+    #wavelength_factor = 0.95
     #wavelength_factor = 0.892  # 1000/mm
     #wavelength_factor=0.892*2.0*600/650 # 500/mm
     results, max_result = draw_graph(draw, pic_pixels, aperture, spectrum_angle, wavelength_factor)
@@ -389,8 +391,8 @@ def createSpectrum():
     # save csv
     export_csv(name, normalized_results)
 
-    # display image with overlay? 
-    # display spectrum 
+    # display image with overlay?
+    # display spectrum
     print("generating chart")
     export_diagram(normalized_results)
     return
@@ -399,9 +401,6 @@ def killWindow(event, x, y, flags, param):
     if event == cv2.EVENT_FLAG_ALTKEY:
         #cap.release()
         cv2.destroyAllWindows()
-
-
-
 
 #######################################################
 # File Viewing functions
@@ -412,29 +411,8 @@ def openImage():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    rimg = PIL.Image.open(output_out)
-
-    # Crop the image (width: 660, height: 480)
-    rimg1 = rimg.resize((w,h))
-
-    # # Setting the points for cropped image
-    height_rimg = 480
-    width_rimg = 660
-
-    left = 1
-    top = -10
-    right = 310
-    bottom = 3 * height_rimg / 4
-
-
-    #
-    # # Cropped image of above dimension
-    # # (It will not change original image)
-    rimg2 = rimg1.crop((left, top, right, bottom))
-
-    rimg3 = rimg2.resize((w, h))
-
-    renderRaw = PIL.ImageTk.PhotoImage(rimg3, master=root)
+    rimg = PIL.Image.open(output_raw) # change to output_raw from output_out?
+    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
     rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0,columnspan=1)
@@ -504,7 +482,7 @@ def shutter10p():
     shutter = 10000000
 
 ###################################################
-# GUI Build 
+# GUI Build
 ###################################################
 button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
