@@ -486,7 +486,7 @@ def openVideo():
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
 
-def shutterp001():
+def shutterp001(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p):
     camera.shutter_speed = 1000
     global shutter
     shutter = 1000
@@ -498,10 +498,10 @@ def shutterp001():
     button_s10p.config(relief=RAISED)
 
     # set relief
-    button_sp001.config(relief=SUNKEN)
+    button_sp001.config(activebackground="#568156",relief=SUNKEN)
 
 
-def shutterp01():
+def shutterp01(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p):
     camera.shutter_speed = 10000
     global shutter
     shutter = 10000
@@ -513,9 +513,9 @@ def shutterp01():
     button_s10p.config(relief=RAISED)
 
     # set relief
-    button_sp01.config(relief=SUNKEN)
+    button_sp01.config(activebackground="#568156",relief=SUNKEN)
 
-def shutterp1():
+def shutterp1(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p):
     camera.shutter_speed = 100000
     global shutter
     shutter = 100000
@@ -527,9 +527,9 @@ def shutterp1():
     button_s10p.config(relief=RAISED)
 
     # set relief
-    button_sp1.config(relief=SUNKEN)
+    button_sp1.config(activebackground="#568156",relief=SUNKEN)
 
-def shutter1p():
+def shutter1p(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p):
     camera.shutter_speed = 1000000
     global shutter
     shutter = 1000000
@@ -541,9 +541,9 @@ def shutter1p():
     button_s10p.config(relief=RAISED)
 
     # set relief
-    button_s1p.config(relief=SUNKEN)
+    button_s1p.config(activebackground="#568156",relief=SUNKEN)
 
-def shutter10p():
+def shutter10p(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p ):
     camera.shutter_speed = 10000000
     global shutter
     shutter = 10000000
@@ -555,7 +555,7 @@ def shutter10p():
     button_s1p.config(relief=RAISED)
 
     # set relief
-    button_s10p.config(relief=SUNKEN)
+    button_s10p.config(activebackground="#568156",relief=SUNKEN)
 
 
 
@@ -565,16 +565,16 @@ def shutter10p():
 
 
 
-button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
-button_sp001.config(relief=RAISED)
-button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
-button_sp01.config(relief=RAISED)
-button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
-button_sp1.config(relief=RAISED)
-button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p)
-button_s1p.config(relief=RAISED)
-button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
-button_s10p.config(activebackground="#568156", relief=FLAT)
+button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p))
+button_sp001.config(activebackground="#568156", relief=RAISED)
+button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p))
+button_sp01.config(activebackground="#568156", relief=RAISED)
+button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p))
+button_sp1.config(activebackground="#568156",relief=RAISED)
+button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p))
+button_s1p.config(activebackground="#568156",relief=RAISED)
+button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p(button_sp001, button_sp01, button_sp1,button_s1p,button_s10p))
+button_s10p.config(activebackground="#568156", relief=SUNKEN)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
