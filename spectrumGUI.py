@@ -367,6 +367,13 @@ def acquire_photo():
     # run take picture function
     take_picture(output_raw,shutter)
     createSpectrum()
+
+    ## In acquire photo
+    # turn off depression on other buttons only
+    button_captureVideo.config(bg="#fdad5c", relief=RAISED)
+    button_viewPicture.config(bg="#fdad5c", relief=RAISED)
+    button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
+
     return
 
 
@@ -453,6 +460,13 @@ def openImage():
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0,columnspan=1)
 
+    # in openImage
+    # turn off capture video, viewSpectrum turn on view picture
+    button_captureVideo.config(bg="#fdad5c", relief=RAISED)
+    button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
+
+    button_viewPicture.config(bg="#ffdbb7", relief=SUNKEN)
+
 
 def openSpectrum():
     camera.stop_preview()
@@ -465,6 +479,13 @@ def openSpectrum():
     specIm = Label(frame, image=renderSpec)
     specIm.image = renderSpec
     specIm.grid(row=0,column=0, columnspan=1)
+
+    # in openSpectrum
+    # turn off captureVideo, viewPicture turn on viewSpectrum
+    button_captureVideo.config(bg="#fdad5c", relief=RAISED)
+    button_viewPicture.config(bg="#fdad5c", relief=RAISED)
+
+    button_viewSpectrum.config(bg="#ffdbb7", relief=SUNKEN)
 
 
 
@@ -491,6 +512,14 @@ def openVideo():
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
+
+    # in openVideo
+    # turn off viewPicture, viewSpectrum turn on captureVideo
+    button_viewPicture.config(bg="#fdad5c", relief=RAISED)
+    button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
+
+    button_captureVideo.config(bg="#ffdbb7", relief=SUNKEN)
+
 
 def shutterp001():
     camera.shutter_speed = 1000
@@ -586,7 +615,7 @@ button_sp1.config(activebackground="#568156",relief=RAISED)
 button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p)
 button_s1p.config(activebackground="#568156",relief=RAISED)
 button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
-button_s10p.config( activebackground="#568156", relief=SUNKEN)
+button_s10p.config(activebackground="#568156", relief=SUNKEN)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
@@ -598,6 +627,13 @@ button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", h
 button_viewSpectrum.config(activebackground="#ffdbb7")
 button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
 button_captureVideo.config(activebackground="#ffdbb7")
+
+
+
+
+
+
+
 
 
 exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=root.destroy)
