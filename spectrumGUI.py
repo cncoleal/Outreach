@@ -369,9 +369,9 @@ def button_main():
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
-    time.sleep(3)
+    #time.sleep(3)
     # #print("capturing image")
-    # camera.capture(imname, resize=(wid - wid_but, hgt))
+    camera.capture(imname, resize=(wid - wid_but, hgt))
     # print(shutter)
     #take_picture(output_raw,shutter)
     #createSpectrum()
