@@ -27,7 +27,6 @@ hgt = root.winfo_screenheight()
 wid_but = 140
 wid_slide = 80
 
-## TESTESTESt
 # root: main window displays images
 root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
@@ -375,7 +374,6 @@ def createSpectrum():
     # 4. Draw graph on picture
     print("analysing image")
     wavelength_factor = 1.415
-    #wavelength_factor = 0.95
     #wavelength_factor = 0.892  # 1000/mm
     #wavelength_factor=0.892*2.0*600/650 # 500/mm
     results, max_result = draw_graph(draw, pic_pixels, aperture, spectrum_angle, wavelength_factor)
@@ -402,6 +400,9 @@ def killWindow(event, x, y, flags, param):
         #cap.release()
         cv2.destroyAllWindows()
 
+
+
+
 #######################################################
 # File Viewing functions
 #######################################################
@@ -411,8 +412,30 @@ def openImage():
     w = root.winfo_width()
     h = root.winfo_height()
 
-    rimg = PIL.Image.open(output_raw) # change to output_raw from output_out?
-    renderRaw = PIL.ImageTk.PhotoImage(rimg.resize((w,h)), master=root)
+    rimg = PIL.Image.open(output_out)
+
+    # Crop the image (width: 660, height: 480)
+    rimg1 = rimg.resize((w,h))
+
+    # # Setting the points for cropped image
+    height_rimg = 480
+    width_rimg = 660
+
+    left = -30
+    top = -10
+    right = 310
+    bottom = 3 * height_rimg / 4
+
+
+    #
+    # # Cropped image of above dimension
+    # # (It will not change original image)
+    rimg2 = rimg1.crop((left, top, right, bottom))
+
+    rimg3 = rimg2.resize((w, h))
+    rimg4 = rimg3.transpose(PIL.Image.FLIP_LEFT_RIGHT)
+
+    renderRaw = PIL.ImageTk.PhotoImage(rimg4, master=root)
     rawIm = Label(frame, bd=0,  image=renderRaw)
     rawIm.image = renderRaw
     rawIm.grid(row=0,column=0,columnspan=1)
@@ -517,28 +540,3 @@ button_s10p.grid(row=4,column=0,sticky="nsew")
 
 
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
