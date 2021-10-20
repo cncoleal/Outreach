@@ -369,11 +369,14 @@ def acquire_photo():
     button_captureVideo.config(bg="#fdad5c", relief=RAISED)
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
-    sleep(1)
+
+    button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
+
     # run take picture function
     take_picture(output_raw,shutter)
     createSpectrum()
 
+    button_takePicture.config(bg="#fdad5c", relief=RAISED)
     return
 
 
