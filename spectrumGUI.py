@@ -467,6 +467,7 @@ def openImage():
     # turn off capture video, viewSpectrum turn on view picture
     button_captureVideo.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
+    button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
     button_viewPicture.config(bg="#ffdbb7", relief=SUNKEN)
 
@@ -487,6 +488,7 @@ def openSpectrum():
     # turn off captureVideo, viewPicture turn on viewSpectrum
     button_captureVideo.config(bg="#fdad5c", relief=RAISED)
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
+    button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
     button_viewSpectrum.config(bg="#ffdbb7", relief=SUNKEN)
 
@@ -520,6 +522,7 @@ def openVideo():
     # turn off viewPicture, viewSpectrum turn on captureVideo
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
+    button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
     button_captureVideo.config(bg="#ffdbb7", relief=SUNKEN)
 
