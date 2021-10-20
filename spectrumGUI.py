@@ -371,12 +371,12 @@ def acquire_photo():
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
     button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
 
-    #time.sleep(1)
+    time.sleep(1)
     # run take picture function
     #take_picture(output_raw,shutter)
     #createSpectrum()
 
-    #button_takePicture.config(bg="#fdad5c", relief=RAISED)
+    button_takePicture.config(bg="#fdad5c", relief=RAISED)
     #return
 
 
