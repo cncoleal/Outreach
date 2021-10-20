@@ -273,7 +273,19 @@ def inform_user_of_exposure(max_result):
 
 
 ## Use old image view code:
+def take_picture(imname, shutter):
 
+    camera.vflip = True
+    camera.framerate = Fraction(1, 2)
+    camera.shutter_speed = shutter #tkScale.get()
+    camera.iso = 100
+    camera.exposure_mode = 'off'
+    camera.awb_mode = 'off'
+    camera.awb_gains = (1, 1)
+    time.sleep(3)
+    # #print("capturing image")
+    camera.capture(imname, resize=(wid - wid_but, hgt))
+    return
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
@@ -360,19 +372,7 @@ def button_start():
     return
 
 def button_main():
-    #def take_picture(imname, shutter):
 
-    camera.vflip = True
-    camera.framerate = Fraction(1, 2)
-    camera.shutter_speed = shutter #tkScale.get()
-    camera.iso = 100
-    camera.exposure_mode = 'off'
-    camera.awb_mode = 'off'
-    camera.awb_gains = (1, 1)
-    #time.sleep(3)
-    # #print("capturing image")
-    camera.capture(output_raw, resize=(wid - wid_but, hgt))
-    return
     # print(shutter)
     #take_picture(output_raw,shutter)
     #createSpectrum()
@@ -632,7 +632,7 @@ button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=
 button_s10p.config(activebackground="#568156", bg="#568156",relief=SUNKEN)
 
 
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda:[button_start(), button_end()])
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
