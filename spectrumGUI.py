@@ -56,7 +56,14 @@ global output_out
 global shutter
 
 camera = picamera.PiCamera()
-shutter = 1000
+
+# set default shutter value
+shutter = 10000000
+
+
+
+
+
 
 # output filenames
 name = 'test'
@@ -484,29 +491,80 @@ def shutterp001():
     global shutter
     shutter = 1000
 
+    # Remove relief on all other buttons
+    button_sp01.config(relief=RAISED)
+    button_sp1.config(relief=RAISED)
+    button_s1p.config(relief=RAISED)
+    button_s10p.config(relief=RAISED)
+
+    # set relief
+    button_sp001.config(relief=SUNKEN)
+
+
 def shutterp01():
     camera.shutter_speed = 10000
     global shutter
     shutter = 10000
+
+    # Remove relief on all other buttons
+    button_sp001.config(relief=RAISED)
+    button_sp1.config(relief=RAISED)
+    button_s1p.config(relief=RAISED)
+    button_s10p.config(relief=RAISED)
+
+    # set relief
+    button_sp01.config(relief=SUNKEN)
 
 def shutterp1():
     camera.shutter_speed = 100000
     global shutter
     shutter = 100000
 
+    # Remove relief on all other buttons
+    button_sp001.config(relief=RAISED)
+    button_sp01.config(relief=RAISED)
+    button_s1p.config(relief=RAISED)
+    button_s10p.config(relief=RAISED)
+
+    # set relief
+    button_sp1.config(relief=SUNKEN)
+
 def shutter1p():
     camera.shutter_speed = 1000000
     global shutter
     shutter = 1000000
+
+    # Remove relief on all other buttons
+    button_sp001.config(relief=RAISED)
+    button_sp01.config(relief=RAISED)
+    button_sp1.config(relief=RAISED)
+    button_s10p.config(relief=RAISED)
+
+    # set relief
+    button_s1p.config(relief=SUNKEN)
 
 def shutter10p():
     camera.shutter_speed = 10000000
     global shutter
     shutter = 10000000
 
+    # Remove relief on all other buttons
+    button_sp001.config(relief=RAISED)
+    button_sp01.config(relief=RAISED)
+    button_sp1.config(relief=RAISED)
+    button_s1p.config(relief=RAISED)
+
+    # set relief
+    button_s10p.config(relief=SUNKEN)
+
+
+
 ###################################################
 # GUI Build
 ###################################################
+
+
+
 button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
 button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
@@ -537,6 +595,19 @@ button_sp1.grid(row=2,column=0, sticky="nsew")
 button_s1p.grid(row=3,column=0,sticky="nsew")
 button_s10p.grid(row=4,column=0,sticky="nsew")
 
+# activate shutter buttons
+button_sp01.config(state=tk.ACTIVE)
+button_sp1.config(state=tk.ACTIVE)
+button_s1p.config(state=tk.ACTIVE)
+button_s10p.config(state=tk.ACTIVE)
+button_sp001.config(state=tk.ACTIVE)
+
+# set releif on shutter buttons
+button_sp01.config(relief=RAISED)
+button_sp1.config(relief=RAISED)
+button_s1p.config(relief=RAISED)
+button_s10p.config(relief=RAISED)
+button_sp001.config(relief=SUNKEN)
 
 
 root.mainloop()
