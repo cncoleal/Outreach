@@ -419,10 +419,10 @@ def openImage():
 
     # # Setting the points for cropped image
     height_rimg = 480
-    width_rimg = 660
+    #width_rimg = 660
 
     left = -30
-    top = -10
+    top = -50
     right = 310
     bottom = 3 * height_rimg / 4
 
