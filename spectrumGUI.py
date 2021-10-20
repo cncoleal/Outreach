@@ -498,13 +498,13 @@ def shutterp001():
     shutter = 1000
 
     # Remove relief on all other buttons
-    button_sp01.config(relief=RAISED)
-    button_sp1.config(relief=RAISED)
-    button_s1p.config(relief=RAISED)
-    button_s10p.config(relief=RAISED)
+    button_sp01.config(bg="#1E4D2B", relief=RAISED)
+    button_sp1.config(bg="#1E4D2B", relief=RAISED)
+    button_s1p.config(bg="#1E4D2B", relief=RAISED)
+    button_s10p.config(bg="#1E4D2B", relief=RAISED)
 
     # set relief
-    button_sp001.config(activebackground="#568156",relief=SUNKEN)
+    button_sp001.config(bg="#568156",relief=SUNKEN)
 
 
 def shutterp01():
@@ -513,13 +513,13 @@ def shutterp01():
     shutter = 10000
 
     # Remove relief on all other buttons
-    button_sp001.config(relief=RAISED)
-    button_sp1.config(relief=RAISED)
-    button_s1p.config(relief=RAISED)
-    button_s10p.config(relief=RAISED)
+    button_sp001.config(bg="#1E4D2B", relief=RAISED)
+    button_sp1.config(bg="#1E4D2B", relief=RAISED)
+    button_s1p.config(bg="#1E4D2B", relief=RAISED)
+    button_s10p.config(bg="#1E4D2B", relief=RAISED)
 
     # set relief
-    button_sp01.config(activebackground="#568156",relief=SUNKEN)
+    button_sp01.config(bg="#568156",relief=SUNKEN)
 
 def shutterp1():
     camera.shutter_speed = 100000
@@ -527,13 +527,13 @@ def shutterp1():
     shutter = 100000
 
     # Remove relief on all other buttons
-    button_sp001.config(relief=RAISED)
-    button_sp01.config(relief=RAISED)
-    button_s1p.config(relief=RAISED)
-    button_s10p.config(relief=RAISED)
+    button_sp001.config(bg="#1E4D2B", relief=RAISED)
+    button_sp01.config(bg="#1E4D2B", relief=RAISED)
+    button_s1p.config(bg="#1E4D2B", relief=RAISED)
+    button_s10p.config(bg="#1E4D2B", relief=RAISED)
 
     # set relief
-    button_sp1.config(activebackground="#568156",relief=SUNKEN)
+    button_sp1.config(bg="#568156",relief=SUNKEN)
 
 def shutter1p():
     camera.shutter_speed = 1000000
@@ -541,13 +541,13 @@ def shutter1p():
     shutter = 1000000
 
     # Remove relief on all other buttons
-    button_sp001.config(relief=RAISED)
-    button_sp01.config(relief=RAISED)
-    button_sp1.config(relief=RAISED)
-    button_s10p.config(relief=RAISED)
+    button_sp001.config(bg="#1E4D2B", relief=RAISED)
+    button_sp01.config(bg="#1E4D2B", relief=RAISED)
+    button_sp1.config(bg="#1E4D2B", relief=RAISED)
+    button_s10p.config(bg="#1E4D2B", relief=RAISED)
 
     # set relief
-    button_s1p.config(activebackground="#568156",relief=SUNKEN)
+    button_s1p.config(bg="#568156",relief=SUNKEN)
 
 def shutter10p():
     camera.shutter_speed = 10000000
