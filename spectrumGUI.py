@@ -379,7 +379,10 @@ def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
     return
 
-#def acquire_photo():
+def acquire_photo():
+    button_start()
+    button_main()
+    button_end()
 
 
 
@@ -387,7 +390,7 @@ def createSpectrum():
     camera.stop_preview()
     # get pictures aperature
     im = PIL.Image.open(output_raw)
-    #print("locating aperture")
+    print("locating aperture")
     pic_pixels = im.load()
     aperture = find_aperture(pic_pixels, im.size[0], im.size[1])
 
@@ -398,7 +401,7 @@ def createSpectrum():
     draw_scan_line(aperture, draw, spectrum_angle)
 
     # 4. Draw graph on picture
-    #print("analysing image")
+    print("analysing image")
     wavelength_factor = 1.415
     #wavelength_factor = 0.892  # 1000/mm
     #wavelength_factor=0.892*2.0*600/650 # 500/mm
@@ -627,7 +630,7 @@ button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=
 button_s10p.config(activebackground="#568156", bg="#568156",relief=SUNKEN)
 
 
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [button_start(), button_main(), button_end()])
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
