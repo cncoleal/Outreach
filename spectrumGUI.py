@@ -372,18 +372,19 @@ def button_main():
     #time.sleep(3)
     # #print("capturing image")
     camera.capture(imname, resize=(wid - wid_but, hgt))
+    return
     # print(shutter)
     #take_picture(output_raw,shutter)
     #createSpectrum()
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
-    return
+
 
 def acquire_photo():
     button_start()
     button_main()
-    button_end()
+    button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
 
 
