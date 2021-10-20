@@ -566,10 +566,15 @@ def shutter10p():
 
 
 button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
+button_sp001.config(relief=RAISED)
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
+button_sp01.config(relief=RAISED)
 button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
+button_sp1.config(relief=RAISED)
 button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p)
+button_s1p.config(relief=RAISED)
 button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
+button_s10p.config(relief=FLAT)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=acquire_photo)
@@ -595,19 +600,7 @@ button_sp1.grid(row=2,column=0, sticky="nsew")
 button_s1p.grid(row=3,column=0,sticky="nsew")
 button_s10p.grid(row=4,column=0,sticky="nsew")
 
-# activate shutter buttons
-button_sp01.config(state=tk.ACTIVE)
-button_sp1.config(state=tk.ACTIVE)
-button_s1p.config(state=tk.ACTIVE)
-button_s10p.config(state=tk.ACTIVE)
-button_sp001.config(state=tk.ACTIVE)
 
-# set releif on shutter buttons
-button_sp01.config(relief=RAISED)
-button_sp1.config(relief=RAISED)
-button_s1p.config(relief=RAISED)
-button_s10p.config(relief=RAISED)
-button_sp001.config(relief=SUNKEN)
 
 
 root.mainloop()
