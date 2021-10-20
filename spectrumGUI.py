@@ -564,6 +564,7 @@ def shutter10p():
     button_s10p.config(activebackground="#568156",relief=SUNKEN)
 
 def set_relief1(button):
+    global button1
     button1 = not button1 # default is FALSE
 
     if button1 == True:
