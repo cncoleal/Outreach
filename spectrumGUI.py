@@ -557,8 +557,14 @@ def shutter10p():
     # set relief
     button_s10p.config(activebackground="#568156",relief=SUNKEN)
 
+def set_relief1(button):
+    global button1
+    button1 = not button1 # default is FALSE
 
-
+    if button1 == True:
+        button.config(relief=SUNKEN)
+    else:
+        button.config(relief=RAISED)
 ###################################################
 # GUI Build
 ###################################################
@@ -566,7 +572,7 @@ def shutter10p():
 
 
 button_sp001 = Button(sliWin, text="1 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp001)
-button_sp001.config(activebackground="#568156", relief=RAISED)
+button_sp001.config(activebackground="#568156", command=set_relief1(button_sp001))
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
 button_sp01.config(activebackground="#568156", relief=RAISED)
 button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
