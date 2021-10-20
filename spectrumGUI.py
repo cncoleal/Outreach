@@ -361,18 +361,18 @@ def button_start():
 
 def button_main():
     #def take_picture(imname, shutter):
-    return
-        # camera.vflip = True
-        # camera.framerate = Fraction(1, 2)
-        # camera.shutter_speed = shutter #tkScale.get()
-        # camera.iso = 100
-        # camera.exposure_mode = 'off'
-        # camera.awb_mode = 'off'
-        # camera.awb_gains = (1, 1)
-        # time.sleep(3)
-        # print("capturing image")
-        # camera.capture(imname, resize=(wid - wid_but, hgt))
-        # print(shutter)
+
+    camera.vflip = True
+    camera.framerate = Fraction(1, 2)
+    camera.shutter_speed = shutter #tkScale.get()
+    camera.iso = 100
+    camera.exposure_mode = 'off'
+    camera.awb_mode = 'off'
+    camera.awb_gains = (1, 1)
+    time.sleep(3)
+    #print("capturing image")
+    camera.capture(imname, resize=(wid - wid_but, hgt))
+    print(shutter)
     #take_picture(output_raw,shutter)
     #createSpectrum()
 
