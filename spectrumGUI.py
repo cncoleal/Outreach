@@ -274,6 +274,7 @@ def inform_user_of_exposure(max_result):
 
 ## Use old image view code:
 def take_picture(imname, shutter):
+    return
         #camera.vflip = True
         #camera.framerate = Fraction(1, 2)
         #camera.shutter_speed = shutter #tkScale.get()
