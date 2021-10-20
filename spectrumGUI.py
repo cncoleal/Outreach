@@ -48,12 +48,18 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
+
+
+
 global name
 global camera
 global output_chart
 global output_raw
 global output_out
 global shutter
+global button1
+
+button1 = True
 
 camera = picamera.PiCamera()
 
@@ -558,7 +564,6 @@ def shutter10p():
     button_s10p.config(activebackground="#568156",relief=SUNKEN)
 
 def set_relief1(button):
-    global button1
     button1 = not button1 # default is FALSE
 
     if button1 == True:
