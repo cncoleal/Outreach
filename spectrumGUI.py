@@ -345,11 +345,11 @@ def export_diagram(normalized_results):
 
     for wl in range(400, 1001, 10):
         x = int((float(wl) - w1) / (w2 - w1) * w)
-        draw.line((x, h, x, h + 3 * antialias), fill="#000", width=10*antialias) #test
+        draw.line((x, h, x, h + 3 * antialias), fill="#000", width=antialias) # bottom line on spectrum
 
     for wl in range(400, 1001, 50):
         x = int((float(wl) - w1) / (w2 - w1) * w)
-        draw.line((x, h, x, h + 5 * antialias), fill="#000", width=antialias)
+        draw.line((x, h, x, h + 5 * antialias), fill="#000", width=10*antialias) #test
         wls = str(wl)
         tx = draw.textsize(wls, font=font)
         draw.text((x - tx[0] / 2, h + 5 * antialias), wls, font=font, fill="#000")
