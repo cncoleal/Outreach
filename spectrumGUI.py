@@ -334,7 +334,7 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     # create a white polygon which fills the negative space of the spectrum
     pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
 
-    spectrum_line_width = 45
+    spectrum_line_width = 90 # set the width of the line on the spectrum
 
     count = 0
 
