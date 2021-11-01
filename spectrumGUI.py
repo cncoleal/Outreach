@@ -337,15 +337,15 @@ def export_diagram(normalized_results):
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
     pl.append((0, h))
     pl.append((0, 0))
-    draw.polygon(pl, fill="#FFF")
+    draw.polygon(pl, fill="#FFF", width=10*10)
     draw.polygon(pl)
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
-    draw.line((0, h, w, h), fill="#000", width=10*antialias)
+    draw.line((0, h, w, h), fill="#000", width=antialias) # bottom solid line on spectrum
 
     for wl in range(400, 1001, 10):
         x = int((float(wl) - w1) / (w2 - w1) * w)
-        draw.line((x, h, x, h + 3 * antialias), fill="#000", width=antialias) # bottom line on spectrum
+        draw.line((x, h, x, h + 3 * antialias), fill="#000", width=antialias) # bottom dotted line on spectrum
 
     for wl in range(400, 1001, 50):
         x = int((float(wl) - w1) / (w2 - w1) * w)
