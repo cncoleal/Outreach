@@ -128,9 +128,9 @@ def wavelength_to_color(lambda2):
     factor = 0.0
     color = [0, 0, 0]
     thresholds = [380, 400, 450, 465, 520, 565, 780]
-    for i in range(0, len(thresholds) - 1, 1):
-        t1 = thresholds[i]
-        t2 = thresholds[i + 1]
+    for i in range(0, len(thresholds) - 1, 1): # for 0-6 step of 1
+        t1 = thresholds[i] # 380nm
+        t2 = thresholds[i + 1] # cycle through remaining wavelengths
         if lambda2 < t1 or lambda2 >= t2:
             continue
         if i % 2 != 0:
@@ -312,23 +312,42 @@ def export_csv(name, normalized_results):
 # export diagram
 def export_diagram(normalized_results,aperture, spectrum_angle):
     antialias = 4
-    w = 600 * antialias
-    h2 = 300 * antialias
+    w = 600 * antialias #2400
+    h2 = 300 * antialias  #1200
 
-    h = h2 - 20 * antialias
-    sd = PIL.Image.new('RGB', (w, h2), (255, 255, 255))
-    draw = PIL.ImageDraw.Draw(sd)
+    h = h2 - 20 * antialias  #1120
+    sd = PIL.Image.new('RGB', (w, h2), (255, 255, 255)) # creates new image, 2400 width x 1200 height white rectangle
+    draw = PIL.ImageDraw.Draw(sd) # allows objects to be drawn on the image in the argument
 
-    w1 = 380.0
-    w2 = 720#780.0
-    f1 = 1.0 / w1
-    f2 = 1.0 / w2
-    for x in range(0, w, 1):
+    w1 = 380.0 # leftmost wavelength
+    w2 = 720 #780.0 # rightmost wavelength
+    f1 = 1.0 / w1 # frequency upper bound: 1/wavelength 1
+    f2 = 1.0 / w2 # frequency lower bound: 1/wavelength 2
+    for x in range(0, w, 1): # for each x position in the width of the image
         # Iterate across frequencies, not wavelengths
-        lambda2 = 1.0 / (f1 - (float(x) / float(w) * (f1 - f2)))
-        c = wavelength_to_color(lambda2)
-        draw.line((x, 0, x, h), fill=c)
-        #draw.line((x,h,x,h), fill='#000', width=100)
+        lambda2 = 1.0 / (f1 - (float(x) / float(w) * (f1 - f2))) #converts frequency to wavelength to x_px location
+        c = wavelength_to_color(lambda2) # get rgb color associated with wavelength
+        draw.line((x, 0, x, h), fill=c) # draw a vertical line at position px x with height 1120
+        # this creates basically a rectangle with all of the colors at the correct location
+
+
+    # create a white polygon which fills the negative space of the spectrum
+    pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
+
+    for wavelength in normalized_results: # for each wavelength
+        wl = float(wavelength) # create a float value
+        x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
+        # determine x position of current wavelength based on fraction of wavelengths to x_px width
+        # print wavelength,x
+        pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
+        print(normalized_results(wavelength))
+        # add to pl list -- (x_position associated with wavelength,
+    pl.append((0, h))
+    pl.append((0, 0))
+
+    #print(pl)
+    draw.polygon(pl, fill="#FFF")  # background color
+    draw.polygon(pl)
 
 
     #draw_scan_line(aperture,draw, spectrum_angle )
@@ -350,20 +369,7 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     # draw.polygon(pl, fill="#FFF") # background color
     # draw.polygon(pl)
 
-    pl = [(w, 0), (w, h)]
 
-    for wavelength in normalized_results:
-        wl = float(wavelength)
-        x = int((wl - w1) / (w2 - w1) * w)
-        # print wavelength,x
-        pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
-    pl.append((0, h ))
-    pl.append((0, 0 ))
-
-
-    print(pl)
-    draw.polygon(pl, fill="#FFF")  # background color
-    draw.polygon(pl)
 
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
