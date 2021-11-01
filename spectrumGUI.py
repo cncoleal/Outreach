@@ -348,8 +348,8 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         if count == 0:
             prev_point_x = int(x)
             prev_point_y = int((1 - normalized_results[wavelength]) * h)
-        #elif count % 3 == 0: # draw line between every 5 points
-        else:
+        elif count % 20 == 0: # draw line between every 5 points
+
             draw.line((int(x), int((1 - normalized_results[wavelength]) * h), prev_point_x, prev_point_y), fill="#000", width=spectrum_line_width)
 
             # store previous points
