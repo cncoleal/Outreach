@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="october updates" />
+    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="november updates">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_30_2021_2_41_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_9_30_2021_2_41_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +46,7 @@
       <updated>1633034808423</updated>
     </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4fafeb0d-bb20-4981-8370-dc57b39dffc8" name="Changes" comment="test2" />
+      <changelist id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="october updates" />
       <created>1633034974908</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -90,7 +94,84 @@
       <option name="project" value="LOCAL" />
       <updated>1634748051821</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="november updates">
+      <created>1635790685974</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1635790685974</updated>
+    </task>
+    <task id="LOCAL-00010" summary="november updates">
+      <created>1635790828541</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1635790828541</updated>
+    </task>
+    <task id="LOCAL-00011" summary="november updates">
+      <created>1635791053035</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1635791053035</updated>
+    </task>
+    <task id="LOCAL-00012" summary="november updates">
+      <created>1635791310659</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1635791310659</updated>
+    </task>
+    <task id="LOCAL-00013" summary="november updates">
+      <created>1635791903939</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1635791903939</updated>
+    </task>
+    <task id="LOCAL-00014" summary="november updates">
+      <created>1635791961682</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1635791961682</updated>
+    </task>
+    <task id="LOCAL-00015" summary="november updates">
+      <created>1635792008163</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792008163</updated>
+    </task>
+    <task id="LOCAL-00016" summary="november updates">
+      <created>1635792188669</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792188669</updated>
+    </task>
+    <task id="LOCAL-00017" summary="november updates">
+      <created>1635792209644</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792209644</updated>
+    </task>
+    <task id="LOCAL-00018" summary="november updates">
+      <created>1635792333715</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792333715</updated>
+    </task>
+    <task id="LOCAL-00019" summary="november updates">
+      <created>1635792384137</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1635792384137</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +201,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test2" />
     <MESSAGE value="october updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="october updates" />
+    <MESSAGE value="november updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="november updates" />
   </component>
 </project>
