@@ -327,7 +327,7 @@ def export_diagram(normalized_results):
         # Iterate across frequencies, not wavelengths
         lambda2 = 1.0 / (f1 - (float(x) / float(w) * (f1 - f2)))
         c = wavelength_to_color(lambda2)
-        draw.line((x, 0, x, h), fill='#000)                                     ')
+        #draw.line((x, 0, x, h), fill='#000')
         #draw.line((0, h, w, h), width=100, fill='#000')
 
     pl = [(w, 0), (w, h)]
