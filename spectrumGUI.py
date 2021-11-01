@@ -310,7 +310,7 @@ def export_csv(name, normalized_results):
     csv.close()
 
 # export diagram
-def export_diagram(normalized_results):
+def export_diagram(normalized_results,aperture, draw, spectrum_angle):
     antialias = 4
     w = 600 * antialias
     h2 = 300 * antialias
@@ -328,8 +328,9 @@ def export_diagram(normalized_results):
         lambda2 = 1.0 / (f1 - (float(x) / float(w) * (f1 - f2)))
         c = wavelength_to_color(lambda2)
         draw.line((x, 0, x, h), fill=c)
-        draw.line((x,h,x,h), fill='#000', width=100)
+        #draw.line((x,h,x,h), fill='#000', width=100)
 
+    draw_scan_line(aperature,draw, spectrum_angle )
     pl = [(w, 0), (w, h)]
     for wavelength in normalized_results:
         wl = float(wavelength)
@@ -427,7 +428,7 @@ def createSpectrum():
     # display image with overlay?
     # display spectrum
     print("generating chart")
-    export_diagram(normalized_results)
+    export_diagram(normalized_results,aperture, draw, spectrum_angle )
     return
 
 def killWindow(event, x, y, flags, param):
