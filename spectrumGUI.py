@@ -353,16 +353,16 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     #draw_scan_line(aperture,draw, spectrum_angle )
 
 
-    plw = [(w, 0+5), (w, h+5)] #pl = [(w, 0), (w, h)]
+    plw = [(w, 0+15), (w, h+15)] #pl = [(w, 0), (w, h)]
     plb = [(w,0), (w,h)] # black line
     for wavelength in normalized_results:
         wl = float(wavelength)
         x = int((wl - w1) / (w2 - w1) * w)
         # print wavelength,x
-        plw.append((int(x), int((1 - normalized_results[wavelength]) * h)))
+        plw.append((int(x), int((1 - normalized_results[wavelength]) * (h+15))))
         plb.append((int(x), int((1-normalized_results[wavelength])*h)))
-    plw.append((0, h+5))
-    plw.append((0, 0+5))
+    plw.append((0, h+15))
+    plw.append((0, 0+15))
 
     plb.append((0, h))
     plb.append((0,0))
