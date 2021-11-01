@@ -367,10 +367,10 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     plb.append((0, h))
     plb.append((0,0))
 
-    draw.polygon(plw, fill="#fff")
+    draw.polygon(plw, fill="#000")
     draw.polygon(plw)
 
-    draw.polygon(plb, fill="#000") # background color
+    draw.polygon(plb, fill="#fff") # background color
     draw.polygon(plb)
 
 
