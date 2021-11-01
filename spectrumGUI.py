@@ -328,7 +328,6 @@ def export_diagram(normalized_results):
         lambda2 = 1.0 / (f1 - (float(x) / float(w) * (f1 - f2)))
         c = wavelength_to_color(lambda2)
         draw.line((x, 0, x, h), fill=c)
-        #draw.line((0, h, w, h), width=100, fill='#000')
 
     pl = [(w, 0), (w, h)]
     for wavelength in normalized_results:
@@ -341,12 +340,11 @@ def export_diagram(normalized_results):
     draw.polygon(pl, fill="#FFF") #FFF
     draw.polygon(pl)
 
-
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
     draw.line((0, h, w, h), fill="#000", width=antialias) # bottom solid line on spectrum
     print(h) #1120
     print(x) #4
-
+    #draw.line((0,h,w,h), width=10)
 
     for wl in range(400, 1001, 10):
         x = int((float(wl) - w1) / (w2 - w1) * w)
