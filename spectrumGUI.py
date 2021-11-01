@@ -340,7 +340,7 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         # determine x position of current wavelength based on fraction of wavelengths to x_px width
         # print wavelength,x
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
-        print(normalized_results[wavelength])
+        #print(normalized_results[wavelength])
         # add to pl list -- (x_position associated with wavelength,
     pl.append((0, h))
     pl.append((0, 0))
