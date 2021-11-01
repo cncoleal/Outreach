@@ -26,6 +26,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Python" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -35,20 +36,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
-    </task>
-    <task id="LOCAL-00016" summary="november updates">
-      <created>1635792188669</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1635792188669</updated>
-    </task>
-    <task id="LOCAL-00017" summary="november updates">
-      <created>1635792209644</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1635792209644</updated>
     </task>
     <task id="LOCAL-00018" summary="november updates">
       <created>1635792333715</created>
@@ -379,7 +366,21 @@
       <option name="project" value="LOCAL" />
       <updated>1635805400776</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="november updates">
+      <created>1635805557699</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1635805557699</updated>
+    </task>
+    <task id="LOCAL-00066" summary="november updates">
+      <created>1635805808677</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1635805808677</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
