@@ -331,47 +331,50 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         # this creates basically a rectangle with all of the colors at the correct location
 
 
-    # # create a white polygon which fills the negative space of the spectrum
-    # pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
-    #
-    # for wavelength in normalized_results: # for each wavelength
-    #     wl = float(wavelength) # create a float value
-    #     x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
-    #     # determine x position of current wavelength based on fraction of wavelengths to x_px width
-    #     # print wavelength,x
-    #     pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
-    #     #print(normalized_results[wavelength])
-    #     # add to pl list -- (x_position associated with wavelength,
-    # pl.append((0, h))
-    # pl.append((0, 0))
+    # create a white polygon which fills the negative space of the spectrum
+    pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
 
-    # #print(pl)
-    # draw.polygon(pl, fill="#000")  # background color
-    # draw.polygon(pl)
+    for wavelength in normalized_results: # for each wavelength
+        wl = float(wavelength) # create a float value
+        x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
+        # determine x position of current wavelength based on fraction of wavelengths to x_px width
+        # print wavelength,x
+        pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
+        # draw a line connecting the two points
+        draw.line((int(x), int((1 - normalized_results[wavelength]) * h), fill="#000", width=15)
+
+        #print(normalized_results[wavelength])
+        # add to pl list -- (x_position associated with wavelength,
+    pl.append((0, h))
+    pl.append((0, 0))
+
+    #print(pl)
+    draw.polygon(pl, fill="#000")  # background color
+    draw.polygon(pl)
 
 
     #draw_scan_line(aperture,draw, spectrum_angle )
 
-    del_line_wgt = 60 #controls thickness of black outline on spectrum
-    plw = [(w, 0+del_line_wgt), (w, h+del_line_wgt)] #pl = [(w, 0), (w, h)]
-    plb = [(w,0), (w,h)] # black line
-    for wavelength in normalized_results:
-        wl = float(wavelength)
-        x = int((wl - w1) / (w2 - w1) * w)
-        # print wavelength,x
-        plw.append((int(x), int((1 - normalized_results[wavelength]) * h)+del_line_wgt))
-        plb.append((int(x), int((1-normalized_results[wavelength])*h)))
-    plw.append((0, h+del_line_wgt))
-    plw.append((0, 0+del_line_wgt))
-
-    plb.append((0, h))
-    plb.append((0,0))
-
-    draw.polygon(plw, fill="#000")
-    draw.polygon(plw)
-
-    draw.polygon(plb, fill="#fff") # background color
-    draw.polygon(plb)
+    # del_line_wgt = 60 #controls thickness of black outline on spectrum
+    # plw = [(w, 0+del_line_wgt), (w, h+del_line_wgt)] #pl = [(w, 0), (w, h)]
+    # plb = [(w,0), (w,h)] # black line
+    # for wavelength in normalized_results:
+    #     wl = float(wavelength)
+    #     x = int((wl - w1) / (w2 - w1) * w)
+    #     # print wavelength,x
+    #     plw.append((int(x), int((1 - normalized_results[wavelength]) * h)+del_line_wgt))
+    #     plb.append((int(x), int((1-normalized_results[wavelength])*h)))
+    # plw.append((0, h+del_line_wgt))
+    # plw.append((0, 0+del_line_wgt))
+    #
+    # plb.append((0, h))
+    # plb.append((0,0))
+    #
+    # draw.polygon(plw, fill="#000")
+    # draw.polygon(plw)
+    #
+    # draw.polygon(plb, fill="#fff") # background color
+    # draw.polygon(plb)
 
 
 
