@@ -331,43 +331,48 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         # this creates basically a rectangle with all of the colors at the correct location
 
 
-    # create a white polygon which fills the negative space of the spectrum
-    pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
+    # # create a white polygon which fills the negative space of the spectrum
+    # pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
+    #
+    # for wavelength in normalized_results: # for each wavelength
+    #     wl = float(wavelength) # create a float value
+    #     x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
+    #     # determine x position of current wavelength based on fraction of wavelengths to x_px width
+    #     # print wavelength,x
+    #     pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
+    #     #print(normalized_results[wavelength])
+    #     # add to pl list -- (x_position associated with wavelength,
+    # pl.append((0, h))
+    # pl.append((0, 0))
 
-    for wavelength in normalized_results: # for each wavelength
-        wl = float(wavelength) # create a float value
-        x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
-        # determine x position of current wavelength based on fraction of wavelengths to x_px width
-        # print wavelength,x
-        pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
-        #print(normalized_results[wavelength])
-        # add to pl list -- (x_position associated with wavelength,
-    pl.append((0, h))
-    pl.append((0, 0))
-
-    #print(pl)
-    draw.polygon(pl, fill="#000")  # background color
-    draw.polygon(pl)
+    # #print(pl)
+    # draw.polygon(pl, fill="#000")  # background color
+    # draw.polygon(pl)
 
 
     #draw_scan_line(aperture,draw, spectrum_angle )
 
 
-    # plw = [(w, 0+5), (w, h+5)] #pl = [(w, 0), (w, h)]
-    # plb = [(w,0), (w,h)] # black line
-    # for wavelength in normalized_results:
-    #     wl = float(wavelength)
-    #     x = int((wl - w1) / (w2 - w1) * w)
-    #     # print wavelength,x
-    #     plw.append((int(x), int((1 - normalized_results[wavelength]) * h)))
-    #     plb.append((int(x), int((1-normalized_results[wavelength])*h)))
-    # plw.append((0, h+5))
-    # plw.append((0, 0+5))
-    #
-    # plb.append(())
-    #
-    # draw.polygon(pl, fill="#FFF") # background color
-    # draw.polygon(pl)
+    plw = [(w, 0+5), (w, h+5)] #pl = [(w, 0), (w, h)]
+    plb = [(w,0), (w,h)] # black line
+    for wavelength in normalized_results:
+        wl = float(wavelength)
+        x = int((wl - w1) / (w2 - w1) * w)
+        # print wavelength,x
+        plw.append((int(x), int((1 - normalized_results[wavelength]) * h)))
+        plb.append((int(x), int((1-normalized_results[wavelength])*h)))
+    plw.append((0, h+5))
+    plw.append((0, 0+5))
+
+    plb.append((0, h))
+    plb.append((0,0))
+
+
+    draw.polygon(plb, fill="#000") # background color
+    draw.polygon(plb)
+
+    draw.polygon(plw, fill="#fff")
+    draw.polygon(plw)
 
 
 
