@@ -341,7 +341,7 @@ def export_diagram(normalized_results):
     draw.polygon(pl)
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
-    draw.line((0, h, w, h), fill="#000", width=antialias)
+    draw.line((0, h, w, h), fill="#000", width=10*antialias)
 
     for wl in range(400, 1001, 10):
         x = int((float(wl) - w1) / (w2 - w1) * w)
@@ -349,7 +349,7 @@ def export_diagram(normalized_results):
 
     for wl in range(400, 1001, 50):
         x = int((float(wl) - w1) / (w2 - w1) * w)
-        draw.line((x, h, x, h + 5 * antialias), fill="#000", width=10*antialias) #test
+        draw.line((x, h, x, h + 5 * antialias), fill="#000", width=antialias) # line directly above wavelength num text
         wls = str(wl)
         tx = draw.textsize(wls, font=font)
         draw.text((x - tx[0] / 2, h + 5 * antialias), wls, font=font, fill="#000")
