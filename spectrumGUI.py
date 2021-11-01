@@ -339,12 +339,13 @@ def export_diagram(normalized_results):
     pl.append((0, 0))
     draw.polygon(pl, fill="#FFF") #FFF
     draw.polygon(pl)
+    draw.line((0, h, w, h), width=100, fill='#000')
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
     draw.line((0, h, w, h), fill="#000", width=antialias) # bottom solid line on spectrum
-    print(h)
-    print(x)
-    #draw.line((0,h,w,h), width=10)
+    print(h) #1120
+    print(x) #4
+
 
     for wl in range(400, 1001, 10):
         x = int((float(wl) - w1) / (w2 - w1) * w)
