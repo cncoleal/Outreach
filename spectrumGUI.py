@@ -334,6 +334,8 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     # create a white polygon which fills the negative space of the spectrum
     pl = [(w, 0), (w, h)] # [(2400,0), (2400,1200)]
 
+    count = 0
+
     for wavelength in normalized_results: # for each wavelength
         wl = float(wavelength) # create a float value
         x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
@@ -341,8 +343,17 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         # print wavelength,x
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
         # draw a line connecting the two points
-        draw.line((int(x), int((1 - normalized_results[wavelength]) * h)), fill="#000", width=15)
+        if count == 0:
+            prev_point_x = int(x)
+            prev_point_y = int((1 - normalized_results[wavelength]) * h)
+        else:
+            draw.line((int(x), int((1 - normalized_results[wavelength]) * h), prev_point_x, prev_point_y), fill="#000", width=15)
 
+            # store previous points
+            prev_point_x = int(x)
+            prev_point_y = int((1 - normalized_results[wavelength]) * h)
+
+        count = count+1
         #print(normalized_results[wavelength])
         # add to pl list -- (x_position associated with wavelength,
     pl.append((0, h))
