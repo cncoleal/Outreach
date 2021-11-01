@@ -197,7 +197,7 @@ def draw_aperture(aperture, draw):
 
 # draw scan line
 def draw_scan_line(aperture, draw, spectrum_angle):
-    fill_color = "#888"
+    fill_color = '#000' #"#888"
     xd = aperture['x']
     h = aperture['h'] / 2
     y0 = math.tan(spectrum_angle) * xd + aperture['y']
