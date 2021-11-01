@@ -359,7 +359,7 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         wl = float(wavelength)
         x = int((wl - w1) / (w2 - w1) * w)
         # print wavelength,x
-        plw.append((int(x), int(((1 - normalized_results[wavelength]) * h)+15))
+        plw.append((int(x), int(((1 - normalized_results[wavelength]) * h)+15)))
         plb.append((int(x), int((1-normalized_results[wavelength])*h)))
     plw.append((0, h+15))
     plw.append((0, 0+15))
