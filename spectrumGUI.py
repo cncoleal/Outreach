@@ -330,24 +330,19 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         draw.line((x, 0, x, h), fill=c)
         #draw.line((x,h,x,h), fill='#000', width=100)
 
+
     #draw_scan_line(aperture,draw, spectrum_angle )
 
-    fill_color = '#000'  # "#888"
-    xd = aperture['x']
-    h = aperture['h'] / 2
-    y0 = math.tan(spectrum_angle) * xd + aperture['y']
-    draw.line((0, y0 - h, aperture['x'], aperture['y'] - h), fill=fill_color)
-    draw.line((0, y0 + h, aperture['x'], aperture['y'] + h), fill=fill_color)
 
-    pl = [(w, 0), (w, h)]
+    pl = [(w, 0+5), (w, h+5)]
     for wavelength in normalized_results:
         wl = float(wavelength)
         x = int((wl - w1) / (w2 - w1) * w)
         # print wavelength,x
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
-    pl.append((0, h))
-    pl.append((0, 0))
-    draw.polygon(pl, fill="#FFF") #FFF
+    pl.append((0, h+5))
+    pl.append((0, 0+5))
+    draw.polygon(pl, fill="#FFF") # background color
     draw.polygon(pl)
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
