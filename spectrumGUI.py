@@ -337,7 +337,7 @@ def export_diagram(normalized_results):
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
     pl.append((0, h))
     pl.append((0, 0))
-    draw.polygon(pl, fill="#FFF", width=10*10)
+    draw.polygon(pl, fill="#000") #FFF
     draw.polygon(pl)
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
