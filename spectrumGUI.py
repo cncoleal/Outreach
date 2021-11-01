@@ -330,7 +330,7 @@ def export_diagram(normalized_results,aperture, draw, spectrum_angle):
         draw.line((x, 0, x, h), fill=c)
         #draw.line((x,h,x,h), fill='#000', width=100)
 
-    draw_scan_line(aperature,draw, spectrum_angle )
+    draw_scan_line(aperture,draw, spectrum_angle )
     pl = [(w, 0), (w, h)]
     for wavelength in normalized_results:
         wl = float(wavelength)
