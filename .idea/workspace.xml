@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="november updates">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,40 +29,12 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00002" summary="test2">
-      <created>1633034808423</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1633034808423</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
       <changelist id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="october updates" />
       <created>1633034974908</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
-    </task>
-    <task id="LOCAL-00003" summary="test2">
-      <created>1633035017930</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1633035017930</updated>
-    </task>
-    <task id="LOCAL-00004" summary="test2">
-      <created>1633035326152</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1633035326152</updated>
-    </task>
-    <task id="LOCAL-00005" summary="test2">
-      <created>1633035477769</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1633035477769</updated>
     </task>
     <task id="LOCAL-00006" summary="test2">
       <created>1633035566707</created>
@@ -380,7 +351,35 @@
       <option name="project" value="LOCAL" />
       <updated>1635803935424</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="november updates">
+      <created>1635804444231</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1635804444232</updated>
+    </task>
+    <task id="LOCAL-00052" summary="november updates">
+      <created>1635804463753</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1635804463754</updated>
+    </task>
+    <task id="LOCAL-00053" summary="november updates">
+      <created>1635804505774</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1635804505774</updated>
+    </task>
+    <task id="LOCAL-00054" summary="november updates">
+      <created>1635804719189</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1635804719189</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
