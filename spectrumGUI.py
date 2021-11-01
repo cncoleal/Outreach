@@ -352,7 +352,7 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
 
     #draw_scan_line(aperture,draw, spectrum_angle )
 
-    del_line_wgt = 30 #controls thickness of black outline on spectrum
+    del_line_wgt = 60 #controls thickness of black outline on spectrum
     plw = [(w, 0+del_line_wgt), (w, h+del_line_wgt)] #pl = [(w, 0), (w, h)]
     plb = [(w,0), (w,h)] # black line
     for wavelength in normalized_results:
