@@ -341,7 +341,7 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         # print wavelength,x
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
         # draw a line connecting the two points
-        draw.line((int(x), int((1 - normalized_results[wavelength]) * h), fill="#000", width=15)
+        draw.line((int(x), int((1 - normalized_results[wavelength]) * h)), fill="#000", width=15)
 
         #print(normalized_results[wavelength])
         # add to pl list -- (x_position associated with wavelength,
