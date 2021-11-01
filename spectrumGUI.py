@@ -336,31 +336,35 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
 
     spectrum_line_width = 60 # set the width of the line on the spectrum
 
-    count = 0
-
+    #count = 0
+    line_points = []
     for wavelength in normalized_results: # for each wavelength
         wl = float(wavelength) # create a float value
         x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
         # determine x position of current wavelength based on fraction of wavelengths to x_px width
         # print wavelength,x
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
+        line_points.append((int(x), int((1 - normalized_results[wavelength]) * h)))
+
         # draw a line connecting the two points
-        if count == 0:
-            prev_point_x = int(x)
-            prev_point_y = int((1 - normalized_results[wavelength]) * h)
-        elif count % 3 == 0: # draw line between every 5 points
+        # if count == 0:
+        #     prev_point_x = int(x)
+        #     prev_point_y = int((1 - normalized_results[wavelength]) * h)
+        # elif count % 3 == 0: # draw line between every 5 points
+        #
+        #     draw.line((int(x), int((1 - normalized_results[wavelength]) * h), prev_point_x, prev_point_y), fill="#000", width=spectrum_line_width)
+        #
+        #     # store previous points
+        #     prev_point_x = int(x)
+        #     prev_point_y = int((1 - normalized_results[wavelength]) * h)
 
-            draw.line((int(x), int((1 - normalized_results[wavelength]) * h), prev_point_x, prev_point_y), fill="#000", width=spectrum_line_width)
 
-            # store previous points
-            prev_point_x = int(x)
-            prev_point_y = int((1 - normalized_results[wavelength]) * h)
 
         # else:
         #     prev_point_x = int(x)
         #     prev_point_y = int((1 - normalized_results[wavelength]) * h)
 
-        count = count+1
+        #count = count+1
         #print(normalized_results[wavelength])
         # add to pl list -- (x_position associated with wavelength,
     pl.append((0, h))
@@ -369,6 +373,9 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     #print(pl)
     draw.polygon(pl, fill="#fff")  # background color
     draw.polygon(pl)
+
+   # line_points = [(100, 100), (150, 200), (300, 100), (500, 300)]
+    draw.line(line_points, width=40, fill='#000', joint='curve')
 
 
     #draw_scan_line(aperture,draw, spectrum_angle )
