@@ -344,7 +344,7 @@ def export_diagram(normalized_results):
     draw.line((0, h, w, h), fill="#FFF", width=antialias) # bottom solid line on spectrum
     print(h)
     print(x)
-    draw.line((0,h,w,h), width=10)
+    #draw.line((0,h,w,h), width=10)
 
     for wl in range(400, 1001, 10):
         x = int((float(wl) - w1) / (w2 - w1) * w)
