@@ -334,16 +334,37 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
     #draw_scan_line(aperture,draw, spectrum_angle )
 
 
-    pl = [(w, 0+5), (w, h+5)]
+    # plw = [(w, 0+5), (w, h+5)] #pl = [(w, 0), (w, h)]
+    # plb = [(w,0), (w,h)] # black line
+    # for wavelength in normalized_results:
+    #     wl = float(wavelength)
+    #     x = int((wl - w1) / (w2 - w1) * w)
+    #     # print wavelength,x
+    #     plw.append((int(x), int((1 - normalized_results[wavelength]) * h)))
+    #     plb.append((int(x), int((1-normalized_results[wavelength])*h)))
+    # plw.append((0, h+5))
+    # plw.append((0, 0+5))
+    #
+    # plb.append(())
+    #
+    # draw.polygon(pl, fill="#FFF") # background color
+    # draw.polygon(pl)
+
+    pl = [(w, 0), (w, h)]
+
     for wavelength in normalized_results:
         wl = float(wavelength)
         x = int((wl - w1) / (w2 - w1) * w)
         # print wavelength,x
         pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
-    pl.append((0, h+5))
-    pl.append((0, 0+5))
-    draw.polygon(pl, fill="#FFF") # background color
+    pl.append((0, h ))
+    pl.append((0, 0 ))
+
+
+    print(pl)
+    draw.polygon(pl, fill="#FFF")  # background color
     draw.polygon(pl)
+
 
     font = PIL.ImageFont.truetype('/usr/share/fonts/truetype/lato/Lato-Regular.ttf', 12 * antialias)
     draw.line((0, h, w, h), fill="#000", width=antialias) # bottom solid line on spectrum
