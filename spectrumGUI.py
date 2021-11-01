@@ -644,11 +644,11 @@ button_sp001.config(activebackground="#568156", relief=RAISED)#command=set_relie
 button_sp01 = Button(sliWin, text="10 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp01)
 button_sp01.config(activebackground="#568156", relief=RAISED)
 button_sp1 = Button(sliWin, text="100 ms", bg="#1E4D2B", fg='#ffffff',height=5, command=shutterp1)
-button_sp1.config(activebackground="#568156",relief=SUNKEN)
+button_sp1.config(activebackground="#568156", bg="#568156",relief=SUNKEN)
 button_s1p = Button(sliWin, text = "1 s", bg="#1E4D2B", fg='#ffffff',height=5, command=shutter1p)
 button_s1p.config(activebackground="#568156",relief=RAISED)
 button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=5, command=shutter10p)
-button_s10p.config(activebackground="#568156", bg="#568156",relief=RAISED)
+button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda:[button_start(),button_main(), button_end()])
