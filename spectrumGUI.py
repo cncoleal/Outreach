@@ -339,8 +339,8 @@ def export_diagram(normalized_results,aperture, spectrum_angle):
         x = int((wl - w1) / (w2 - w1) * w) # (current wavelength - 380nm)/(del wave2 - wave1) * width.
         # determine x position of current wavelength based on fraction of wavelengths to x_px width
         # print wavelength,x
-        pl.append((int(x), int((1 - normalized_results[wavelength]) * h)))
-        print(normalized_results(wavelength))
+        pl.append((int(x), int((1 - normalized_results[wavelength]) * h))) # ordered dictionary
+        print(normalized_results[wavelength])
         # add to pl list -- (x_position associated with wavelength,
     pl.append((0, h))
     pl.append((0, 0))
