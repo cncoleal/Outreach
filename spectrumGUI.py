@@ -319,8 +319,8 @@ def export_diagram(normalized_results):
     sd = PIL.Image.new('RGB', (w, h2), (255, 255, 255))
     draw = PIL.ImageDraw.Draw(sd)
 
-    w1 = 400#380.0
-    w2 = 700#780.0
+    w1 = 380.0
+    w2 = 720#780.0
     f1 = 1.0 / w1
     f2 = 1.0 / w2
     for x in range(0, w, 1):
