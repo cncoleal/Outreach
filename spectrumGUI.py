@@ -49,27 +49,22 @@ Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
 # exit window: displays shutdown buttons
-
-#top.configure(bg="white")
-#Win3 = Frame(top)
-#Win3.grid(row=0, column=0)
-#top.title("Exit")
+def shutdown():
+    call(['sudo', 'shutdown', '-h', '-t 5', 'now'])
 
 def open_popup():
     top = Toplevel(butWin)
     top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
     Label(top, text="Shutdown Now?", font='Mistral 18 bold').pack(side=TOP, pady=10)#place(x=wid/8, y=20)
 
-    shutdown_button_yes = Button(top, text="Yes", font='Mistral 16 bold', bg="#AAFF00", height=5, command=root.destroy) #will need to change this
+    shutdown_button_yes = Button(top, text="Yes", font='Mistral 16 bold', bg="#AAFF00", height=5, command=shutdown) #will need to change this
     shutdown_button_yes.config(width=10, height=5, activebackground="#568156", relief=RAISED, justify='left')
     shutdown_button_yes.pack(side=LEFT, padx=10)
-    #shutdown_button_yes.grid(row=2,column=0)
 
     shutdown_button_no = Button(top, text="No",font='Mistral 16 bold', bg="#FF0000", height=5, command=top.destroy)
     shutdown_button_no.config(width=10, height=5, activebackground="#f26161", relief=RAISED, justify='center')
-    #shutdown_button_no.place(x=wid/4+15, y=60)
     shutdown_button_no.pack(side=LEFT, padx=10)
-    #shutdown_button_no.grid(row=2, column=1)
+
 
 
 global name
