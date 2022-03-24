@@ -299,7 +299,7 @@ def inform_user_of_exposure(max_result):
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-    loading_popup()
+    #loading_popup()
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter #tkScale.get()
@@ -310,7 +310,7 @@ def take_picture(imname, shutter):
     time.sleep(3)
     # #print("capturing image")
     camera.capture(imname, resize=(wid - wid_but, hgt))
-    loadWin.destroy
+    #loadWin.destroy()
     return
 # save image with overlay
 def save_image_with_overlay(im):
@@ -683,7 +683,7 @@ button_s10p = Button(sliWin, text = "10 s", bg="#1E4D2B", fg='#ffffff',  height=
 button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda:[button_start(),button_main(), button_end()])
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [loading_popup(), button_start(), button_main(), button_end(), loadWin.destroy()])
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
