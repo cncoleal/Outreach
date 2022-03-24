@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="March Updates, exit pop-up">
-      <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
-    </list>
+    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="March Updates, exit pop-up" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,55 +38,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
-    </task>
-    <task id="LOCAL-00051" summary="november updates">
-      <created>1635804444231</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804444232</updated>
-    </task>
-    <task id="LOCAL-00052" summary="november updates">
-      <created>1635804463753</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804463754</updated>
-    </task>
-    <task id="LOCAL-00053" summary="november updates">
-      <created>1635804505774</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804505774</updated>
-    </task>
-    <task id="LOCAL-00054" summary="november updates">
-      <created>1635804719189</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804719189</updated>
-    </task>
-    <task id="LOCAL-00055" summary="november updates">
-      <created>1635804775663</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804775663</updated>
-    </task>
-    <task id="LOCAL-00056" summary="november updates">
-      <created>1635804815606</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804815607</updated>
-    </task>
-    <task id="LOCAL-00057" summary="november updates">
-      <created>1635804930828</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1635804930828</updated>
     </task>
     <task id="LOCAL-00058" summary="november updates">
       <created>1635804970534</created>
@@ -384,7 +333,56 @@
       <option name="project" value="LOCAL" />
       <updated>1648141693172</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="March Updates, exit pop-up">
+      <created>1648141784713</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1648141784713</updated>
+    </task>
+    <task id="LOCAL-00101" summary="March Updates, exit pop-up">
+      <created>1648141862321</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1648141862321</updated>
+    </task>
+    <task id="LOCAL-00102" summary="March Updates, exit pop-up">
+      <created>1648141894602</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1648141894602</updated>
+    </task>
+    <task id="LOCAL-00103" summary="March Updates, exit pop-up">
+      <created>1648141924991</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1648141924991</updated>
+    </task>
+    <task id="LOCAL-00104" summary="March Updates, exit pop-up">
+      <created>1648141955044</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1648141955044</updated>
+    </task>
+    <task id="LOCAL-00105" summary="March Updates, exit pop-up">
+      <created>1648142044167</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1648142044167</updated>
+    </task>
+    <task id="LOCAL-00106" summary="March Updates, exit pop-up">
+      <created>1648142078749</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1648142078749</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
