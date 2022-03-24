@@ -53,7 +53,7 @@ def open_popup():
    top= Toplevel(butWin)
    top.geometry('%dx%d+%d+%d' % (wid/2, hgt/2, wid/4, hgt/4))
    top.title("Exit")
-   Label(top, text="Shutdown Now?", font=('Mistral 18 bold'))
+   Label(top, text="Shutdown Now?", font='Mistral 18 bold').place(wid/4, hgt/4)
 
 
 
