@@ -4,6 +4,7 @@ import io
 import math
 import time
 import picamera
+import os
 from fractions import Fraction
 from collections import OrderedDict
 import PIL.Image
@@ -28,7 +29,7 @@ wid_but = 140
 wid_slide = 80
 
 # root: main window displays images
-#root.title('Spectrometer')
+root.title('')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
@@ -50,7 +51,8 @@ Win1.grid(row=0, column=0, sticky="nsew")
 
 # exit window: displays shutdown buttons
 def shutdown():
-    call(['sudo', 'shutdown', '-h', 'now'])
+   # subprocess.call(['sudo', 'shutdown', '-h', 'now'])
+    os.system('sudo shutdown -h now')
 
 def open_popup():
     top = tk.Toplevel(root)
