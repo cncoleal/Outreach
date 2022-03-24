@@ -664,7 +664,8 @@ button_viewPicture.config(activebackground="#ffdbb7")
 #button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
 button_viewSpectrum.config(activebackground="#ffdbb7")
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
+#makeshift exit
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)
 button_captureVideo.config(activebackground="#ffdbb7")
 
 
@@ -676,7 +677,7 @@ button_captureVideo.config(activebackground="#ffdbb7")
 
 
 #exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=root.destroy)
-exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=open_popup())
+exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=open_popup)
 exit_button.config(activebackground="#f26161")
 exit_button.grid(row=4,column=0, sticky='nsew')
 
