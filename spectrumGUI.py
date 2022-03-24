@@ -74,8 +74,8 @@ def open_popup():
 def loading_popup():
     #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)
     top = tk.Toplevel(root)
-    top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
-    Label(top, text="Shutdown Now?", font='Mistral 18 bold').pack(side=TOP, pady=10)  # place(x=wid/8, y=20)
+    top.geometry('%dx%d+%d+%d' % (wid / 4, hgt / 4, wid / 4, hgt / 4))
+    Label(top, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)  # place(x=wid/8, y=20)
 
 
 global name
