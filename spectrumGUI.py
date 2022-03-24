@@ -29,7 +29,7 @@ wid_but = 140
 wid_slide = 80
 
 # root: main window displays images
-root.title('')
+root.title('Exit')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
