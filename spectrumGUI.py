@@ -28,7 +28,7 @@ wid_but = 140
 wid_slide = 80
 
 # root: main window displays images
-root.title('Spectrometer')
+#root.title('Spectrometer')
 root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
 root.configure(bg="black")
 frame = Frame(root, bg="blue")
@@ -53,7 +53,7 @@ def shutdown():
     call(['sudo', 'shutdown', '-h', 'now'])
 
 def open_popup():
-    top = Toplevel(butWin)
+    top = Toplevel(root)
     top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
     Label(top, text="Shutdown Now?", font='Mistral 18 bold').pack(side=TOP, pady=10)#place(x=wid/8, y=20)
 
