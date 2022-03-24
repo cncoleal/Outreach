@@ -62,11 +62,13 @@ def open_popup():
 
     shutdown_button_yes = Button(top, text="Yes", bg="#AAFF00", height=5, command=root.destroy) #will need to change this
     shutdown_button_yes.config(activebackground="#568156", relief=RAISED)
-    shutdown_button_yes.grid(row=1,column=0)
+    shutdown_button_yes.place(x=wid/8, y=40)
+    #shutdown_button_yes.grid(row=2,column=0)
 
     shutdown_button_no = Button(top, text="No", bg="#bf0000", height=5, command=top.destroy)
     shutdown_button_no.config(activebackground="#f26161")
-    shutdown_button_no.grid(row=1, column=1)
+    shutdown_button_no.place(x=wid/4, y=40)
+    #shutdown_button_no.grid(row=2, column=1)
 
 
 global name
