@@ -49,6 +49,10 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
+loadWin = tk.Toplevel(root)
+loadWin.geometry('%dx%d+%d+%d' % (wid / 4, hgt / 4, wid / 4, hgt / 4))
+
+
 # exit window: displays shutdown buttons
 def shutdown():
    # subprocess.call(['sudo', 'shutdown', '-h', 'now'])
@@ -66,6 +70,9 @@ def open_popup():
     shutdown_button_no = Button(top, text="No",font='Mistral 16 bold', bg="#FF0000", height=5, command=top.destroy)
     shutdown_button_no.config(width=10, height=5, activebackground="#f26161", relief=RAISED, justify='center')
     shutdown_button_no.pack(side=LEFT, padx=10)
+
+def loading_popup():
+    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)
 
 
 
@@ -292,7 +299,7 @@ def inform_user_of_exposure(max_result):
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-
+    loading_popup()
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter #tkScale.get()
@@ -303,6 +310,7 @@ def take_picture(imname, shutter):
     time.sleep(3)
     # #print("capturing image")
     camera.capture(imname, resize=(wid - wid_but, hgt))
+    loadWin.destroy
     return
 # save image with overlay
 def save_image_with_overlay(im):
@@ -683,7 +691,8 @@ button_viewPicture.config(activebackground="#ffdbb7")
 button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
 button_viewSpectrum.config(activebackground="#ffdbb7")
 #makeshift exit
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
+#button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)
 button_captureVideo.config(activebackground="#ffdbb7")
 
 
