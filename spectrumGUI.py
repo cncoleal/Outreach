@@ -48,8 +48,12 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
+# exit window: displays shutdown buttons
 top = Toplevel(butWin)
 top.geometry('%dx%d+%d+%d' % (wid/2, hgt/2, wid/4, hgt/4))
+top.configure(bg="white")
+Win3 = Frame(top)
+Win3.grid(row=0, column=0)
 top.title("Exit")
 
 def open_popup():
