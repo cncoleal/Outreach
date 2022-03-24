@@ -683,8 +683,7 @@ button_viewPicture.config(activebackground="#ffdbb7")
 button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
 button_viewSpectrum.config(activebackground="#ffdbb7")
 #makeshift exit
-#button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
 button_captureVideo.config(activebackground="#ffdbb7")
 
 
