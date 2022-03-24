@@ -50,7 +50,7 @@ Win1.grid(row=0, column=0, sticky="nsew")
 
 
 def open_popup():
-   top= Toplevel(butWin)
+   top = Toplevel(butWin)
    top.geometry('%dx%d+%d+%d' % (wid/2, hgt/2, wid/4, hgt/4))
    top.title("Exit")
    Label(top, text="Shutdown Now?", font='Mistral 18 bold').place(x=wid/8, y=20)
@@ -411,6 +411,12 @@ def acquire_photo():
     button_main()
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
+# buttons inside exit popup window
+#def button_shutdown_yes():
+
+
+
+
 
 
 def createSpectrum():
@@ -680,6 +686,14 @@ button_captureVideo.config(activebackground="#ffdbb7")
 exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=open_popup)
 exit_button.config(activebackground="#f26161")
 exit_button.grid(row=4,column=0, sticky='nsew')
+
+shutdown_button_yes = Button(top, text="Yes", bg="#AAFF00", height=5, command=root.destroy) #will need to change this
+shutdown_button_yes.config(activebackground="#568156", relief=RAISED)
+shutdown_button_yes.grid(row=1,column=0)
+
+shutdown_button_no = Button(top, text="No", bg="#bf0000", height=5, command=top.destroy)
+shutdown_button_no.config(activebackground="#f26161")
+shutdown_button_no.grid(row=1, column=1)
 
 # New windows
 button_captureVideo.grid(row=0, column=0, sticky="nsew")
