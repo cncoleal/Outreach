@@ -58,7 +58,7 @@ Win1.grid(row=0, column=0, sticky="nsew")
 def open_popup():
     top = Toplevel(butWin)
     top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
-    Label(top, text="Shutdown Now?", font='Mistral 18 bold').pack(side=TOP)#place(x=wid/8, y=20)
+    Label(top, text="Shutdown Now?", font='Mistral 18 bold').pack(side=TOP, pady=10)#place(x=wid/8, y=20)
 
     shutdown_button_yes = Button(top, text="Yes", font='Mistral 16 bold', bg="#AAFF00", height=5, command=root.destroy) #will need to change this
     shutdown_button_yes.config(width=10, height=5, activebackground="#568156", relief=RAISED, justify='left')
