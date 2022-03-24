@@ -51,7 +51,7 @@ Win1.grid(row=0, column=0, sticky="nsew")
 
 def open_popup():
    top= Toplevel(root)
-   top.geometry('%dx%d+%d+%d' % (wid/4, hgt/4, wid/2, hgt/4))
+   top.geometry('%dx%d+%d+%d' % (wid/2, hgt/2, wid/4, hgt/4))
    top.title("Child Window")
    Label(top, text= "Shutdown Now?", font=('Mistral 18 bold'))
 
