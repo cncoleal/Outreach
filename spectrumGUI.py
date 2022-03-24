@@ -49,6 +49,12 @@ Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
 
+def open_popup():
+   top= Toplevel(butWin)
+   top.geometry("750x250")
+   top.title("Child Window")
+   Label(top, text= "Are You Sure You Want To Exit?", font=('Mistral 18 bold')).place(x=150,y=80)
+
 
 
 global name
@@ -669,7 +675,8 @@ button_captureVideo.config(activebackground="#ffdbb7")
 
 
 
-exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=root.destroy)
+#exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=root.destroy)
+exit_button = Button(butWin, text="Exit", bg="#bf0000",height=5, command=open_popup())
 exit_button.config(activebackground="#f26161")
 exit_button.grid(row=4,column=0, sticky='nsew')
 
