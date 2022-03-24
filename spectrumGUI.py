@@ -66,7 +66,7 @@ def open_popup():
     #shutdown_button_yes.grid(row=2,column=0)
 
     shutdown_button_no = Button(top, text="No", bg="#bf0000", height=5, command=top.destroy)
-    shutdown_button_no.config(width=140, height=140, activebackground="#f26161", relief=RAISED)
+    shutdown_button_no.config(width=10, height=10, activebackground="#f26161", relief=RAISED)
     shutdown_button_no.place(x=3*wid/8, y=80)
     #shutdown_button_no.grid(row=2, column=1)
 
