@@ -50,7 +50,7 @@ Win1.grid(row=0, column=0, sticky="nsew")
 
 
 def open_popup():
-   top= Toplevel(butWin)
+   top= Toplevel(root)
    top.geometry("750x250")
    top.title("Child Window")
    Label(top, text= "Are You Sure You Want To Exit?", font=('Mistral 18 bold')).place(x=150,y=80)

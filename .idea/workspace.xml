@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="november updates">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="March Updates, exit pop-up">
       <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,13 +40,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
-    </task>
-    <task id="LOCAL-00020" summary="november updates">
-      <created>1635792579082</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1635792579082</updated>
     </task>
     <task id="LOCAL-00021" summary="november updates">
       <created>1635792745560</created>
@@ -386,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635805986462</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="March Updates, exit pop-up">
+      <created>1648134814193</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1648134814194</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,6 +415,7 @@
     <MESSAGE value="test2" />
     <MESSAGE value="october updates" />
     <MESSAGE value="november updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="november updates" />
+    <MESSAGE value="March Updates, exit pop-up" />
+    <option name="LAST_COMMIT_MESSAGE" value="March Updates, exit pop-up" />
   </component>
 </project>
