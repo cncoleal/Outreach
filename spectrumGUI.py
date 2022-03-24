@@ -50,7 +50,7 @@ Win1.grid(row=0, column=0, sticky="nsew")
 
 
 def open_popup():
-   top= Toplevel(root)
+   top= Toplevel(butWin)
    top.geometry('%dx%d+%d+%d' % (wid/2, hgt/2, wid/4, hgt/4))
    top.title("Exit")
    Label(top, text="Shutdown Now?", font=('Mistral 18 bold'))
