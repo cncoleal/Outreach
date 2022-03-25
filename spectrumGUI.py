@@ -457,10 +457,11 @@ def button_end():
 
 
 def acquire_photo():
-    camera.stop_preview()
     loading_popup()
+    camera.start_preview()
     button_start()
     button_main()
+    camera.stop_preview()
     button_end()
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
