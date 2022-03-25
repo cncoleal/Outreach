@@ -429,10 +429,12 @@ def button_start():
     return
 
 def button_main():
-
+    loading_popup()
     # print(shutter)
-    take_picture(output_raw,shutter)
+    take_picture(output_raw, shutter)
     createSpectrum()
+    loadWin.place_forget()
+    loadWin.destroy()
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
