@@ -316,6 +316,7 @@ def pseudo_sleep():
 
 ## Use old image view code:
 def take_picture(imname, shutter):
+    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter #tkScale.get()
@@ -323,9 +324,8 @@ def take_picture(imname, shutter):
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
-    #root.after(1000, pseudo_sleep())
-    root.after(1000, loading_popup())
-    #camera.capture(imname, resize=(wid - wid_but, hgt))
+    root.after(1000, pseudo_sleep())
+    camera.capture(imname, resize=(wid - wid_but, hgt))
     return
 
 # save image with overlay
@@ -701,7 +701,7 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 def lambda_for_picture():
-    loading_popup()
+    #loading_popup()
     button_start()
     button_main() # this button causes the pause
     button_end()
