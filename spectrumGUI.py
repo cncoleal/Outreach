@@ -50,8 +50,11 @@ Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
 # create frame for the loading message
-loadWin = Frame(root, bg="white")
-loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
+loadWin = tk.Toplevel(root)
+loadWin.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 8, wid / 4, hgt / 4))
+loadWin.configure(bg="white")
+Win3 = Frame(loadWin)
+Win3.place(relx=0.5, rely=0.5, anchor=CENTER)
     #geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
 
 
@@ -75,9 +78,9 @@ def open_popup():
 
 def loading_popup():
     #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)
-    top = tk.Toplevel(root)
-    top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 4, wid / 4, hgt / 4))
-    Label(top, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
+    #top = tk.Toplevel(root)
+    #top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 4, wid / 4, hgt / 4))
+    Label(Win3, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
 
 
 global name
