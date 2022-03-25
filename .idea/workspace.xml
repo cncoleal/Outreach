@@ -41,20 +41,6 @@
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
     </task>
-    <task id="LOCAL-00092" summary="March Updates, exit pop-up">
-      <created>1648141274508</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1648141274508</updated>
-    </task>
-    <task id="LOCAL-00093" summary="March Updates, exit pop-up">
-      <created>1648141303239</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1648141303239</updated>
-    </task>
     <task id="LOCAL-00094" summary="March Updates, exit pop-up">
       <created>1648141359531</created>
       <option name="number" value="00094" />
@@ -384,7 +370,21 @@
       <option name="project" value="LOCAL" />
       <updated>1648219037480</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="March updates, loading window for picture taking">
+      <created>1648219245401</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1648219245401</updated>
+    </task>
+    <task id="LOCAL-00142" summary="March updates, loading window for picture taking">
+      <created>1648219533327</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1648219533327</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

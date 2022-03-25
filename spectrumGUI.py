@@ -81,6 +81,7 @@ def loading_popup():
     top = tk.Toplevel(root)
     top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 4, wid / 4, hgt / 4))
     Label(top, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
+    return
 
 
 global name
