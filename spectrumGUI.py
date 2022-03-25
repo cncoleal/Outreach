@@ -458,7 +458,7 @@ def button_end():
 
 
 def acquire_photo():
-    loading_popup()
+    #loading_popup()
     button_start()
     button_main()
     button_end()
