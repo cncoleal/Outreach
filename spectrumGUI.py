@@ -700,7 +700,7 @@ def lambda_for_picture():
     loading_popup()
     button_start()
     #button_main()
-    #button_end()
+    button_end()
 
 
 
