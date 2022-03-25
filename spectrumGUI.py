@@ -699,7 +699,7 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 def lambda_for_picture():
     loading_popup()
     #button_start()
-    button_main()
+    #button_main()
     #button_end()
 
 
