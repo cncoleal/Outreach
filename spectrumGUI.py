@@ -49,6 +49,12 @@ butWin.configure(bg="white")
 Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
+# This code works
+loadWin = Frame(root)
+loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
+
+
+
 # create frame for the loading message
 #loadWin = tk.Toplevel(root)
 #loadWin.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 8, wid / 4, hgt / 4))
@@ -56,9 +62,9 @@ Win1.grid(row=0, column=0, sticky="nsew")
 #Win3 = Frame(loadWin)
 #Win3.place(relx=0.5, rely=0.5, anchor=CENTER)
     #geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
-loadWin = Frame(root)
+#loadWin = Frame(root)
 #loadWin.configure(bg="white")
-loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
+#loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
 #grid(row=0, column=0, sticky="nsew")
 #root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
 #root.configure(bg="black")
@@ -710,9 +716,9 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 def lambda_for_picture():
-    #loading_popup()
+    loading_popup()
     button_start()
-    button_main() # this button causes the pause
+    #button_main() # this button causes the pause
     button_end()
    # loadWin.place_forget()
    # loadWin.destroy()
