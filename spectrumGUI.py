@@ -320,7 +320,6 @@ def inform_user_of_exposure(max_result):
 count_val = 3
 
 def pseudo_sleep():
-    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10,padx=10)
     global count_val
     if not count_val:
         root.quit()
@@ -458,7 +457,8 @@ def button_end():
 
 
 def acquire_photo():
-    #loading_popup()
+    camera.stop_preview()
+    loading_popup()
     button_start()
     button_main()
     button_end()
@@ -473,7 +473,7 @@ def acquire_photo():
 
 
 def createSpectrum():
-    camera.stop_preview()
+    # ommitteed -- 11:17am camera.stop_preview()
     # get pictures aperature
     im = PIL.Image.open(output_raw)
     print("locating aperture")
