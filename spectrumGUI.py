@@ -88,7 +88,7 @@ def loading_popup():
     #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)
     #top = tk.Toplevel(root)
     #top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 4, wid / 4, hgt / 4))
-    Label(Win3, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
+    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
     return
 
 
@@ -435,14 +435,14 @@ def button_start():
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
     button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
-    Label(Win3, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10,
+    #Label(Win3, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10,
                                                                                                    padx=10)  # place(x=wid/8, y=20)
     return
 
 def button_main():
     #print(shutter)
     take_picture(output_raw, shutter) # this causes issue
-    #createSpectrum()
+    createSpectrum()
     return
 
 
@@ -451,6 +451,7 @@ def button_end():
 
 
 def acquire_photo():
+    loading_popup()
     button_start()
     button_main()
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
