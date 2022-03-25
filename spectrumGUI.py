@@ -433,6 +433,7 @@ def button_main():
     #print(shutter)
     #take_picture(output_raw, shutter)
     #createSpectrum()
+    return
 
 
 def button_end():
