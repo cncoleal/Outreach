@@ -435,8 +435,8 @@ def button_main():
     # print(shutter)
     take_picture(output_raw, shutter)
     createSpectrum()
-    loadWin.place_forget()
-    loadWin.destroy()
+    #loadWin.place_forget()
+    #loadWin.destroy()
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
