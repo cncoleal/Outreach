@@ -717,7 +717,7 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 def lambda_for_picture():
-    count_val = 1
+    #count_val = 1
     loading_popup()
     button_start()
     button_main() # this button causes the pause
