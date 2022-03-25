@@ -320,7 +320,7 @@ def inform_user_of_exposure(max_result):
 count_val = 3
 
 
-def pseudo_sleep(count_val):
+def pseudo_sleep():
     global count_val
     if not count_val:
         root.quit()
@@ -336,7 +336,7 @@ def take_picture(imname, shutter):
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
-    root.after(1000, pseudo_sleep(count_val))
+    root.after(1000, pseudo_sleep())
     camera.capture(imname, resize=(wid - wid_but, hgt))
     return
 
@@ -722,7 +722,7 @@ def lambda_for_picture():
     button_start()
     button_main() # this button causes the pause
     button_end()
-    root.after(1000, pseudo_sleep(count_val))
+    root.after(1000, pseudo_sleep())
     loadWin.destroy()
 
    # loadWin.place_forget()
