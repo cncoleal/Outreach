@@ -320,6 +320,7 @@ def inform_user_of_exposure(max_result):
 count_val = 3
 
 def pseudo_sleep():
+    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10,padx=10)
     global count_val
     if not count_val:
         root.quit()
