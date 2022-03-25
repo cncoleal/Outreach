@@ -313,20 +313,16 @@ def pseudo_sleep():
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-    #loading_popup()
-    camera.vflip = True
-    camera.framerate = Fraction(1, 2)
-    camera.shutter_speed = shutter #tkScale.get()
-    camera.iso = 100
-    camera.exposure_mode = 'off'
-    camera.awb_mode = 'off'
-    camera.awb_gains = (1, 1)
+    #camera.vflip = True
+    #camera.framerate = Fraction(1, 2)
+    #camera.shutter_speed = shutter #tkScale.get()
+    #camera.iso = 100
+    #camera.exposure_mode = 'off'
+    #camera.awb_mode = 'off'
+    #camera.awb_gains = (1, 1)
     root.after(1000, pseudo_sleep())
 
-    #time.sleep(3) -- dont want to use sleep --- instead want to use .after()
-    # #print("capturing image")
-    # camera.capture(imname, resize=(wid - wid_but, hgt))  # this line is the issue
-    #loadWin.destroy()
+    #camera.capture(imname, resize=(wid - wid_but, hgt))
     return
 # save image with overlay
 def save_image_with_overlay(im):
