@@ -436,7 +436,7 @@ def button_start():
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
     button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
     #Label(Win3, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10,
-                                                                                                   padx=10)  # place(x=wid/8, y=20)
+    #                                                                                               padx=10)  # place(x=wid/8, y=20)
     return
 
 def button_main():
