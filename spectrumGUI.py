@@ -313,7 +313,6 @@ def pseudo_sleep():
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-    # this function is not the cause of the delayed popup window
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter #tkScale.get()
@@ -322,7 +321,7 @@ def take_picture(imname, shutter):
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
     #root.after(1000, pseudo_sleep())
-    camera.capture(imname, resize=(wid - wid_but, hgt))
+    #camera.capture(imname, resize=(wid - wid_but, hgt))
     return
 
 # save image with overlay
