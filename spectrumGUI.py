@@ -313,17 +313,18 @@ def pseudo_sleep():
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-    #camera.vflip = True
-    #camera.framerate = Fraction(1, 2)
-    #camera.shutter_speed = shutter #tkScale.get()
-    #camera.iso = 100
-    #camera.exposure_mode = 'off'
-    #camera.awb_mode = 'off'
-    #camera.awb_gains = (1, 1)
+    # this function is not the cause of the delayed popup window
+    camera.vflip = True
+    camera.framerate = Fraction(1, 2)
+    camera.shutter_speed = shutter #tkScale.get()
+    camera.iso = 100
+    camera.exposure_mode = 'off'
+    camera.awb_mode = 'off'
+    camera.awb_gains = (1, 1)
     root.after(1000, pseudo_sleep())
-
-    #camera.capture(imname, resize=(wid - wid_but, hgt))
+    camera.capture(imname, resize=(wid - wid_but, hgt))
     return
+
 # save image with overlay
 def save_image_with_overlay(im):
     PIL.ImageFile.MAXBLOCK = 2 ** 20
@@ -431,9 +432,8 @@ def button_start():
 def button_main():
     # print(shutter)
     take_picture(output_raw, shutter)
-    createSpectrum()
-    #loadWin.place_forget()
-    #loadWin.destroy()
+    #createSpectrum()
+
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
