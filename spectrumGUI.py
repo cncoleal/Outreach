@@ -432,7 +432,7 @@ def button_start():
 def button_main():
     # print(shutter)
     take_picture(output_raw, shutter)
-    #createSpectrum()
+    createSpectrum()
 
 
 def button_end():
@@ -698,9 +698,9 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 def lambda_for_picture():
     loading_popup()
-    button_start()
+    #button_start()
     button_main()
-    button_end()
+    #button_end()
 
 
 
