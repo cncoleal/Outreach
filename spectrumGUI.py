@@ -316,7 +316,7 @@ def pseudo_sleep():
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
+    #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter #tkScale.get()
@@ -430,6 +430,8 @@ def button_start():
     button_viewPicture.config(bg="#fdad5c", relief=RAISED)
     button_viewSpectrum.config(bg="#fdad5c", relief=RAISED)
     button_takePicture.config(bg="#ffdbb7", relief=SUNKEN)
+    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10,
+                                                                                                   padx=10)  # place(x=wid/8, y=20)
     return
 
 def button_main():
