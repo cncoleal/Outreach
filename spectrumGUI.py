@@ -319,7 +319,8 @@ def inform_user_of_exposure(max_result):
 #######################################################
 count_val = 3
 
-def pseudo_sleep():
+
+def pseudo_sleep(count_val):
     global count_val
     if not count_val:
         root.quit()
@@ -335,7 +336,7 @@ def take_picture(imname, shutter):
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
-    root.after(1000, pseudo_sleep())
+    root.after(1000, pseudo_sleep(count_val))
     camera.capture(imname, resize=(wid - wid_but, hgt))
     return
 
@@ -458,10 +459,8 @@ def button_end():
 
 def acquire_photo():
     loading_popup()
-    camera.start_preview()
     button_start()
     button_main()
-    camera.stop_preview()
     button_end()
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
@@ -474,7 +473,7 @@ def acquire_photo():
 
 
 def createSpectrum():
-    # ommitteed -- 11:17am camera.stop_preview()
+    camera.stop_preview()
     # get pictures aperature
     im = PIL.Image.open(output_raw)
     print("locating aperture")
@@ -718,10 +717,14 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 def lambda_for_picture():
+    count_val = 1
     loading_popup()
     button_start()
     button_main() # this button causes the pause
     button_end()
+    root.after(1000, pseudo_sleep(count_val))
+    loadWin.destroy()
+
    # loadWin.place_forget()
    # loadWin.destroy()
 
@@ -730,7 +733,7 @@ def lambda_for_picture():
 
 #button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [loading_popup()])
 #, button_start(), button_main(), button_end(), loadWin.destroy()  loading_popup(), pause(5), loadWin.place_forget(), loadWin.destroy()
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: lambda_for_picture())
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: lambda_for_picture)
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
