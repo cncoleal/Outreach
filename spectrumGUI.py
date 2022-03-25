@@ -321,7 +321,7 @@ def take_picture(imname, shutter):
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
-    root.after(1000, pseudo_sleep())
+    # uncomment this! root.after(1000, pseudo_sleep())
 
     #time.sleep(3) -- dont want to use sleep --- instead want to use .after()
     # #print("capturing image")
