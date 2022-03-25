@@ -323,7 +323,7 @@ def take_picture(imname, shutter):
     camera.exposure_mode = 'off'
     camera.awb_mode = 'off'
     camera.awb_gains = (1, 1)
-    #root.after(1000, pseudo_sleep())
+    root.after(1000, pseudo_sleep())
     #camera.capture(imname, resize=(wid - wid_but, hgt))
     return
 
