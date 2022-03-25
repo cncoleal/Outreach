@@ -50,7 +50,7 @@ Win1 = Frame(butWin)
 Win1.grid(row=0, column=0, sticky="nsew")
 
 loadWin = Frame(root, bg="white")
-loadWin.place(anchor=CENTER)
+loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
     #geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
 
 
