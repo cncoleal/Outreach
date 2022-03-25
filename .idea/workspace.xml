@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="March updates, loading window for picture taking">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,13 +41,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
-    </task>
-    <task id="LOCAL-00116" summary="March Updates, exit pop-up">
-      <created>1648151223982</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1648151223982</updated>
     </task>
     <task id="LOCAL-00117" summary="March Updates, exit pop-up">
       <created>1648151359710</created>
@@ -384,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648221386117</updated>
     </task>
-    <option name="localTasksCounter" value="165" />
+    <task id="LOCAL-00165" summary="March updates, loading window for picture taking">
+      <created>1648221668561</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1648221668561</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

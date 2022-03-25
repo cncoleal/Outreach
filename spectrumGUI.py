@@ -58,12 +58,12 @@ Win1.grid(row=0, column=0, sticky="nsew")
     #geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
 loadWin = Frame(root)
 loadWin.configure(bg="white")
-loadWin.grid(row=0, column=0, sticky="nsew")# relx=0.5, rely=0.5, anchor=CENTER)
-
-root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
-root.configure(bg="black")
-frame = Frame(root, bg="blue")
-frame.grid(row=0, column=0, sticky="nsew")
+loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
+#grid(row=0, column=0, sticky="nsew")
+#root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
+#root.configure(bg="black")
+#frame = Frame(root, bg="blue")
+#frame.grid(row=0, column=0, sticky="nsew")
 
 
 # exit window: displays shutdown buttons
