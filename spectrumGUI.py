@@ -454,6 +454,7 @@ def acquire_photo():
     loading_popup()
     button_start()
     button_main()
+    button_end()
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
 # buttons inside exit popup window
