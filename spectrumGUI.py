@@ -704,8 +704,8 @@ def lambda_for_picture():
     button_start()
     button_main() # this button causes the pause
     button_end()
-    loadWin.place_forget()
-    loadWin.destroy()
+   # loadWin.place_forget()
+   # loadWin.destroy()
 
 
 
