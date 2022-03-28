@@ -319,7 +319,6 @@ def inform_user_of_exposure(max_result):
 #######################################################
 count_val = 3
 
-
 def pseudo_sleep():
     global count_val
     if not count_val:
@@ -722,7 +721,7 @@ def lambda_for_picture():
     button_main() # this button causes the pause
     button_end()
     loading_popup()
-    root.after(1000, pseudo_sleep())
+    #root.after(1000, pseudo_sleep())
     loadWin.destroy()
 
    # loadWin.place_forget()
