@@ -695,7 +695,7 @@ def lambda_for_picture():
     button_start()
     button_main()  # this button causes the pause
     button_end()
-    count_val = 1
+    time.sleep(1)
     loadWin.place_forget()
 
 
