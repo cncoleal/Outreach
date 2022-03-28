@@ -694,10 +694,10 @@ def lambda_for_picture():
     button_start()
     button_main()  # this button causes the pause
     button_end()
-    loading_popup()
-    time.sleep(1)
-    loadWin.place_forget()
-    loadWin.destroy()
+    #loading_popup()
+    #time.sleep(1)
+    #loadWin.place_forget()
+    #loadWin.destroy()
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: lambda_for_picture())  #[loading_popup(), button_start(),button_main(), button_end()]
