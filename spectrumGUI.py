@@ -691,12 +691,12 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 def lambda_for_picture():
+    loading_popup()
     button_start()
     button_main()  # this button causes the pause
     button_end()
-    count_val=1
-    loading_popup()
-    root.after(1000, pseudo_sleep())
+    time.sleep(1)
+    loadWin.place_forget()
     loadWin.destroy()
 
    # loadWin.place_forget()
