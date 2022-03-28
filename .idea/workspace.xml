@@ -49,55 +49,6 @@
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
     </task>
-    <task id="LOCAL-00146" summary="March updates, loading window for picture taking">
-      <created>1648219882512</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1648219882512</updated>
-    </task>
-    <task id="LOCAL-00147" summary="March updates, loading window for picture taking">
-      <created>1648219989087</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1648219989087</updated>
-    </task>
-    <task id="LOCAL-00148" summary="March updates, loading window for picture taking">
-      <created>1648220051360</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1648220051360</updated>
-    </task>
-    <task id="LOCAL-00149" summary="March updates, loading window for picture taking">
-      <created>1648220082016</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1648220082016</updated>
-    </task>
-    <task id="LOCAL-00150" summary="March updates, loading window for picture taking">
-      <created>1648220107600</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1648220107600</updated>
-    </task>
-    <task id="LOCAL-00151" summary="March updates, loading window for picture taking">
-      <created>1648220130495</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1648220130495</updated>
-    </task>
-    <task id="LOCAL-00152" summary="March updates, loading window for picture taking">
-      <created>1648220198655</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1648220198655</updated>
-    </task>
     <task id="LOCAL-00153" summary="March updates, loading window for picture taking">
       <created>1648220227670</created>
       <option name="number" value="00153" />
@@ -392,7 +343,56 @@
       <option name="project" value="LOCAL" />
       <updated>1648477986001</updated>
     </task>
-    <option name="localTasksCounter" value="195" />
+    <task id="LOCAL-00195" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478076580</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478076580</updated>
+    </task>
+    <task id="LOCAL-00196" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478103574</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478103574</updated>
+    </task>
+    <task id="LOCAL-00197" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478123860</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478123860</updated>
+    </task>
+    <task id="LOCAL-00198" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478185899</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478185899</updated>
+    </task>
+    <task id="LOCAL-00199" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478223194</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478223194</updated>
+    </task>
+    <task id="LOCAL-00200" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478245859</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478245859</updated>
+    </task>
+    <task id="LOCAL-00201" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648478288458</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1648478288458</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
