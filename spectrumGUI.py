@@ -451,14 +451,15 @@ def button_main():
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
+    button_viewPicture.config(bg="#fdad5c", relief=RAISED)
 
 
 def acquire_photo():
-    loading_popup()
+    #loading_popup()
     button_start()
     button_main()
     button_end()
-    button_takePicture.config(bg="#fdad5c", relief=RAISED)
+    #button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
 # buttons inside exit popup window
 #def button_shutdown_yes():
@@ -715,7 +716,7 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 def lambda_for_picture():
     #count_val = 1
     button_start()
-    button_main() # this button causes the pause
+    button_main()  # this button causes the pause
     button_end()
     #loading_popup()
     #root.after(1000, pseudo_sleep())
@@ -729,7 +730,7 @@ def lambda_for_picture():
 
 #button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [loading_popup()])
 #, button_start(), button_main(), button_end(), loadWin.destroy()  loading_popup(), pause(5), loadWin.place_forget(), loadWin.destroy()
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: lambda_for_picture)
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [button_start, button_main, button_end])
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
