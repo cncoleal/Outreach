@@ -701,7 +701,7 @@ def lambda_for_picture():
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: lambda_for_picture())  #[loading_popup(), button_start(),button_main(), button_end()]
-button_takePicture.config(activebackground="#fdad5c") #fdad5c
+button_takePicture.config(activebackground="#ffdbb7") #fdad5c
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
 #button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
