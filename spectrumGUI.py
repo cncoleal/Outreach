@@ -54,27 +54,8 @@ loadWin = Frame(root)
 loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 
-
-# create frame for the loading message
-#loadWin = tk.Toplevel(root)
-#loadWin.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 8, wid / 4, hgt / 4))
-#loadWin.configure(bg="white")
-#Win3 = Frame(loadWin)
-#Win3.place(relx=0.5, rely=0.5, anchor=CENTER)
-    #geometry('%dx%d+%d+%d' % (wid / 2, hgt / 2, wid / 4, hgt / 4))
-#loadWin = Frame(root)
-#loadWin.configure(bg="white")
-#loadWin.place(relx=0.5, rely=0.5, anchor=CENTER)
-#grid(row=0, column=0, sticky="nsew")
-#root.geometry('%dx%d+%d+%d' % (wid-wid_but-wid_slide, hgt, wid_but+wid_slide+1,-30))
-#root.configure(bg="black")
-#frame = Frame(root, bg="blue")
-#frame.grid(row=0, column=0, sticky="nsew")
-
-
 # exit window: displays shutdown buttons
 def shutdown():
-   # subprocess.call(['sudo', 'shutdown', '-h', 'now'])
     os.system('sudo shutdown -h now')
 
 def open_popup():
@@ -92,11 +73,7 @@ def open_popup():
 
 def loading_popup():
     Label(loadWin, text="Image Acquired", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
-    return
 
-    #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)
-    #top = tk.Toplevel(root)
-    #top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 4, wid / 4, hgt / 4))
 
 global name
 global camera
@@ -327,7 +304,6 @@ def pseudo_sleep():
 
 ## Use old image view code:
 def take_picture(imname, shutter):
-    #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
     camera.vflip = True
     camera.framerate = Fraction(1, 2)
     camera.shutter_speed = shutter #tkScale.get()
@@ -445,21 +421,21 @@ def button_start():
     return
 
 def button_main():
-    take_picture(output_raw, shutter) # this causes issue
+    take_picture(output_raw, shutter)  # this causes issue
     createSpectrum()
-    return
+
 
 
 def button_end():
     button_takePicture.config(bg="#fdad5c", relief=RAISED)
-    button_viewPicture.config(bg="#fdad5c", relief=RAISED)
+    #button_viewPicture.config(bg="#fdad5c", relief=RAISED)
 
 
-def acquire_photo():
+#def acquire_photo():
     #loading_popup()
-    button_start()
-    button_main()
-    button_end()
+  #  button_start()
+   # button_main()
+    #button_end()
     #button_takePicture.config(bg="#fdad5c", relief=RAISED)
 
 # buttons inside exit popup window
@@ -715,7 +691,6 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 
 def lambda_for_picture():
-    #count_val = 1
     button_start()
     button_main()  # this button causes the pause
     button_end()
@@ -731,16 +706,27 @@ def lambda_for_picture():
 
 #button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [loading_popup()])
 #, button_start(), button_main(), button_end(), loadWin.destroy()  loading_popup(), pause(5), loadWin.place_forget(), loadWin.destroy()
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [button_start, button_main, button_end])
+    #button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [button_start, button_main, button_end])
+    #button_takePicture.config(activebackground="#ffdbb7")
+    #button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
+    #button_viewPicture.config(activebackground="#ffdbb7")
+#button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
+    #button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
+    #button_viewSpectrum.config(activebackground="#ffdbb7")
+#makeshift exit
+#button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
+    #button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)
+    #button_captureVideo.config(activebackground="#ffdbb7")
+
+
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda:[button_start(),button_main(), button_end()])
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
 #button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
 button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
 button_viewSpectrum.config(activebackground="#ffdbb7")
-#makeshift exit
-#button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
-button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)
+button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)  #openVideo)
 button_captureVideo.config(activebackground="#ffdbb7")
 
 
