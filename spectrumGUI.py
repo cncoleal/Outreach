@@ -317,10 +317,10 @@ def inform_user_of_exposure(max_result):
 #######################################################
 # Lower level functions
 #######################################################
+global count_val
 count_val = 3
 
 def pseudo_sleep():
-    global count_val
     if not count_val:
         root.quit()
     count_val = count_val - 1
