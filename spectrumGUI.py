@@ -94,7 +94,7 @@ def loading_popup():
     #Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold').pack(side=TOP, pady=10)
     #top = tk.Toplevel(root)
     #top.geometry('%dx%d+%d+%d' % (wid / 2, hgt / 4, wid / 4, hgt / 4))
-    Label(loadWin, text="Please Wait. Taking Picture.", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
+    Label(loadWin, text="Image Acquired", font='Mistral 18 bold', bg="#FFFFFF").pack(side=BOTTOM, pady=10, padx=10)  # place(x=wid/8, y=20)
     return
 
 
@@ -718,11 +718,11 @@ button_s10p.config(activebackground="#568156",relief=RAISED)
 
 def lambda_for_picture():
     #count_val = 1
-    loading_popup()
     button_start()
     button_main() # this button causes the pause
     button_end()
-    #root.after(1000, pseudo_sleep())
+    loading_popup()
+    root.after(1000, pseudo_sleep())
     loadWin.destroy()
 
    # loadWin.place_forget()
