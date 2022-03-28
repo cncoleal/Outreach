@@ -697,28 +697,7 @@ def lambda_for_picture():
     button_end()
 
 
-   # loadWin.place_forget()
-   # loadWin.destroy()
-
-
-
-
-#button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [loading_popup()])
-#, button_start(), button_main(), button_end(), loadWin.destroy()  loading_popup(), pause(5), loadWin.place_forget(), loadWin.destroy()
-    #button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: [button_start, button_main, button_end])
-    #button_takePicture.config(activebackground="#ffdbb7")
-    #button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
-    #button_viewPicture.config(activebackground="#ffdbb7")
-#button_createSpectrum = Button(butWin, text="Create Spectrum", bg="#fdad5c", height=4, command=createSpectrum)
-    #button_viewSpectrum = Button(butWin, text="View Spectrum", bd=0, bg="#fdad5c", height=5, command=openSpectrum)
-    #button_viewSpectrum.config(activebackground="#ffdbb7")
-#makeshift exit
-#button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=openVideo)
-    #button_captureVideo = Button(butWin, text="Video Capture", bg="#fdad5c",  height=5, command=root.destroy)
-    #button_captureVideo.config(activebackground="#ffdbb7")
-
-
-button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda:[button_start(),button_main(), button_end()])
+button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda:[loading_popup(), button_start(),button_main(), button_end()])
 button_takePicture.config(activebackground="#ffdbb7")
 button_viewPicture = Button(butWin, text="View Image",  bd=0, bg="#fdad5c", height=5,  command=openImage)
 button_viewPicture.config(activebackground="#ffdbb7")
