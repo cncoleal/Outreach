@@ -698,6 +698,7 @@ def lambda_for_picture():
     count_val=1
     root.after(1000, pseudo_sleep())
     loadWin.place_forget()
+    loadWin.destroy()
 
 
 button_takePicture = Button(butWin, text="Take Picture", bg="#fdad5c", height=5, command=lambda: lambda_for_picture())  #[loading_popup(), button_start(),button_main(), button_end()]
