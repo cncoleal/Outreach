@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="March updates, loading window for picture taking">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ad697abe-115c-4ba0-9ba2-eda2d035de87" name="Changes" comment="March updates, &quot;Image Acquired&quot; Popup">
       <change beforePath="$PROJECT_DIR$/spectrumGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/spectrumGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,27 +48,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633034974908</updated>
-    </task>
-    <task id="LOCAL-00134" summary="March updates, loading window for picture taking">
-      <created>1648218383526</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1648218383526</updated>
-    </task>
-    <task id="LOCAL-00135" summary="March updates, loading window for picture taking">
-      <created>1648218482692</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1648218482692</updated>
-    </task>
-    <task id="LOCAL-00136" summary="March updates, loading window for picture taking">
-      <created>1648218596358</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1648218596358</updated>
     </task>
     <task id="LOCAL-00137" summary="March updates, loading window for picture taking">
       <created>1648218637794</created>
@@ -393,7 +371,28 @@
       <option name="project" value="LOCAL" />
       <updated>1648236195767</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648476104715</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1648476104715</updated>
+    </task>
+    <task id="LOCAL-00184" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648476207463</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1648476207463</updated>
+    </task>
+    <task id="LOCAL-00185" summary="March updates, &quot;Image Acquired&quot; Popup">
+      <created>1648476249967</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1648476249967</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -426,6 +425,7 @@
     <MESSAGE value="november updates" />
     <MESSAGE value="March Updates, exit pop-up" />
     <MESSAGE value="March updates, loading window for picture taking" />
-    <option name="LAST_COMMIT_MESSAGE" value="March updates, loading window for picture taking" />
+    <MESSAGE value="March updates, &quot;Image Acquired&quot; Popup" />
+    <option name="LAST_COMMIT_MESSAGE" value="March updates, &quot;Image Acquired&quot; Popup" />
   </component>
 </project>
